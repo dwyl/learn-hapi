@@ -1,0 +1,26 @@
+{
+  "name": "learn-hapi",
+  "version": "0.0.1",
+  "description": "Learn to build APIs using Hapi.js'",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nelsonic/learn-hapi.git"
+  },
+  "keywords": [
+    "learn",
+    "hapi"
+  ],
+  "author": "@nelsonic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nelsonic/learn-hapi/issues"
+  },
+  "homepage": "https://github.com/nelsonic/learn-hapi",
+  "dependencies": {
+    "hapi": "^5.1.0"
+  }
+}
