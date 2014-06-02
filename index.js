@@ -1,7 +1,7 @@
 var Hapi = require('hapi');
 var server = Hapi.createServer('0.0.0.0', process.env.PORT || 3000);
 var quotes = {
-
+"lego":"Everything is awesome"
 };
 
 server.route([
@@ -16,7 +16,7 @@ server.route([
   	method: 'GET',
   	path: '/quotes',
   	handler: function (req, reply) {
-  		reply()
+  		reply(quotes); // content-type: application/json; charset=utf-8
   	}
   }
 ]);
