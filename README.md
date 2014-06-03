@@ -69,8 +69,8 @@ Lets not forget that
 - http://stackoverflow.com/questions/22985392/how-do-you-make-a-hapi-js-plugin-module
 
 
-
-## Warning: Hapi is Built by Walmart
+<br /> <br /> <br />
+### <u><b>Warning</b>: Hapi is built by <b>Walmart</b></u>
 
 ![Hapi is Made by Walmart](http://i.imgur.com/bxYADdu.png)
 
@@ -88,7 +88,8 @@ node stack to allow others to benefit from their hard work.
 
 I took the time to read *extensively* about Walmart as part of my 
 Retail course at University 
-see: [In Sam We Trust](http://www.bizsum.com/summaries/sam-we-trust)
+see: [History of Walmart](http://en.wikipedia.org/wiki/History_of_Walmart)
+and [In Sam We Trust](http://www.bizsum.com/summaries/sam-we-trust). 
 The fact is that Sam Walton acheived *much* of his success through
 investing in *technology* 
 (Barcodes, EPOS, Satelite Uplink for Logistics Tracking, etc)
@@ -101,15 +102,13 @@ in favor of maximising profits. This documented in:
 [The High Cost Of Low Price](https://www.youtube.com/results?search_query=Wal*Mart+-+The+High+Cost+Of+Low+Price)
 and [The Wal-Mart Effect](http://en.wikipedia.org/wiki/The_Wal-Mart_Effect)
 
-We can/should continue send a 
+While I think we can/should continue send a 
 [*clear message*](http://en.wikipedia.org/wiki/Dollar_voting) 
-to our friends in 
-[Bentonville](http://en.wikipedia.org/wiki/Bentonville,_Arkansas)
-by prefering to spend our $¥£€ at Local & Fairtrade retailers.
-
-I think we can still *use* the ***best-in-class*** code the *fantastic engineers* 
-have built (and open-sourced) to meet their *vast* supply-chain 
-and e-commerce needs to build our own software products/projects.
+to [Bentonville](http://en.wikipedia.org/wiki/Bentonville,_Arkansas)
+by prefering to spend our $¥£€ at Local & Fairtrade retailers where ever possible, 
+we can still *use* the ***best-in-class*** code the *fantastic engineers* 
+have built (and open-sourced to meet their *vast* supply-chain 
+and e-commerce needs) to craft our own software products/projects.
 
 Using the transport analogy, I don't *like* using fossil fuels to get from A-to-B 
 because of the CO2 emmissions. But I'm *pragmatic* about how I travel
