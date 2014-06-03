@@ -44,11 +44,13 @@ during [Black Friday](http://nodeup.com/fiftysix)
 
 
 
-### Joi
+### Joi (Schema Validation)
 
+https://github.com/spumko/joi#example
 
+### Catbox (Caching)
 
-
+https://github.com/spumko/catbox/
 
 
 ## Background Reading / Watching
