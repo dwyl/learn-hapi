@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/nelsonic/learn-hapi",
   "dependencies": {
-    "hapi": "^5.1.0"
+    "hapi": "^5.1.0",
+    "joi": "^4.5.0"
   }
 }

@@ -21,26 +21,35 @@ Hapi will help get your server developed quickly with its wide range of configur
 **Q**: I already know how to build REST APIs in [Express](http://expressjs.com/)
 and [Restify](http://mcavage.me/node-restify/) why learn a new framework? <br />
 **A**: If you are *happy* with your existing system & level of team productivity,
-stick with what you know. If not, learn hapi.
+stick with what you know. If not, learn [how to be] Hapi.
 
 ### Key Benefits
 
-- ***Performance*** - Walmart Labs are the guys who found/solved the 
+- ***Performance*** - WalmartLabs are the guys who found/solved the 
 [Node.js *CORE* Memory Leak](http://www.joyent.com/blog/walmart-node-js-memory-leak)
 they have developed Hapi follwing [Benchmark Driven Development](https://github.com/felixge/faster-than-c)
-and as a result they have built a high-performance framework.
+and the result is a high-performance framework.
 - Security - they have focussed on security and battle-tested the framework
-during [Black Friday](http://nodeup.com/fiftysix) without incident.
-- Configuration Centric - 
+during [Black Friday](http://nodeup.com/fiftysix) 
+(holiday shopping busy day) without incident.
 - **Mobile Optimised** (lightweight - built for mobile e-commerce)
 - Plugin Architecture - easy to extend / add your own modules (good ecosystem)
 - ***DevOps Friendly*** (great stats logging) see: https://github.com/spumko/good
 - Built-in Caching (Redis or Memcached)
 - 100% Code Coverage (for the core)
-- Key Functionality is **Built-in** 
+- Key Functionality is **Built-in**
 
 
-Lets not forget that 
+## Dive In!
+
+
+
+### Joi
+
+
+
+
+
 
 ## Background Reading / Watching
 
@@ -55,7 +64,9 @@ Lets not forget that
 
 ### Tutorials
 
-- Pursuit of Hapi-ness: http://blog.modulus.io/nodejs-and-hapi-create-rest-api (Hapi v.2)
+- The Pursuit of Hapi-ness: https://medium.com/the-javascript-collection/the-pursuit-of-hapi-ness-d82777afaa4b (V.3)
+- Testing Hapi Services with Lab: https://medium.com/the-spumko-suite/testing-hapi-services-with-lab-96ac463c490a
+- Creating Validation Schemas with Joi: https://medium.com/the-spumko-suite/creating-validation-schemas-with-joi-eb4ff19f6688
 - Micro-tutorial: https://github.com/spumko/makemehapi
 - http://blog.nodeknockout.com/post/34571027029/making-an-api-happy-with-hapi (Old version of Hapi) 
 - http://stackoverflow.com/questions/21455076/hapi-and-node-js-to-create-a-rest-api-server
@@ -63,6 +74,7 @@ Lets not forget that
 - Authentication: https://github.com/spumko/hapi-auth-cookie
 - A few examples: https://github.com/andyroyle/hapi-examples
 - More examples: https://github.com/wpreul/hapikc (*old* version of Hapi!)
+- Pursuit of Hapi-ness: http://blog.modulus.io/nodejs-and-hapi-create-rest-api (Hapi v.2)
 
 >> *Respond* to this SO Q: 
 - http://stackoverflow.com/questions/22934340/hapi-js-api-authentication
@@ -70,7 +82,7 @@ Lets not forget that
 
 
 <br /> <br /> <br />
-### <u><b>Warning</b>: Hapi is built by <b>Walmart</b></u>
+### Warning: Hapi is built by Walmart
 
 ![Hapi is Made by Walmart](http://i.imgur.com/bxYADdu.png)
 
@@ -107,8 +119,8 @@ While I think we can/should continue send a
 to [Bentonville](http://en.wikipedia.org/wiki/Bentonville,_Arkansas)
 by prefering to spend our $¥£€ at Local & Fairtrade retailers where ever possible, 
 we can still *use* the ***best-in-class*** code the *fantastic engineers* 
-have built (and open-sourced to meet their *vast* supply-chain 
-and e-commerce needs) to craft our own software products/projects.
+have built (to meet their *vast* supply-chain and e-commerce needs and 
+open-sourced) to craft our own software products/projects.
 
 Using the transport analogy, I don't *like* using fossil fuels to get from A-to-B 
 because of the CO2 emmissions. But I'm *pragmatic* about how I travel
@@ -118,6 +130,8 @@ two days by train or two hours by plane each way. Which option to you take...?
 By chosing Hapi you are opting for the jet-engine.
 
 Make up your own mind on whether using code written for Walmart 
-goes against your ethics.
+goes against your ethics. <br />
 If you find a *better* open-source Node.js stack that fits your needs,
 please [tell me](https://twitter.com/nelsonic) about it!
+
+http://www.brainyquote.com/quotes/topics/topic_happiness.html
