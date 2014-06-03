@@ -5,19 +5,23 @@ Learn how to use the Hapi (Node.js) web framework to build scalable apps in less
 
 ## What is Hapi?
 
-Hapi is a framework for rapidly building RESTful web services. 
+Hapi is *the* framework for rapidly building RESTful web services in Node.js. 
 Whether you are building a very simple set of RESTful services 
-or a large scale, cache heavy, and secure set of services, 
-hapi has you covered. Hapi will help get your server developed 
-quickly with its wide range of configurable options.
+for your website/mobile app to call or a large scale, cache heavy, 
+and secure set of services, hapi has you covered. 
+Hapi will help get your server developed quickly with its wide range of configurable options.
 
-> *Watch* this video: http://youtu.be/BsyvnVOhp4U (good intro to HAPI)
+### Video Intro:
+
+> *Watch* this video: http://youtu.be/BsyvnVOhp4U (good/recent intro to HAPI)
+
 
 ## Why Hapi instead of XYZ framework?
 
 **Q**: I already know how to build REST APIs in [Express](http://expressjs.com/)
 and [Restify](http://mcavage.me/node-restify/) why learn a new framework? <br />
-**A**: 
+**A**: If you are *happy* with your existing system & level of team productivity,
+stick with what you know. If not, learn hapi.
 
 ### Key Benefits
 
@@ -28,8 +32,9 @@ and as a result they have built a high-performance framework.
 - Security - they have focussed on security and battle-tested the framework
 during [Black Friday](http://nodeup.com/fiftysix) without incident.
 - Configuration Centric - 
+- **Mobile Optimised** (lightweight - built for mobile e-commerce)
 - Plugin Architecture - easy to extend / add your own modules (good ecosystem)
-- ***DevOps Friendly*** (great stats logging)
+- ***DevOps Friendly*** (great stats logging) see: https://github.com/spumko/good
 - Built-in Caching (Redis or Memcached)
 - 100% Code Coverage (for the core)
 - Key Functionality is **Built-in** 
@@ -57,8 +62,63 @@ Lets not forget that
 - Hapi + Twilio (sms): http://code.tutsplus.com/tutorials/creating-a-node-web-app-with-hapi-and-twilio-integration--cms-20769
 - Authentication: https://github.com/spumko/hapi-auth-cookie
 - A few examples: https://github.com/andyroyle/hapi-examples
-- More examples: https://github.com/wpreul/hapikc
+- More examples: https://github.com/wpreul/hapikc (*old* version of Hapi!)
 
 >> *Respond* to this SO Q: 
 - http://stackoverflow.com/questions/22934340/hapi-js-api-authentication
 - http://stackoverflow.com/questions/22985392/how-do-you-make-a-hapi-js-plugin-module
+
+
+
+## Warning: Hapi is Built by Walmart
+
+![Hapi is Made by Walmart](http://i.imgur.com/bxYADdu.png)
+
+Hapi is built by [@WalmartLabs](http://en.wikipedia.org/wiki/@WalmartLabs) 
+for Walmart.
+
+[Walmart](http://en.wikipedia.org/wiki/Walmart) is *by far* the most successful
+retailer in the world and they have achieved their success (*in part*) by 
+investing heavily in their *technological competitve advantage*.
+
+If you are not keen on Walmart for any of 
+[these](http://en.wikipedia.org/wiki/Criticism_of_Walmart) reasons,
+at least *consider* the fact that they have open-sourced their full 
+node stack to allow others to benefit from their hard work.
+
+I took the time to read *extensively* about Walmart as part of my 
+Retail course at University 
+see: [In Sam We Trust](http://www.bizsum.com/summaries/sam-we-trust)
+The fact is that Sam Walton acheived *much* of his success through
+investing in *technology* 
+(Barcodes, EPOS, Satelite Uplink for Logistics Tracking, etc)
+to drive cost savings and passed those savings on to the
+customers where other retailers got left behind with their paper-based 
+"*it still works, why change?*" approach.
+
+Since Sam's passing the Walmart leadership has compromised its ethics
+in favor of maximising profits. This documented in: 
+[The High Cost Of Low Price](https://www.youtube.com/results?search_query=Wal*Mart+-+The+High+Cost+Of+Low+Price)
+and [The Wal-Mart Effect](http://en.wikipedia.org/wiki/The_Wal-Mart_Effect)
+
+We can/should continue send a 
+[*clear message*](http://en.wikipedia.org/wiki/Dollar_voting) 
+to our friends in 
+[Bentonville](http://en.wikipedia.org/wiki/Bentonville,_Arkansas)
+by prefering to spend our $¥£€ at Local & Fairtrade retailers.
+
+I think we can still *use* the ***best-in-class*** code the *fantastic engineers* 
+have built (and open-sourced) to meet their *vast* supply-chain 
+and e-commerce needs to build our own software products/projects.
+
+Using the transport analogy, I don't *like* using fossil fuels to get from A-to-B 
+because of the CO2 emmissions. But I'm *pragmatic* about how I travel
+the [Thousand Miles](http://www.wolframalpha.com/input/?i=distance+from+London+to+Lisbon)
+to visit my family twice a year. I could do two weeks by horse-and-cart,
+two days by train or two hours by plane each way. Which option to you take...?
+By chosing Hapi you are opting for the jet-engine.
+
+Make up your own mind on whether using code written for Walmart 
+goes against your ethics.
+If you find a *better* open-source Node.js stack that fits your needs,
+please [tell me](https://twitter.com/nelsonic) about it!
