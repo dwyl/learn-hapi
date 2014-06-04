@@ -29,7 +29,7 @@ internals.startServer = function () {
     server.route({ method: 'GET', path: '/', handler: helloHandler });
 
     server.start(function () {
-
+    	console.dir(server.listener)
         var io = SocketIO.listen(server.listener);
     });
 };

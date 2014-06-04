@@ -54,7 +54,9 @@ https://github.com/spumko/catbox/
 
 ### Using Socket.io with Hapi
 
-https://github.com/spumko/hapi/blob/master/examples/socketio.js
+https://github.com/spumko/hapi/blob/master/examples/socketio.js 
+Requires a bit more work...
+
 
 
 ## Background Reading / Watching
