@@ -52,6 +52,10 @@ https://github.com/spumko/joi#example
 
 https://github.com/spumko/catbox/
 
+### Using Socket.io with Hapi
+
+https://github.com/spumko/hapi/blob/master/examples/socketio.js
+
 
 ## Background Reading / Watching
 
@@ -81,6 +85,7 @@ https://github.com/spumko/catbox/
 >> *Respond* to this SO Q: 
 - http://stackoverflow.com/questions/22934340/hapi-js-api-authentication
 - http://stackoverflow.com/questions/22985392/how-do-you-make-a-hapi-js-plugin-module
+- http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js
 
 
 <br /> <br /> <br />
