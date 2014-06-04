@@ -19,7 +19,7 @@ var internals = {};
 
 internals.startServer = function () {
 
-    var server = new Hapi.Server(8000);
+    var server = new Hapi.Server('0.0.0.0', process.env.PORT || 3000);
 
     var helloHandler = function (request, reply) {
 
