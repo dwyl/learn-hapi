@@ -22,6 +22,8 @@ Hapi will help get your server developed quickly with its wide range of configur
 and [Restify](http://mcavage.me/node-restify/) why learn a new framework? <br />
 **A**: If you are *happy* with your existing system & level of team productivity,
 stick with what you know. If not, learn [how to be] Hapi.
+(I have built Sites/APIs with both Express and Restify and find Hapi has solved more
+"real world" problems and thus I end up writing less code. YMMV. See benefits below)
 
 ### Key Benefits
 
@@ -44,19 +46,25 @@ during [Black Friday](http://nodeup.com/fiftysix)
 
 
 
-### Joi (Schema Validation)
+### Validation with Joi
 
 https://github.com/spumko/joi#example
 
-### Catbox (Caching)
+### Caching with Catbox
 
 https://github.com/spumko/catbox/
+
+### Testing with Lab
+
+
+https://medium.com/the-spumko-suite/testing-hapi-services-with-lab-96ac463c490a
+
+### Error Handling with Boom
 
 ### Using Socket.io with Hapi
 
 https://github.com/spumko/hapi/blob/master/examples/socketio.js 
 Requires a bit more work...
-
 
 
 ## Background Reading / Watching
@@ -72,8 +80,9 @@ Requires a bit more work...
 
 ### Tutorials
 
+- Building APIs with Hapi and MongoDB: https://speakerdeck.com/donnfelker/building-web-apis-with-hapi-dot-js-and-mongodb-mongoose
+- Repo for the above speakerdeck: https://github.com/donnfelker/hapi-mongodb-example
 - The Pursuit of Hapi-ness: https://medium.com/the-javascript-collection/the-pursuit-of-hapi-ness-d82777afaa4b (V.3)
-- Testing Hapi Services with Lab: https://medium.com/the-spumko-suite/testing-hapi-services-with-lab-96ac463c490a
 - Creating Validation Schemas with Joi: https://medium.com/the-spumko-suite/creating-validation-schemas-with-joi-eb4ff19f6688
 - Micro-tutorial: https://github.com/spumko/makemehapi
 - http://blog.nodeknockout.com/post/34571027029/making-an-api-happy-with-hapi (Old version of Hapi) 

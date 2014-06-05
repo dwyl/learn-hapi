@@ -25,6 +25,7 @@ server.route({
 
 server.start(function(){
 	console.log('Now Visit: http://localhost:3000/YOURNAME')
+	console.dir(server.info)
 });
 
 // Listen for events of type 'log'
