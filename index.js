@@ -1,24 +1,18 @@
 var Hapi = require('hapi');
 var server = Hapi.createServer('0.0.0.0', process.env.PORT || 3000);
-var quotes = {
-"lego":"Everything is awesome"
-};
+var database = require("./database.json");
 
-server.route([
-  {
-    method: 'GET',
-    path: '/',
-    handler: function (req, reply) {
-      reply('i am a unique snowflake!');
+server.route({
+    path: "/users",
+    method: "GET",
+    handler: function(request, reply) {
+        reply(Object.keys(database));
     }
-  },
-  {
-  	method: 'GET',
-  	path: '/quotes',
-  	handler: function (req, reply) {
-  		reply(quotes); // content-type: application/json; charset=utf-8
-  	}
-  }
-]);
+});
 
-server.start();  // boots the server
+if (!module.parent) { // only start the server if module is parent
+    server.start(function() {
+        console.log("Server started", server.info.uri);
+    });
+}
+module.exports = server;

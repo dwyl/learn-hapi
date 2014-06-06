@@ -4,7 +4,7 @@
   "description": "Learn to build APIs using Hapi.js'",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/lab/bin/lab -c"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
     "hapi": "^5.1.0",
     "joi": "^4.5.0",
     "socket.io": "^1.0.4"
+  },
+  "devDependencies": {
+    "lab": "^3.2.1"
   }
 }

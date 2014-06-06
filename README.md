@@ -58,6 +58,7 @@ https://github.com/spumko/catbox/
 
 
 https://medium.com/the-spumko-suite/testing-hapi-services-with-lab-96ac463c490a
+https://github.com/spumko/lab
 
 ### Error Handling with Boom
 
@@ -142,12 +143,12 @@ open-sourced) to craft our own software products/projects.
 
 Using the transport analogy, I don't *like* using fossil fuels to get from A-to-B 
 because of the CO2 emmissions. But I'm *pragmatic* about how I travel
-the [Thousand Miles](http://www.wolframalpha.com/input/?i=distance+from+London+to+Lisbon)
+the [thousand miles](http://www.wolframalpha.com/input/?i=distance+from+London+to+Lisbon)
 to visit my family twice a year. I could do two weeks by horse-and-cart,
-two days by train or two hours by plane each way. Which option to you take...?
+two days by train or two hours by plane each way. Which option do you take...?
 By chosing Hapi you are opting for the jet-engine.
 
-Make up your own mind on whether using code written for Walmart 
+Make up your own mind on whether you feel that using code written for Walmart 
 goes against your ethics. <br />
 If you find a *better* open-source Node.js stack that fits your needs,
 please [tell me](https://twitter.com/nelsonic) about it!
