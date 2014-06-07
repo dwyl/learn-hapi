@@ -1,11 +1,11 @@
-learn-hapi
+Learn Hapi [ Work in Progress ]
 ==========
 
 Learn how to use the Hapi (Node.js) web framework to build scalable apps in less time.
 
 ## What is Hapi?
 
-Hapi is *the* framework for rapidly building RESTful web services in Node.js. 
+Hapi is *the* framework for rapidly building RESTful web services in Node.js. <br />
 Whether you are building a very simple set of RESTful services 
 for your website/mobile app to call or a large scale, cache heavy, 
 and secure set of services, hapi has you covered. 
@@ -19,11 +19,18 @@ Hapi will help get your server developed quickly with its wide range of configur
 ## Why Hapi instead of XYZ framework?
 
 **Q**: I already know how to build REST APIs in [Express](http://expressjs.com/)
-and [Restify](http://mcavage.me/node-restify/) why learn a new framework? <br />
+and [Restify](http://mcavage.me/node-restify/) why learn a new framework? 
 **A**: If you are *happy* with your existing system & level of team productivity,
 stick with what you know. If not, learn [how to be] Hapi.
 (I have built Sites/APIs with both Express and Restify and find Hapi has solved more
 "real world" problems and thus I end up writing less code. YMMV. See benefits below)
+
+**Q**: Hapi looks like quite a steep learning curve, 
+how long will it take me to learn? <br />
+**A**: You can get started *immediately* with the simple examples below, 
+it will take aprox **60 mins** to complete them all. 
+(after that add a couple of hours to read/learn further) the most important
+part is to ***try Hapi*** on a simple project to gain experience/confidence.
 
 ### Key Benefits
 
@@ -31,15 +38,15 @@ stick with what you know. If not, learn [how to be] Hapi.
 [Node.js *CORE* Memory Leak](http://www.joyent.com/blog/walmart-node-js-memory-leak)
 they have developed Hapi follwing [Benchmark Driven Development](https://github.com/felixge/faster-than-c)
 and the result is a high-performance framework.
-- Security - they have focussed on security and battle-tested the framework
+- ***Security*** - they have focussed on security and battle-tested the framework
 during [Black Friday](http://nodeup.com/fiftysix) 
 (holiday shopping busy day) without incident.
 - **Mobile Optimised** (lightweight - built for mobile e-commerce)
 - Plugin Architecture - easy to extend / add your own modules (good ecosystem)
 - ***DevOps Friendly*** (great stats logging) see: https://github.com/spumko/good
-- Built-in Caching (Redis or Memcached)
-- 100% Code Coverage (for the core)
-- Key Functionality is **Built-in**
+- Built-in ***Caching*** (Redis, MongoDB or Memcached)
+- **100% Code Coverage** (for the core)
+- Key Functionality is **Built-in** and good plugins add other functionality seamlessly.
 
 
 ## Dive In!
@@ -48,7 +55,8 @@ during [Black Friday](http://nodeup.com/fiftysix)
 
 ### Validation with Joi
 
-https://github.com/spumko/joi#example
+- https://github.com/spumko/joi#example
+- http://vawks.com/blog/2014/03/22/the-joi-of-validation/
 
 ### Caching with Catbox
 
@@ -84,7 +92,6 @@ Requires a bit more work...
 - Building APIs with Hapi and MongoDB: https://speakerdeck.com/donnfelker/building-web-apis-with-hapi-dot-js-and-mongodb-mongoose
 - Repo for the above speakerdeck: https://github.com/donnfelker/hapi-mongodb-example
 - The Pursuit of Hapi-ness: https://medium.com/the-javascript-collection/the-pursuit-of-hapi-ness-d82777afaa4b (V.3)
-- Creating Validation Schemas with Joi: https://medium.com/the-spumko-suite/creating-validation-schemas-with-joi-eb4ff19f6688
 - Micro-tutorial: https://github.com/spumko/makemehapi
 - http://blog.nodeknockout.com/post/34571027029/making-an-api-happy-with-hapi (Old version of Hapi) 
 - http://stackoverflow.com/questions/21455076/hapi-and-node-js-to-create-a-rest-api-server
