@@ -13,35 +13,28 @@ for your website/mobile app to call or a large scale, cache heavy,
 and secure set of services, hapi has you covered. 
 Hapi will help get your server developed quickly with its wide range of configurable options.
 
+> *Watch* this video: http://youtu.be/BsyvnVOhp4U (good/recent intro to Hapi)
+
 ### What is a RESTful web service?
 
-[REST](http://en.wikipedia.org/wiki/Representational_state_transfer) 
+[ReST](http://en.wikipedia.org/wiki/Representational_state_transfer) 
 is a structured way of building web services and applications.
+When something is described as "RESTful" it simply means it follows a 
+predefined predictable pattern for how it responds to requests.
+
+#### Video Explanation of REST
+
+- Intro to REST: http://youtu.be/llpr5924N7E
+- Google Developers Intro to REST: https://www.youtube.com/watch?v=YCcAE2SCQ6k
 
 #### Read more about REST APIs / RESTful Web Services
 
-- Basic Q&A for what REST is: http://katgleason.tumblr.com/post/37836552900/how-i-explained-rest-to-my-wife
-- What are RESTful web services: http://stackoverflow.com/a/3636470/1148249
 - REST Wikipedia: http://en.wikipedia.org/wiki/REST (you don't need to know all of it, just understand the concept)
-- [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+- Beginners Guide: http://code.tutsplus.com/tutorials/a-beginners-guide-to-http-and-rest--net-16340
+- Basic Q&A for REST: http://katgleason.tumblr.com/post/37836552900/how-i-explained-rest-to-my-wife
+- What are RESTful web services: http://stackoverflow.com/a/3636470/1148249
+- What is "CRUD"? http://en.wikipedia.org/wiki/Create,_read,_update_and_delete
 
-Some relevant points in REST:
-
- * Each URL on the server represents a resource; either a _collection resource_ or an _element resource_.
-  * A **collection resource** would be available at a URL like `http://yourapp.io/items/` which would be a _representation_ of a list of items.
-  * A **element resource** would be available at a URL like `http://yourapp.io/items/2` which would be a _representation_ of a single item, identified by `2`.
- * Different HTTP methods are used for different "" operations:
-  * a **GET** is a read operation
-  * a **PUT** is a write/modify operation
-  * a **POST** is a create/new operation
-  * a **DELETE** deletes a record on the server.
- * State (or rather, client context) is not stored on the server-side; all state is in the _representations_ passed back and forth by the client's requests and the server's responses.
-
- <small>Adapted from:  </small>
-
-### Video Intro:
-
-> *Watch* this video: http://youtu.be/BsyvnVOhp4U (good/recent intro to HAPI)
 
 ## Why Hapi instead of XYZ framework?
 
@@ -133,6 +126,10 @@ you should see something like:
 
 
 ### Validation with Joi
+
+
+
+
 
 - https://github.com/spumko/joi#example
 - http://vawks.com/blog/2014/03/22/the-joi-of-validation/
