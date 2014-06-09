@@ -4,7 +4,7 @@
   "description": "Learn to build APIs using Hapi.js'",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/lab/bin/lab -c"
+    "test": "./node_modules/lab/bin/lab -c && ./node_modules/lab/bin/lab -r html -o ./test/coverage.html"
   },
   "repository": {
     "type": "git",

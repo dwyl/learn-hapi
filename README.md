@@ -3,7 +3,7 @@
 Learn Hapi [ Work in Progress ]
 ==========
 
-Learn how to use the Hapi (Node.js) web framework to build scalable apps in less time.
+Learning how to use the Hapi (Node.js) web framework to build scalable apps in less time.
 
 ## What is Hapi?
 
@@ -60,6 +60,50 @@ during [Black Friday](http://nodeup.com/fiftysix)
 
 ### Hello World in Hapi
 
+Create a new folder for your Hapi project:
+
+```
+mkdir makemehapi && cd makemehapi
+```
+
+Initialise the folder as Node.js project:
+
+```
+npm init
+```
+(Use all the default values you can change them later)
+
+Download and save Hapi:
+
+```
+npm install hapi --save
+```
+
+Type out (or copy-paste) this code into a file called **hellohapi.js**
+
+```
+// Start the app from your command line with: node hellohapi.js
+// then visit: http://localhost:3000/YOURNAME in your browser
+
+var Hapi = require('hapi');
+var server = new Hapi.Server('0.0.0.0', 3000);
+
+server.route({ 
+	method: 'GET',
+	path: '/{yourname*}',
+	handler: function(req, reply) {
+		reply('Hello ' + req.params.yourname + '!')
+	}
+});
+
+server.start(function(){ // boots your server
+	console.log('Now Visit: http://localhost:3000/YOURNAME')
+});
+```
+
+Visit: http://localhost:3000/YOURNAME (in your browser) <br />
+you should see something like:
+![hello world in hapi](http://i.imgur.com/m9qcs17.png)
 
 
 
