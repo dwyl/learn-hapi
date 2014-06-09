@@ -1,3 +1,5 @@
+![Happiness Is...](http://i.imgur.com/Df5Z18T.jpg)
+
 Learn Hapi [ Work in Progress ]
 ==========
 
@@ -15,11 +17,10 @@ Hapi will help get your server developed quickly with its wide range of configur
 
 > *Watch* this video: http://youtu.be/BsyvnVOhp4U (good/recent intro to HAPI)
 
-
 ## Why Hapi instead of XYZ framework?
 
 **Q**: I already know how to build REST APIs in [Express](http://expressjs.com/)
-and [Restify](http://mcavage.me/node-restify/) why learn a new framework? 
+and [Restify](http://mcavage.me/node-restify/) why learn a *new* framework?  <br />
 **A**: If you are *happy* with your existing system & level of team productivity,
 stick with what you know. If not, learn [how to be] Hapi.
 (I have built Sites/APIs with both Express and Restify and find Hapi has solved more
@@ -51,6 +52,15 @@ during [Black Friday](http://nodeup.com/fiftysix)
 
 ## Dive In!
 
+## Requirements
+
+- A computer that can run [Node.js](http://nodejs.org/download/)  Mac/Windows/Linux/Chromebook
+- Access to the Internet (only required for installation)
+- 60 minutes of time.
+
+### Hello World in Hapi
+
+
 
 
 ### Validation with Joi
@@ -78,7 +88,7 @@ Requires a bit more work...
 
 ## Background Reading / Watching
 
-- https://github.com/spumko/hapi
+- GitHub Repo: https://github.com/spumko/hapi (has documentation)
 - Restify vs Express performance: http://stackoverflow.com/questions/17589178/why-should-i-use-restify
 - REST API in Express: http://pixelhandler.com/posts/develop-a-restful-api-using-nodejs-with-express-and-mongoose
 
