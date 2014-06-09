@@ -13,6 +13,32 @@ for your website/mobile app to call or a large scale, cache heavy,
 and secure set of services, hapi has you covered. 
 Hapi will help get your server developed quickly with its wide range of configurable options.
 
+### What is a RESTful web service?
+
+[REST](http://en.wikipedia.org/wiki/Representational_state_transfer) 
+is a structured way of building web services and applications.
+
+#### Read more about REST APIs / RESTful Web Services
+
+- Basic Q&A for what REST is: http://katgleason.tumblr.com/post/37836552900/how-i-explained-rest-to-my-wife
+- What are RESTful web services: http://stackoverflow.com/a/3636470/1148249
+- REST Wikipedia: http://en.wikipedia.org/wiki/REST (you don't need to know all of it, just understand the concept)
+- [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+
+Some relevant points in REST:
+
+ * Each URL on the server represents a resource; either a _collection resource_ or an _element resource_.
+  * A **collection resource** would be available at a URL like `http://yourapp.io/items/` which would be a _representation_ of a list of items.
+  * A **element resource** would be available at a URL like `http://yourapp.io/items/2` which would be a _representation_ of a single item, identified by `2`.
+ * Different HTTP methods are used for different "" operations:
+  * a **GET** is a read operation
+  * a **PUT** is a write/modify operation
+  * a **POST** is a create/new operation
+  * a **DELETE** deletes a record on the server.
+ * State (or rather, client context) is not stored on the server-side; all state is in the _representations_ passed back and forth by the client's requests and the server's responses.
+
+ <small>Adapted from:  </small>
+
 ### Video Intro:
 
 > *Watch* this video: http://youtu.be/BsyvnVOhp4U (good/recent intro to HAPI)
@@ -104,7 +130,6 @@ server.start(function(){ // boots your server
 Visit: http://localhost:3000/YOURNAME (in your browser) <br />
 you should see something like:
 ![hello world in hapi](http://i.imgur.com/m9qcs17.png)
-
 
 
 ### Validation with Joi
