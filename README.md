@@ -166,7 +166,14 @@ server.start(function() {
 
 ```
 
+Now try entering an invalid name: http://localhost:3000/T <br />
+You should see a **Validation Error**:
 
+![Hapi Joi validation error](http://i.imgur.com/Dyhel2V.png)
+
+This might not look like a "Friendly" Error message.
+But as we will see later, it provides all the information we need
+in our Client/App and we can display a more user-friendly error to people.
 
 
 - https://github.com/spumko/joi#example
