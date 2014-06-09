@@ -30,7 +30,7 @@ predefined predictable pattern for how it responds to requests.
 #### Read more about REST APIs / RESTful Web Services
 
 - REST Wikipedia: http://en.wikipedia.org/wiki/REST (you don't need to know all of it, just understand the concept)
-- Beginners Guide: http://code.tutsplus.com/tutorials/a-beginners-guide-to-http-and-rest--net-16340
+- Beginners Guide: http://www.restapitutorial.com/
 - Basic Q&A for REST: http://katgleason.tumblr.com/post/37836552900/how-i-explained-rest-to-my-wife
 - What are RESTful web services: http://stackoverflow.com/a/3636470/1148249
 - What is "CRUD"? http://en.wikipedia.org/wiki/Create,_read,_update_and_delete
@@ -127,6 +127,44 @@ you should see something like:
 
 ### Validation with Joi
 
+**Validation** is a fancy way of saying "checking" a value is 
+the **type** you expect it to be.
+
+e.g. imagine you ask people to input their phone number
+and some joker enters letters instead of numbers. The validation
+will display a message to the person informing the data is incorrect.
+
+[Joi](https://github.com/spumko/joi) is the validation library built by
+the same team as Hapi (for use with Hapi)
+
+A simple example: 
+Type out (or copy-paste) this code into a file called **hellovalidate.js**
+
+```
+// Start this app from your command line with: node hellovalidate.js
+// then visit: http://localhost:3000/YOURNAME
+
+var Hapi = require('hapi'),
+    Joi  = require('joi');
+
+var server = new Hapi.Server('0.0.0.0', 3000);
+
+server.route({ 
+	method: 'GET',
+	path: '/{yourname*}',
+	config: {  // validate will ensure YOURNAME is valid before replying to your request
+		validate: { params: { yourname: Joi.string().max(40).min(2).alphanum() } },
+		handler: function (req,reply) {
+			reply('Hello '+ req.params.yourname + '!');
+		}
+	}
+});
+
+server.start(function() {
+	console.log('Now Visit: http://localhost:3000/YOURNAME')
+});
+
+```
 
 
 
