@@ -3,7 +3,7 @@
 Learn Hapi [ Work in Progress ]
 ==========
 
-Learning how to use the Hapi (Node.js) web framework to build scalable apps in less time.
+Happiness is learning how to use the Hapi (Node.js) web framework to build reliable/scalable apps faster.
 
 ## What is Hapi?
 
@@ -29,7 +29,7 @@ predefined predictable pattern for how it responds to requests.
 
 #### Read more about REST APIs / RESTful Web Services
 
-- REST Wikipedia: http://en.wikipedia.org/wiki/REST (you don't need to know all of it, just understand the concept)
+- REST Wikipedia: http://en.wikipedia.org/wiki/REST (*Skim* and make sure you understand the concepts)
 - Beginners Guide: http://www.restapitutorial.com/
 - Basic Q&A for REST: http://katgleason.tumblr.com/post/37836552900/how-i-explained-rest-to-my-wife
 - What are RESTful web services: http://stackoverflow.com/a/3636470/1148249
@@ -175,19 +175,44 @@ This might not look like a "Friendly" Error message.
 But as we will see later, it provides all the information we need
 in our Client/App and we can display a more user-friendly error to people.
 
+[Joi](https://github.com/spumko/joi) has many more useful validation methods.
+We will use a few of them later on when we build our example app.
 
 - https://github.com/spumko/joi#example
 - http://vawks.com/blog/2014/03/22/the-joi-of-validation/
+
+### Testing with Lab
+
+If you're new to Software Testing read:
+
+- Unit Testing: http://en.wikipedia.org/wiki/Software_testing
+
+And watch:
+
+- Video intro to Software Development Lifecycle: http://youtu.be/qMkV_TDdDeA
+- 
+
+- Types of Software Testing: http://www.aptest.com/testtypes.html
+
+
+If you've done functional or unit testing in previous software projects you
+will be at home with Lab.
+
+https://medium.com/the-spumko-suite/testing-hapi-services-with-lab-96ac463c490a
+https://github.com/spumko/lab
+
+Is TDD Dead? http://www.youtube.com/watch?v=z9quxZsLcfo
+
 
 ### Caching with Catbox
 
 https://github.com/spumko/catbox/
 
-### Testing with Lab
 
+### Authentication
 
-https://medium.com/the-spumko-suite/testing-hapi-services-with-lab-96ac463c490a
-https://github.com/spumko/lab
+https://github.com/spumko/hapi-auth-cookie
+
 
 ### Error Handling with Boom
 
@@ -195,6 +220,9 @@ https://github.com/spumko/lab
 
 https://github.com/spumko/hapi/blob/master/examples/socketio.js 
 Requires a bit more work...
+
+
+
 
 
 ## Background Reading / Watching
@@ -221,6 +249,7 @@ Requires a bit more work...
 - A few examples: https://github.com/andyroyle/hapi-examples
 - More examples: https://github.com/wpreul/hapikc (*old* version of Hapi!)
 - Pursuit of Hapi-ness: http://blog.modulus.io/nodejs-and-hapi-create-rest-api (Hapi v.2)
+- BDD with Hapi and Lab: https://gist.github.com/thebillkidy/10a11fed1bf61d04c3c5
 
 >> *Respond* to this SO Q: 
 - http://stackoverflow.com/questions/22934340/hapi-js-api-authentication
