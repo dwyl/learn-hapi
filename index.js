@@ -17,10 +17,8 @@ server.route({
   }
 });
 
-if (!module.parent) { // only start the server if module is parent (don't boot for tests)
-    server.start(function() {
-        console.log("Server started", server.info.uri);
-    });
-}
+server.start(function() {
+  console.log('Now Visit: http://localhost:3000/YOURNAME')
+});
 
 module.exports = server;

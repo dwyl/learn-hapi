@@ -253,26 +253,26 @@
             <li><a href="#overview">overview</a></li>
             
             <li>
-                <span class="cov high">85.71</span>
+                <span class="cov high">100</span>
                 <a href="#index.js"><span class="basename">index.js</span></a>
             </li>
             
         </div>
         <div class="stats high">
-            <div class="percentage">85.71%</div>
-            <div class="sloc">21</div>
-            <div class="hits">18</div>
-            <div class="misses">3</div>
+            <div class="percentage">100%</div>
+            <div class="sloc">19</div>
+            <div class="hits">19</div>
+            <div class="misses">0</div>
         </div>
         <div id="files">
             
             <div class="file">
                 <h2 id="index.js">index.js</h2>
                 <div class="stats high">
-                    <div class="percentage">85.71%</div>
-                    <div class="sloc">21</div>
-                    <div class="hits">18</div>
-                    <div class="misses">3</div>
+                    <div class="percentage">100%</div>
+                    <div class="sloc">19</div>
+                    <div class="hits">19</div>
+                    <div class="misses">0</div>
                 </div>
                 <table>
                     <thead>
@@ -437,54 +437,32 @@
                     
                 
                     
-                        
-                            <tr class="chunks">
-                                <td class="line">20</td>
-                                <td class="hits"></td>
-                                <td class="source"><div>if (</div><div class="miss false">!module.parent</div><div>) { // only start the server if module is parent (don&#x27;t boot for tests)</div></td>
-                            </tr>
-                        
+                        <tr class="hit">
+                            <td class="line">20</td>
+                            <td class="hits">1</td>
+                            <td class="source">server.start(function() {</td>
+                        </tr>
                     
                 
                     
-                        
-                            <tr class="miss">
-                                <td class="line">21</td>
-                                <td class="hits"></td>
-                                <td class="source">    server.start(function() {</td>
-                            </tr>
-                        
+                        <tr class="hit">
+                            <td class="line">21</td>
+                            <td class="hits">1</td>
+                            <td class="source">  console.log(&#x27;Now Visit: http://localhost:3000/YOURNAME&#x27;)</td>
+                        </tr>
                     
                 
                     
-                        
-                            <tr class="miss">
-                                <td class="line">22</td>
-                                <td class="hits"></td>
-                                <td class="source">        console.log(&quot;Server started&quot;, server.info.uri);</td>
-                            </tr>
-                        
+                        <tr class="hit">
+                            <td class="line">22</td>
+                            <td class="hits"></td>
+                            <td class="source">});</td>
+                        </tr>
                     
                 
                     
                         <tr class="hit">
                             <td class="line">23</td>
-                            <td class="hits"></td>
-                            <td class="source">    });</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">24</td>
-                            <td class="hits"></td>
-                            <td class="source">}</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">25</td>
                             <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
@@ -492,7 +470,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">26</td>
+                            <td class="line">24</td>
                             <td class="hits">1</td>
                             <td class="source">module.exports = server;</td>
                         </tr>

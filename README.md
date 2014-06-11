@@ -193,7 +193,7 @@ And watch
 If you've done functional or unit testing in previous software projects you
 will be at home with Lab.
 
-(Using the code we wrote above in the **Validation with Joi** section)
+(Using the code we wrote above in the **Validation with Joi** section with a minor addition)
 A simple example of testing with Lab:
 
 ```
@@ -238,8 +238,12 @@ the text "Hello Timmy!".
 
 The result should look something like this:
 
+![Hapi testing with Lab 100% coverage](http://i.imgur.com/AIr9MiD.png)
 
+Note how the test script has a ** -c** flag above 
+this give us the **code coverage**.
 
+Here we *only* have **100% code coverage** so we are good to go!
 
 
 - Lab github module: https://github.com/spumko/lab
