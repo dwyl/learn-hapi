@@ -193,14 +193,58 @@ And watch
 If you've done functional or unit testing in previous software projects you
 will be at home with Lab.
 
-A simple example:
+(Using the code we wrote above in the **Validation with Joi** section)
+A simple example of testing with Lab:
+
+```
+var Lab = require("lab"),    // the Lab 
+    server = require("../"); // require index.js
+Lab.experiment("Basic HTTP Tests", function() {
+    // tests
+    Lab.test("Main endpoint /{yourname*} ", function(done) {
+	    var options = {
+	        method: "GET",
+	        url: "/Timmy"
+	    };
+	 	// server.inject lets you similate an http request
+	    server.inject(options, function(response) {
+	        Lab.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
+	        Lab.expect(response.result).to.have.length(12); // Expect result to be "Hello Timmy!" (12 chars long)
+	        done();                                         // done() callback is required to end the test.
+	    });
+	});	
+});
+```
+First we create a *test suite* for our test **Lab.experiment**
+(the first argument is the name of of the test suite "Basic HTTP Tests")
+
+Next is a basic test that calls the only route we have `/{yourname}` 
+in this case**GET /Timmy**. 
+We expect to receive a **200** http status code and the result to be
+the text "Hello Timmy!".
+
+1. Create a **new directory** in your project called **test**
+2. Create a **new file** called **test.js** in the **./test** dir
+3. Type out or copy-paste the above code into **test.js**
+4. Open your package.json file
+5. Add a **scripts** section to the package.json file with the following:
+```
+  "scripts": {
+    "test": "./node_modules/lab/bin/lab -c"
+  }
+```
+6. Save the package.json file
+7. run the **npm test** script from your command line to execute the tests
+
+The result should look something like this:
 
 
 
-https://medium.com/the-spumko-suite/testing-hapi-services-with-lab-96ac463c490a
-https://github.com/spumko/lab
 
-Is TDD Dead? http://www.youtube.com/watch?v=z9quxZsLcfo
+
+- Lab github module: https://github.com/spumko/lab
+- Testing post: https://medium.com/the-spumko-suite/testing-hapi-services-with-lab-96ac463c490a
+- Is TDD Dead? http://www.youtube.com/watch?v=z9quxZsLcfo (hint: no!)
 
 
 ### Caching with Catbox

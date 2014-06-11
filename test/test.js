@@ -1,20 +1,17 @@
 var Lab = require("lab"),    // the Lab 
     server = require("../"); // require index.js
-Lab.experiment("Basic Url", function() {
+Lab.experiment("Basic HTTP Tests", function() {
     // tests
-    Lab.test("main endpoint lists usernames on the network", function(done) {
+    Lab.test("Main endpoint /{yourname*} ", function(done) {
 	    var options = {
 	        method: "GET",
-	        url: "/users"
+	        url: "/Timmy"
 	    };
-	 
+	 	// server.inject lets you similate an http request
 	    server.inject(options, function(response) {
-	        var result = response.result;
-	 
-	        Lab.expect(response.statusCode).to.equal(200);
-	        Lab.expect(result).to.have.length(12);
-	 
-	        done();
+	        Lab.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
+	        Lab.expect(response.result).to.have.length(12); // Expect result to be "Hello Timmy!" (12 chars long)
+	        done();                                         // done() callback is required to end the test.
 	    });
 	});	
 
@@ -25,13 +22,9 @@ Lab.experiment("Basic Url", function() {
 	        url: "/T"
 	    };
 	 
-	    server.inject(options, function(response) {
-	        var result = response.result,
-	        payload = options.payload;
-	 
+	    server.inject(options, function(response) {	 
 	        Lab.expect(response.statusCode).to.equal(400);   
-	        Lab.expect(result.message).to.equal('yourname length must be at least 2 characters long');
-	 
+	        Lab.expect(response.result.message).to.equal('yourname length must be at least 2 characters long');
 	        done();
 	    });
 	});
