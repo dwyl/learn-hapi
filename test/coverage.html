@@ -253,26 +253,26 @@
             <li><a href="#overview">overview</a></li>
             
             <li>
-                <span class="cov high">89.19</span>
+                <span class="cov high">85.71</span>
                 <a href="#index.js"><span class="basename">index.js</span></a>
             </li>
             
         </div>
         <div class="stats high">
-            <div class="percentage">89.19%</div>
-            <div class="sloc">74</div>
-            <div class="hits">66</div>
-            <div class="misses">8</div>
+            <div class="percentage">85.71%</div>
+            <div class="sloc">21</div>
+            <div class="hits">18</div>
+            <div class="misses">3</div>
         </div>
         <div id="files">
             
             <div class="file">
                 <h2 id="index.js">index.js</h2>
                 <div class="stats high">
-                    <div class="percentage">89.19%</div>
-                    <div class="sloc">74</div>
-                    <div class="hits">66</div>
-                    <div class="misses">8</div>
+                    <div class="percentage">85.71%</div>
+                    <div class="sloc">21</div>
+                    <div class="hits">18</div>
+                    <div class="misses">3</div>
                 </div>
                 <table>
                     <thead>
@@ -287,24 +287,24 @@
                     
                         <tr class="hit">
                             <td class="line">1</td>
-                            <td class="hits">1</td>
-                            <td class="source">var Hapi = require(&#x27;hapi&#x27;);</td>
+                            <td class="hits"></td>
+                            <td class="source">// Start this app from your command line with: node hellovalidate.js</td>
                         </tr>
                     
                 
                     
                         <tr class="hit">
                             <td class="line">2</td>
-                            <td class="hits">1</td>
-                            <td class="source">var server = Hapi.createServer(&#x27;0.0.0.0&#x27;, process.env.PORT); </td>
+                            <td class="hits"></td>
+                            <td class="source">// then visit: http://localhost:3000/YOURNAME</td>
                         </tr>
                     
                 
                     
                         <tr class="hit">
                             <td class="line">3</td>
-                            <td class="hits">1</td>
-                            <td class="source">var Joi = require(&#x27;joi&#x27;);</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
                         </tr>
                     
                 
@@ -312,7 +312,7 @@
                         <tr class="hit">
                             <td class="line">4</td>
                             <td class="hits">1</td>
-                            <td class="source">var database = require(&quot;./database.json&quot;);</td>
+                            <td class="source">var Hapi = require(&#x27;hapi&#x27;),</td>
                         </tr>
                     
                 
@@ -320,23 +320,23 @@
                         <tr class="hit">
                             <td class="line">5</td>
                             <td class="hits"></td>
-                            <td class="source"></td>
+                            <td class="source">    Joi  = require(&#x27;joi&#x27;);</td>
                         </tr>
                     
                 
                     
                         <tr class="hit">
                             <td class="line">6</td>
-                            <td class="hits">1</td>
-                            <td class="source">server.route({</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
                         </tr>
                     
                 
                     
                         <tr class="hit">
                             <td class="line">7</td>
-                            <td class="hits"></td>
-                            <td class="source">    path: &quot;/users&quot;,</td>
+                            <td class="hits">1</td>
+                            <td class="source">var server = new Hapi.Server(&#x27;0.0.0.0&#x27;, 3000);</td>
                         </tr>
                     
                 
@@ -344,15 +344,15 @@
                         <tr class="hit">
                             <td class="line">8</td>
                             <td class="hits"></td>
-                            <td class="source">    method: &quot;GET&quot;,</td>
+                            <td class="source"></td>
                         </tr>
                     
                 
                     
                         <tr class="hit">
                             <td class="line">9</td>
-                            <td class="hits"></td>
-                            <td class="source">    handler: function(request, reply) {</td>
+                            <td class="hits">1</td>
+                            <td class="source">server.route({ </td>
                         </tr>
                     
                 
@@ -360,15 +360,15 @@
                         <tr class="hit">
                             <td class="line">10</td>
                             <td class="hits"></td>
-                            <td class="source">        // console.log(&#x27;HAI&#x27;, request);</td>
+                            <td class="source">  method: &#x27;GET&#x27;,</td>
                         </tr>
                     
                 
                     
                         <tr class="hit">
                             <td class="line">11</td>
-                            <td class="hits">1</td>
-                            <td class="source">        reply(Object.keys(database));</td>
+                            <td class="hits"></td>
+                            <td class="source">  path: &#x27;/{yourname*}&#x27;,</td>
                         </tr>
                     
                 
@@ -376,7 +376,7 @@
                         <tr class="hit">
                             <td class="line">12</td>
                             <td class="hits"></td>
-                            <td class="source">    }</td>
+                            <td class="source">  config: {  // validate will ensure YOURNAME is valid before replying to your request</td>
                         </tr>
                     
                 
@@ -384,7 +384,7 @@
                         <tr class="hit">
                             <td class="line">13</td>
                             <td class="hits"></td>
-                            <td class="source">});</td>
+                            <td class="source">    validate: { params: { yourname: Joi.string().max(40).min(2).alphanum() } },</td>
                         </tr>
                     
                 
@@ -392,7 +392,7 @@
                         <tr class="hit">
                             <td class="line">14</td>
                             <td class="hits"></td>
-                            <td class="source"></td>
+                            <td class="source">    handler: function (req,reply) {</td>
                         </tr>
                     
                 
@@ -400,7 +400,7 @@
                         <tr class="hit">
                             <td class="line">15</td>
                             <td class="hits">1</td>
-                            <td class="source">server.route({</td>
+                            <td class="source">      reply(&#x27;Hello &#x27;+ req.params.yourname + &#x27;!&#x27;);</td>
                         </tr>
                     
                 
@@ -408,7 +408,7 @@
                         <tr class="hit">
                             <td class="line">16</td>
                             <td class="hits"></td>
-                            <td class="source">    path: &quot;/users/{username}&quot;,</td>
+                            <td class="source">    }</td>
                         </tr>
                     
                 
@@ -416,7 +416,7 @@
                         <tr class="hit">
                             <td class="line">17</td>
                             <td class="hits"></td>
-                            <td class="source">    method: &quot;GET&quot;,</td>
+                            <td class="source">  }</td>
                         </tr>
                     
                 
@@ -424,7 +424,7 @@
                         <tr class="hit">
                             <td class="line">18</td>
                             <td class="hits"></td>
-                            <td class="source">    config: {</td>
+                            <td class="source">});</td>
                         </tr>
                     
                 
@@ -432,448 +432,6 @@
                         <tr class="hit">
                             <td class="line">19</td>
                             <td class="hits"></td>
-                            <td class="source">        // validate: {</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">20</td>
-                            <td class="hits"></td>
-                            <td class="source">        //     path: { username: Joi.string().token() }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">21</td>
-                            <td class="hits"></td>
-                            <td class="source">        // },</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">22</td>
-                            <td class="hits"></td>
-                            <td class="source">        handler: function(request, reply) {</td>
-                        </tr>
-                    
-                
-                    
-                        
-                            <tr class="miss">
-                                <td class="line">23</td>
-                                <td class="hits"></td>
-                                <td class="source">            if (database[request.params.username]) {</td>
-                            </tr>
-                        
-                    
-                
-                    
-                        
-                            <tr class="miss">
-                                <td class="line">24</td>
-                                <td class="hits"></td>
-                                <td class="source">                reply(database[request.params.username]);</td>
-                            </tr>
-                        
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">25</td>
-                            <td class="hits"></td>
-                            <td class="source">            } else {</td>
-                        </tr>
-                    
-                
-                    
-                        
-                            <tr class="miss">
-                                <td class="line">26</td>
-                                <td class="hits"></td>
-                                <td class="source">                reply(Hapi.error.notFound(&quot;User not found.&quot;));</td>
-                            </tr>
-                        
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">27</td>
-                            <td class="hits"></td>
-                            <td class="source">            }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">28</td>
-                            <td class="hits"></td>
-                            <td class="source">        }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">29</td>
-                            <td class="hits"></td>
-                            <td class="source">    }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">30</td>
-                            <td class="hits"></td>
-                            <td class="source">});</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">31</td>
-                            <td class="hits"></td>
-                            <td class="source"></td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">32</td>
-                            <td class="hits">1</td>
-                            <td class="source">server.route({</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">33</td>
-                            <td class="hits"></td>
-                            <td class="source">    path: &quot;/users/{username}&quot;,</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">34</td>
-                            <td class="hits"></td>
-                            <td class="source">    method: &quot;PUT&quot;,</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">35</td>
-                            <td class="hits"></td>
-                            <td class="source">    config: {</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">36</td>
-                            <td class="hits"></td>
-                            <td class="source">        validate: {</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">37</td>
-                            <td class="hits"></td>
-                            <td class="source">            params: { username: Joi.string().token() },</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">38</td>
-                            <td class="hits"></td>
-                            <td class="source">            payload: {</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">39</td>
-                            <td class="hits"></td>
-                            <td class="source">                full_name: Joi.string(),</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">40</td>
-                            <td class="hits"></td>
-                            <td class="source">                age: Joi.number().integer(),</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">41</td>
-                            <td class="hits"></td>
-                            <td class="source">                image: Joi.string()</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">42</td>
-                            <td class="hits"></td>
-                            <td class="source">            }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">43</td>
-                            <td class="hits"></td>
-                            <td class="source">        },</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">44</td>
-                            <td class="hits"></td>
-                            <td class="source">        handler: function(request, reply) {</td>
-                        </tr>
-                    
-                
-                    
-                        
-                            <tr class="chunks">
-                                <td class="line">45</td>
-                                <td class="hits"></td>
-                                <td class="source"><div>            if (</div><div class="miss true">!database[request.params.username]</div><div>) {</div></td>
-                            </tr>
-                        
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">46</td>
-                            <td class="hits">1</td>
-                            <td class="source">                database[request.params.username] = request.payload;</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">47</td>
-                            <td class="hits">1</td>
-                            <td class="source">                database[request.params.username].count = 0;</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">48</td>
-                            <td class="hits">1</td>
-                            <td class="source">                reply(database[request.params.username]);</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">49</td>
-                            <td class="hits"></td>
-                            <td class="source">            } else {</td>
-                        </tr>
-                    
-                
-                    
-                        
-                            <tr class="miss">
-                                <td class="line">50</td>
-                                <td class="hits"></td>
-                                <td class="source">                reply(Hapi.error.conflict(&quot;User already exists.&quot;));</td>
-                            </tr>
-                        
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">51</td>
-                            <td class="hits"></td>
-                            <td class="source">            }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">52</td>
-                            <td class="hits"></td>
-                            <td class="source">        }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">53</td>
-                            <td class="hits"></td>
-                            <td class="source">    }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">54</td>
-                            <td class="hits"></td>
-                            <td class="source">});</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">55</td>
-                            <td class="hits"></td>
-                            <td class="source"></td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">56</td>
-                            <td class="hits"></td>
-                            <td class="source">// server.route({</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">57</td>
-                            <td class="hits"></td>
-                            <td class="source">//     path: &quot;/users/{username}&quot;,</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">58</td>
-                            <td class="hits"></td>
-                            <td class="source">//     method: &quot;DELETE&quot;,</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">59</td>
-                            <td class="hits"></td>
-                            <td class="source">//     config: {</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">60</td>
-                            <td class="hits"></td>
-                            <td class="source">//         validate: {</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">61</td>
-                            <td class="hits"></td>
-                            <td class="source">//             path: { username: Joi.string().token() }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">62</td>
-                            <td class="hits"></td>
-                            <td class="source">//         },</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">63</td>
-                            <td class="hits"></td>
-                            <td class="source">//         handler: function(request, reply) {</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">64</td>
-                            <td class="hits"></td>
-                            <td class="source">//             if (!database[request.params.username]) {</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">65</td>
-                            <td class="hits"></td>
-                            <td class="source">//                 reply(Hapi.error.notFound(&quot;User not found.&quot;))</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">66</td>
-                            <td class="hits"></td>
-                            <td class="source">//             } else {</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">67</td>
-                            <td class="hits"></td>
-                            <td class="source">//                 delete database[request.params.username];</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">68</td>
-                            <td class="hits"></td>
-                            <td class="source">//                 reply({result: &quot;success&quot;});</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">69</td>
-                            <td class="hits"></td>
-                            <td class="source">//             }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">70</td>
-                            <td class="hits"></td>
-                            <td class="source">//         }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">71</td>
-                            <td class="hits"></td>
-                            <td class="source">//     }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">72</td>
-                            <td class="hits"></td>
-                            <td class="source">// });</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">73</td>
-                            <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
                     
@@ -881,9 +439,9 @@
                     
                         
                             <tr class="chunks">
-                                <td class="line">74</td>
+                                <td class="line">20</td>
                                 <td class="hits"></td>
-                                <td class="source"><div>if (</div><div class="miss false">!module.parent</div><div>) { // only start the server if module is parent</div></td>
+                                <td class="source"><div>if (</div><div class="miss false">!module.parent</div><div>) { // only start the server if module is parent (don&#x27;t boot for tests)</div></td>
                             </tr>
                         
                     
@@ -891,7 +449,7 @@
                     
                         
                             <tr class="miss">
-                                <td class="line">75</td>
+                                <td class="line">21</td>
                                 <td class="hits"></td>
                                 <td class="source">    server.start(function() {</td>
                             </tr>
@@ -901,7 +459,7 @@
                     
                         
                             <tr class="miss">
-                                <td class="line">76</td>
+                                <td class="line">22</td>
                                 <td class="hits"></td>
                                 <td class="source">        console.log(&quot;Server started&quot;, server.info.uri);</td>
                             </tr>
@@ -910,7 +468,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">77</td>
+                            <td class="line">23</td>
                             <td class="hits"></td>
                             <td class="source">    });</td>
                         </tr>
@@ -918,7 +476,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">78</td>
+                            <td class="line">24</td>
                             <td class="hits"></td>
                             <td class="source">}</td>
                         </tr>
@@ -926,7 +484,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">79</td>
+                            <td class="line">25</td>
                             <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
@@ -934,7 +492,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">80</td>
+                            <td class="line">26</td>
                             <td class="hits">1</td>
                             <td class="source">module.exports = server;</td>
                         </tr>

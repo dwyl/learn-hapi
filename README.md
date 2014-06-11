@@ -65,7 +65,7 @@ during [Black Friday](http://nodeup.com/fiftysix)
 - Plugin Architecture - easy to extend / add your own modules (good ecosystem)
 - ***DevOps Friendly*** (great stats logging) see: https://github.com/spumko/good
 - Built-in ***Caching*** (Redis, MongoDB or Memcached)
-- **100% Code Coverage** (for the core)
+- ***100% Code Coverage*** (for the core) 
 - Key Functionality is **Built-in** and good plugins add other functionality seamlessly.
 
 
@@ -183,20 +183,19 @@ We will use a few of them later on when we build our example app.
 
 ### Testing with Lab
 
-If you're new to Software Testing read:
-
-- Unit Testing: http://en.wikipedia.org/wiki/Software_testing
-
-And watch:
+If you're new to Software Testing read: http://en.wikipedia.org/wiki/Software_testing <br />
+And watch 
 
 - Video intro to Software Development Lifecycle: http://youtu.be/qMkV_TDdDeA
-- 
-
-- Types of Software Testing: http://www.aptest.com/testtypes.html
-
+- "What is Software Testing" video: http://youtu.be/UZy1Dj9JIg4
+- "**How to Write Clean, Testable Code**": http://youtu.be/XcT4yYu_TTs (ignore the Java code focus on the general principals )
 
 If you've done functional or unit testing in previous software projects you
 will be at home with Lab.
+
+A simple example:
+
+
 
 https://medium.com/the-spumko-suite/testing-hapi-services-with-lab-96ac463c490a
 https://github.com/spumko/lab
