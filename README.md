@@ -191,7 +191,10 @@ And watch
 - "**How to Write Clean, Testable Code**": http://youtu.be/XcT4yYu_TTs (ignore the Java code focus on the general principals )
 
 If you've done functional or unit testing in previous software projects you
-will be at home with Lab.
+will be at home with Lab. 
+
+Lab borrows *heavily* from [Mocha](http://visionmedia.github.io/mocha), so if you followed my 
+[learn-mocha](https://github.com/nelsonic/learn-mocha) tutorial this should all be familiar.
 
 (Using the code we wrote above in the **Validation with Joi** section with a minor addition)
 A simple example of testing with Lab:
@@ -243,12 +246,19 @@ The result should look something like this:
 Note how the test script has a ** -c** flag above 
 this give us the **code coverage**.
 
-Here we *only* have **100% code coverage** so we are good to go!
+We have **100% code coverage** so we can move on to our next test!
 
+> How do you think we would write a test for an error?
+> (hint: have a look inside ./test/test.js and see the second test :)
+
+
+#### Related Links
 
 - Lab github module: https://github.com/spumko/lab
 - Testing post: https://medium.com/the-spumko-suite/testing-hapi-services-with-lab-96ac463c490a
 - Is TDD Dead? http://www.youtube.com/watch?v=z9quxZsLcfo (hint: no!)
+
+
 
 
 ### Caching with Catbox
@@ -262,6 +272,8 @@ https://github.com/spumko/hapi-auth-cookie
 
 
 ### Error Handling with Boom
+
+
 
 ### Using Socket.io with Hapi
 
