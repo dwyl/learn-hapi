@@ -2,7 +2,8 @@
 // then visit: http://localhost:3000/YOURNAME
 
 var Hapi = require('hapi'),
-    Joi  = require('joi');
+    Joi  = require('joi'),
+    Boom = require('boom'); // Todo: add boom to the top of the file
 
 var server = new Hapi.Server('0.0.0.0', 3000);
 
@@ -17,7 +18,6 @@ server.route({
   }
 });
 
-var Boom = require('boom'); // Todo: add boom to the top of the file
 server.route({ 
   method: 'GET',
   path: '/photo/{id*}',
@@ -26,9 +26,6 @@ server.route({
     handler: function (req,reply) {
         // until we implement authentication we are simply returning a 401:
         reply(Boom.unauthorized('Please log-in to see that'));
-        // lookup the photo in database
-        // check if the user should be able to see it
-        // reply with actual url of the image
     }
   }
 });
