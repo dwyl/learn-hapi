@@ -273,8 +273,6 @@ Next write a test in ./test/**test.js**
 (If you aren't used to "Test First" - ***trust*** the process...)
 
 ```
-var Lab = require("lab"),    // the Lab 
-    server = require("../"); // require index.js
 Lab.experiment("Authentication Required to View Photo", function() {
     // tests
     Lab.test("Deny view of photo if unauthenticated /photo/{id*} ", function(done) {
@@ -302,12 +300,29 @@ The right way is to create a generic route which responds to any request for a p
 And since we don't currently have any authentication set up, we ***mock*** (fake) it.
 (Don't worry we will get to the authentication in the next step...)
 
+```
+var Boom = require('boom');
+server.route({ 
+  method: 'GET',
+  path: '/photo/{id*}',
+  config: {  // validate will ensure YOURNAME is valid before replying to your request
+    validate: { params: { id: Joi.string().max(40).min(2).alphanum() } },
+    handler: function (req,reply) {
+        // until we implement authentication we are simply returning a 401:
+        reply(Boom.unauthorized('Please log-in to see that'));
+        // the key here is our use of the Boom.unauthorised method.
+    }
+  }
+});
 
+```
 
-
+Now our test passes and we can move on to implementing the authentication.
 
 
 ### Authentication
+
+
 
 https://github.com/spumko/hapi-auth-cookie
 

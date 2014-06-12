@@ -23,7 +23,8 @@
   "dependencies": {
     "hapi": "^5.1.0",
     "joi": "^4.5.0",
-    "socket.io": "^1.0.4"
+    "socket.io": "^1.0.4",
+    "boom": "^2.4.2"
   },
   "devDependencies": {
     "lab": "^3.2.1"

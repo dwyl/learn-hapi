@@ -260,8 +260,8 @@
         </div>
         <div class="stats high">
             <div class="percentage">100%</div>
-            <div class="sloc">19</div>
-            <div class="hits">19</div>
+            <div class="sloc">34</div>
+            <div class="hits">34</div>
             <div class="misses">0</div>
         </div>
         <div id="files">
@@ -270,8 +270,8 @@
                 <h2 id="index.js">index.js</h2>
                 <div class="stats high">
                     <div class="percentage">100%</div>
-                    <div class="sloc">19</div>
-                    <div class="hits">19</div>
+                    <div class="sloc">34</div>
+                    <div class="hits">34</div>
                     <div class="misses">0</div>
                 </div>
                 <table>
@@ -440,7 +440,7 @@
                         <tr class="hit">
                             <td class="line">20</td>
                             <td class="hits">1</td>
-                            <td class="source">server.start(function() {</td>
+                            <td class="source">var Boom = require(&#x27;boom&#x27;); // Todo: add boom to the top of the file</td>
                         </tr>
                     
                 
@@ -448,7 +448,7 @@
                         <tr class="hit">
                             <td class="line">21</td>
                             <td class="hits">1</td>
-                            <td class="source">  console.log(&#x27;Now Visit: http://localhost:3000/YOURNAME&#x27;)</td>
+                            <td class="source">server.route({ </td>
                         </tr>
                     
                 
@@ -456,7 +456,7 @@
                         <tr class="hit">
                             <td class="line">22</td>
                             <td class="hits"></td>
-                            <td class="source">});</td>
+                            <td class="source">  method: &#x27;GET&#x27;,</td>
                         </tr>
                     
                 
@@ -464,13 +464,141 @@
                         <tr class="hit">
                             <td class="line">23</td>
                             <td class="hits"></td>
-                            <td class="source"></td>
+                            <td class="source">  path: &#x27;/photo/{id*}&#x27;,</td>
                         </tr>
                     
                 
                     
                         <tr class="hit">
                             <td class="line">24</td>
+                            <td class="hits"></td>
+                            <td class="source">  config: {  // validate will ensure YOURNAME is valid before replying to your request</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">25</td>
+                            <td class="hits"></td>
+                            <td class="source">    validate: { params: { id: Joi.string().max(40).min(2).alphanum() } },</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">26</td>
+                            <td class="hits"></td>
+                            <td class="source">    handler: function (req,reply) {</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">27</td>
+                            <td class="hits"></td>
+                            <td class="source">        // until we implement authentication we are simply returning a 401:</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">28</td>
+                            <td class="hits">1</td>
+                            <td class="source">        reply(Boom.unauthorized(&#x27;Please log-in to see that&#x27;));</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">29</td>
+                            <td class="hits"></td>
+                            <td class="source">        // lookup the photo in database</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">30</td>
+                            <td class="hits"></td>
+                            <td class="source">        // check if the user should be able to see it</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">31</td>
+                            <td class="hits"></td>
+                            <td class="source">        // reply with actual url of the image</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">32</td>
+                            <td class="hits"></td>
+                            <td class="source">    }</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">33</td>
+                            <td class="hits"></td>
+                            <td class="source">  }</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">34</td>
+                            <td class="hits"></td>
+                            <td class="source">});</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">35</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">36</td>
+                            <td class="hits">1</td>
+                            <td class="source">server.start(function() {</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">37</td>
+                            <td class="hits">1</td>
+                            <td class="source">  console.log(&#x27;Now Visit: http://localhost:3000/YOURNAME&#x27;)</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">38</td>
+                            <td class="hits"></td>
+                            <td class="source">});</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">39</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">40</td>
                             <td class="hits">1</td>
                             <td class="source">module.exports = server;</td>
                         </tr>
