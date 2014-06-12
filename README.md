@@ -317,12 +317,42 @@ server.route({
 
 ```
 
-Now our test passes and we can move on to implementing the authentication.
+Our test passes but the point was to show that returning errors 
+with specific messages is *easy* with **Boom**. 
 
+Have a look at https://github.com/spumko/boom for more error response options.
+We will be using these later as we build our app.
+lets move on to authentication.
 
 ### Authentication
 
+Authentication is the process of determining whether someone 
+or something is, in fact, who or what it is declared to be.
 
+Authentication (or "Auth") is something many *novice* (*naive*?) 
+developers attempt to write themselves. (I was once that kid...
+trust me, there are bigger fish to fry, use a well-written/tested library!)
+
+If you are building an "enterprise" or "education" app 
+which you know will be used in Google-enabled companies/schools I
+recommend going with [Google Node.js API](https://github.com/google/google-api-nodejs-client)
+
+
+
+
+
+
+If you think you've got a *genuine* improvement over existing 
+auth solutions email+password, [OAuth2](http://tools.ietf.org/html/rfc6749) 
+or newly proposed systems
+such as [Persona](https://login.persona.org/about) 
+or [SQRL](https://www.grc.com/sqrl/sqrl.htm)
+I'd *love* to hear about them or see your code on GitHub.
+The rest of us will be using a 3rd Party solution. 
+
+
+
+https://github.com/spumko/travelogue
 
 https://github.com/spumko/hapi-auth-cookie
 
