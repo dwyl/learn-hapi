@@ -259,11 +259,52 @@ We have **100% code coverage** so we can move on to our next test!
 - Is TDD Dead? http://www.youtube.com/watch?v=z9quxZsLcfo (hint: no!)
 
 
+### Error Handling with Boom
+
+[Boom](https://github.com/spumko/boom) makes custom errors easy in Hapi.
+Imagine you have a page or item of content (photo, message, etc.) that
+you want to protect from public view (only show to someone who is logged in)
+
+First **install boom**:
+
+`npm install boom --save`
+
+Next write a test in ./test/**test.js** 
+(If you aren't used to "Test First" - ***trust*** the process...)
+
+```
+var Lab = require("lab"),    // the Lab 
+    server = require("../"); // require index.js
+Lab.experiment("Authentication Required to View Photo", function() {
+    // tests
+    Lab.test("Deny view of photo if unauthenticated /photo/{id*} ", function(done) {
+	    var options = {
+	        method: "GET",
+	        url: "/photo/8795"
+	    };
+	 	// server.inject lets you similate an http request
+	    server.inject(options, function(response) {
+	        Lab.expect(response.statusCode).to.equal(401);  //  Expect http response status code to be 200 ("Ok")
+	        Lab.expect(response.result.message).to.equal("Please log-in to see that"); // (Don't hard-code error messages)
+	        done();
+	    });
+	});	
+});
+```
+
+When you run `npm test` you will see a fail:
+
+![Hapi auth test fail](http://i.imgur.com/Ha5WjJo.png)
+
+Next we want to make this test pass. <br />
+The easy (wrong) way of doing this is to explicitly hard-code the response for this route.
+The right way is to create a generic route which responds to any request for a photo with any id.
+And since we don't currently have any authentication set up, we ***mock*** (fake) it.
+(Don't worry we will get to the authentication in the next step...)
 
 
-### Caching with Catbox
 
-https://github.com/spumko/catbox/
+
 
 
 ### Authentication
@@ -271,7 +312,13 @@ https://github.com/spumko/catbox/
 https://github.com/spumko/hapi-auth-cookie
 
 
-### Error Handling with Boom
+
+
+
+
+### Caching with Catbox
+
+https://github.com/spumko/catbox/
 
 
 
