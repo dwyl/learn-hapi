@@ -180,6 +180,7 @@ We will use a few of them later on when we build our example app.
 
 - https://github.com/spumko/joi#example
 - http://vawks.com/blog/2014/03/22/the-joi-of-validation/
+- https://medium.com/@_expr/creating-validation-schemas-with-joi-eb4ff19f6688
 
 ### Testing with Lab
 
@@ -339,14 +340,22 @@ We have 3 options with
 which you know will be used in Google-enabled companies/schools I
 recommend going with [Google Node.js API](https://github.com/google/google-api-nodejs-client)
 2. EveryAuth - Specific to Connect/Express apps: https://github.com/bnoguchi/everyauth
-3. Passport.js - ***100% Code Coverage*** and *many* excellent integrations https://github.com/jaredhanson/passport
+3. [Passport.js](https://github.com/jaredhanson/passport) - ***100% Code Coverage*** and *many* excellent integrations http://passportjs.org/guide/providers/
+
 
 The Hapi wrapper for Passport.js is called [Travelogue](https://github.com/spumko/travelogue).
 Tomorrow we will be going over it.
 
+> Sadly the current version of Travelogue is not compatible with Hapi 5.x or 6.x
+> There's an open issue for it: https://github.com/spumko/travelogue/issues/83
 
+```
+npm ERR! peerinvalid The package hapi does not satisfy its siblings' peerDependencies requirements!
+npm ERR! peerinvalid Peer travelogue@2.0.1 wants hapi@4.x.x
+npm ERR! peerinvalid Peer yar@2.2.0 wants hapi@>=2.x.x
+```
 
-
+Back to drawing board? or use the Passport module as-is...?
 
 
 - https://github.com/spumko/travelogue
@@ -375,6 +384,7 @@ https://github.com/spumko/catbox/
 ### Using Socket.io with Hapi
 
 https://github.com/spumko/hapi/blob/master/examples/socketio.js 
+http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js
 Requires a bit more work...
 
 
