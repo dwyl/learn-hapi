@@ -325,6 +325,8 @@ Have a look at https://github.com/spumko/boom for more error response options.
 We will be using these later as we build our app.
 lets move on to authentication.
 
+
+
 ### Authentication
 
 Authentication is the process of determining whether someone 
@@ -334,13 +336,14 @@ Authentication (or "Auth") is something many *novice* (*naive*?)
 developers attempt to write themselves. (I was once that kid...
 trust me, we have *bigger fish to fry*, use a well-written/tested library!)
 
-We have 3 options with 
+We have 4 options with 
 
 1. Google - If you are building an "enterprise" or "education" app 
 which you know will be used in Google-enabled companies/schools I
 recommend going with [Google Node.js API](https://github.com/google/google-api-nodejs-client)
 2. EveryAuth - Specific to Connect/Express apps: https://github.com/bnoguchi/everyauth
 3. [Passport.js](https://github.com/jaredhanson/passport) - ***100% Code Coverage*** and *many* excellent integrations http://passportjs.org/guide/providers/
+4. Bell - a 3rd party Login Hapi.js Plugin
 
 
 The Hapi wrapper for Passport.js is called [Travelogue](https://github.com/spumko/travelogue).
@@ -355,12 +358,25 @@ npm ERR! peerinvalid Peer travelogue@2.0.1 wants hapi@4.x.x
 npm ERR! peerinvalid Peer yar@2.2.0 wants hapi@>=2.x.x
 ```
 
-Back to drawing board? or use the Passport module as-is...?
-
+> Back to drawing board? or use the Passport module as-is...?
 
 - https://github.com/spumko/travelogue
 - https://github.com/spumko/hapi-auth-cookie
 - http://stackoverflow.com/questions/10099341/google-authentication-with-nodejs
+
+
+#### Spumko/Bell
+
+Informed by [@hueniverse](https://github.com/hueniverse) that
+https://github.com/spumko/bell is the go-to alternative for 3rd Party Login
+in Hapi.js apps. 
+
+> investigating Bell...
+
+
+
+
+
 
 #### Note to the Auth Innovators
 
@@ -404,6 +420,7 @@ Requires a bit more work...
 
 ### Tutorials
 
+- Hapi Boilerplate app: https://github.com/poeticninja/hapi-ninja [updated for Hapi 6.0!]
 - Building APIs with Hapi and MongoDB: https://speakerdeck.com/donnfelker/building-web-apis-with-hapi-dot-js-and-mongodb-mongoose
 - Repo for the above speakerdeck: https://github.com/donnfelker/hapi-mongodb-example
 - The Pursuit of Hapi-ness: https://medium.com/the-javascript-collection/the-pursuit-of-hapi-ness-d82777afaa4b (V.3)
