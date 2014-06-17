@@ -371,7 +371,7 @@ Informed by [@hueniverse](https://github.com/hueniverse) that
 https://github.com/spumko/bell is the go-to alternative for 3rd Party Login
 in Hapi.js apps. 
 
-> investigating Bell...
+> investigating Bell... https://github.com/spumko/bell
 
 
 

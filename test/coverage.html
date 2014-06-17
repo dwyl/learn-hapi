@@ -260,8 +260,8 @@
         </div>
         <div class="stats high">
             <div class="percentage">100%</div>
-            <div class="sloc">34</div>
-            <div class="hits">34</div>
+            <div class="sloc">31</div>
+            <div class="hits">31</div>
             <div class="misses">0</div>
         </div>
         <div id="files">
@@ -270,8 +270,8 @@
                 <h2 id="index.js">index.js</h2>
                 <div class="stats high">
                     <div class="percentage">100%</div>
-                    <div class="sloc">34</div>
-                    <div class="hits">34</div>
+                    <div class="sloc">31</div>
+                    <div class="hits">31</div>
                     <div class="misses">0</div>
                 </div>
                 <table>
@@ -320,7 +320,7 @@
                         <tr class="hit">
                             <td class="line">5</td>
                             <td class="hits"></td>
-                            <td class="source">    Joi  = require(&#x27;joi&#x27;);</td>
+                            <td class="source">    Joi  = require(&#x27;joi&#x27;),</td>
                         </tr>
                     
                 
@@ -328,13 +328,21 @@
                         <tr class="hit">
                             <td class="line">6</td>
                             <td class="hits"></td>
-                            <td class="source"></td>
+                            <td class="source">    Boom = require(&#x27;boom&#x27;); // Todo: add boom to the top of the file</td>
                         </tr>
                     
                 
                     
                         <tr class="hit">
                             <td class="line">7</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">8</td>
                             <td class="hits">1</td>
                             <td class="source">var server = new Hapi.Server(&#x27;0.0.0.0&#x27;, 3000);</td>
                         </tr>
@@ -342,7 +350,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">8</td>
+                            <td class="line">9</td>
                             <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
@@ -350,7 +358,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">9</td>
+                            <td class="line">10</td>
                             <td class="hits">1</td>
                             <td class="source">server.route({ </td>
                         </tr>
@@ -358,7 +366,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">10</td>
+                            <td class="line">11</td>
                             <td class="hits"></td>
                             <td class="source">  method: &#x27;GET&#x27;,</td>
                         </tr>
@@ -366,7 +374,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">11</td>
+                            <td class="line">12</td>
                             <td class="hits"></td>
                             <td class="source">  path: &#x27;/{yourname*}&#x27;,</td>
                         </tr>
@@ -374,7 +382,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">12</td>
+                            <td class="line">13</td>
                             <td class="hits"></td>
                             <td class="source">  config: {  // validate will ensure YOURNAME is valid before replying to your request</td>
                         </tr>
@@ -382,7 +390,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">13</td>
+                            <td class="line">14</td>
                             <td class="hits"></td>
                             <td class="source">    validate: { params: { yourname: Joi.string().max(40).min(2).alphanum() } },</td>
                         </tr>
@@ -390,7 +398,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">14</td>
+                            <td class="line">15</td>
                             <td class="hits"></td>
                             <td class="source">    handler: function (req,reply) {</td>
                         </tr>
@@ -398,7 +406,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">15</td>
+                            <td class="line">16</td>
                             <td class="hits">1</td>
                             <td class="source">      reply(&#x27;Hello &#x27;+ req.params.yourname + &#x27;!&#x27;);</td>
                         </tr>
@@ -406,7 +414,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">16</td>
+                            <td class="line">17</td>
                             <td class="hits"></td>
                             <td class="source">    }</td>
                         </tr>
@@ -414,7 +422,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">17</td>
+                            <td class="line">18</td>
                             <td class="hits"></td>
                             <td class="source">  }</td>
                         </tr>
@@ -422,7 +430,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">18</td>
+                            <td class="line">19</td>
                             <td class="hits"></td>
                             <td class="source">});</td>
                         </tr>
@@ -430,17 +438,9 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">19</td>
+                            <td class="line">20</td>
                             <td class="hits"></td>
                             <td class="source"></td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">20</td>
-                            <td class="hits">1</td>
-                            <td class="source">var Boom = require(&#x27;boom&#x27;); // Todo: add boom to the top of the file</td>
                         </tr>
                     
                 
@@ -512,7 +512,7 @@
                         <tr class="hit">
                             <td class="line">29</td>
                             <td class="hits"></td>
-                            <td class="source">        // lookup the photo in database</td>
+                            <td class="source">    }</td>
                         </tr>
                     
                 
@@ -520,7 +520,7 @@
                         <tr class="hit">
                             <td class="line">30</td>
                             <td class="hits"></td>
-                            <td class="source">        // check if the user should be able to see it</td>
+                            <td class="source">  }</td>
                         </tr>
                     
                 
@@ -528,7 +528,7 @@
                         <tr class="hit">
                             <td class="line">31</td>
                             <td class="hits"></td>
-                            <td class="source">        // reply with actual url of the image</td>
+                            <td class="source">});</td>
                         </tr>
                     
                 
@@ -536,37 +536,13 @@
                         <tr class="hit">
                             <td class="line">32</td>
                             <td class="hits"></td>
-                            <td class="source">    }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">33</td>
-                            <td class="hits"></td>
-                            <td class="source">  }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">34</td>
-                            <td class="hits"></td>
-                            <td class="source">});</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">35</td>
-                            <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
                     
                 
                     
                         <tr class="hit">
-                            <td class="line">36</td>
+                            <td class="line">33</td>
                             <td class="hits">1</td>
                             <td class="source">server.start(function() {</td>
                         </tr>
@@ -574,7 +550,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">37</td>
+                            <td class="line">34</td>
                             <td class="hits">1</td>
                             <td class="source">  console.log(&#x27;Now Visit: http://localhost:3000/YOURNAME&#x27;)</td>
                         </tr>
@@ -582,7 +558,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">38</td>
+                            <td class="line">35</td>
                             <td class="hits"></td>
                             <td class="source">});</td>
                         </tr>
@@ -590,7 +566,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">39</td>
+                            <td class="line">36</td>
                             <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
@@ -598,7 +574,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">40</td>
+                            <td class="line">37</td>
                             <td class="hits">1</td>
                             <td class="source">module.exports = server;</td>
                         </tr>
