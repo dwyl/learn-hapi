@@ -5,13 +5,13 @@
 */
 var Hapi = require('hapi');
 
-var server = new Hapi.Server('0.0.0.0', process.env.PORT || 3000);
+var server = new Hapi.Server('0.0.0.0', process.env.PORT || 8080);
 
 server.route({
 	method: 'GET',
 	path: '/{p*}',
 	handler: function(req, reply){
-		reply('Hai ' + req.params.p)
+		reply('Hello ' + req.params.p)
 		server.log(["test"], "This is my log entry!");
 	}
 })
