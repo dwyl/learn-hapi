@@ -434,14 +434,14 @@ Requires a bit more work...
 - Pursuit of Hapi-ness: http://blog.modulus.io/nodejs-and-hapi-create-rest-api (Hapi v.2)
 - BDD with Hapi and Lab: https://gist.github.com/thebillkidy/10a11fed1bf61d04c3c5
 
->> *Respond* to this SO Q: 
+> *Respond* to these SO Q: 
 - http://stackoverflow.com/questions/22934340/hapi-js-api-authentication
 - http://stackoverflow.com/questions/22985392/how-do-you-make-a-hapi-js-plugin-module
 - http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js
 
 
 <br /> <br /> <br />
-### Warning: Hapi is built by Walmart
+### Note: Hapi is built by Walmart
 
 ![Hapi is Made by Walmart](http://i.imgur.com/bxYADdu.png)
 
