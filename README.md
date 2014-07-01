@@ -491,6 +491,6 @@ By chosing Hapi you are opting for the jet-engine.
 Make up your own mind on whether you feel that using code written for Walmart 
 goes against your ethics. <br />
 If you find a *better* open-source Node.js stack that fits your needs,
-please [tell me](https://twitter.com/nelsonic) about it!
+*please* ***[tell me](https://twitter.com/nelsonic)*** about it!
 
 http://www.brainyquote.com/quotes/topics/topic_happiness.html
