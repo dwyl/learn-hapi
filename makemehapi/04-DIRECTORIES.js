@@ -5,7 +5,7 @@ server.route({
   path: "/foo/bar/baz/{param}",
   method: 'GET',
   handler: {
-    directory: { path: './public' }
+      view: "index.html"
   }
 });
 
