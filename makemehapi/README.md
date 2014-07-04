@@ -14,3 +14,5 @@ but you actually need
 *but* most intelligent people can figure it out.
 
 > http://en.wikipedia.org/wiki/ROT13
+
+[makemehapi complete](http://i.imgur.com/11Vx4rF.png)
