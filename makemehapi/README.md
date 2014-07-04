@@ -12,3 +12,5 @@ but you actually need
 {{query.name}}
 ```
 *but* most intelligent people can figure it out.
+
+> http://en.wikipedia.org/wiki/ROT13
