@@ -3,19 +3,24 @@
 Learn Hapi [ Work in Progress ]
 ==========
 
-Happiness is learning how to use the Hapi (Node.js) web framework to build reliable/scalable apps faster.
+Happiness is learning how to use the Hapi (Node.js) web framework to
+build reliable/scalable apps faster.
 
 ## What is Hapi?
 
-Hapi is *the* framework for rapidly building RESTful web services in Node.js. <br />
+Hapi is *the* framework for rapidly building RESTful web services
+in Node.js. <br />
 Whether you are building a very simple set of RESTful services
-for your website/mobile app to call or a large scale, cache heavy,
+for your website/mobile app or a large scale, cache heavy,
 and secure set of services, hapi has you covered.
-Hapi will help get your server developed quickly with its wide range of configurable options.
+Hapi will help get your server developed quickly with its wide range
+of configurable options.
 
 > *Watch* this video: http://youtu.be/BsyvnVOhp4U (good/recent intro to Hapi)
 
 ### What is a RESTful web service?
+
+![restful API](http://i.imgur.com/xKXnKGT.jpg)
 
 [ReST](http://en.wikipedia.org/wiki/Representational_state_transfer)
 is a structured way of building web services and applications.
@@ -73,17 +78,53 @@ during [Black Friday](http://nodeup.com/fiftysix)
 
 ## Requirements
 
-- A computer that can run [Node.js](http://nodejs.org/download/)  Mac/Windows/Linux/Chromebook
-- Access to the Internet (only required for installation)
-- 60 minutes of time.
+- [x] A computer that can run [Node.js](http://nodejs.org/download/)  Mac/Windows/Linux/Chromebook
+- [x] Access to the Internet (only required for installation)
+- [x] 60 minutes of time +/-
 
-### Hello World in Hapi
+## Beginner: Make Me Hapi
 
-Create a new folder for your Hapi project:
+First thing you should do to get acquainted with Hapi is work through the
+[makemehapi](http://nodeschool.io/#makemehapi). <br />
+(assumes some [node.js](http://nodeschool.io/#learn-you-node) prior
+knowledge but otherwise a gentle intro)
+
+Create a new folder on your local machine for your answers to **makemehapi**:
 
 ```
 mkdir makemehapi && cd makemehapi
 ```
+
+Install the workshop:
+
+```
+npm install -g makemehapi@latest
+```
+(if it fails to install try `sudo npm install -g makemehapi` <br />
+	if you prefer not to use sudo, you can run it locally by cloning the
+	[makemehapi repo](https://github.com/spumko/makemehapi) and then running
+	`node makemehapi`)
+
+Once its installed, start the tutorial with the following command:
+```
+makemehapi
+```
+
+Try to complete all challenges.
+
+![makemehapi complete](http://i.imgur.com/11Vx4rF.png)
+
+If you get *stuck*, you can either google for the specific error you are
+seeing or if you are not "getting" it, you can always look at my solutions
+in the **/makemehapi** directory or if you still don't get it, **ask me**:
+[@nelsonic](https://twitter.com/nelsonic)
+
+<hr />
+
+## Intermediate
+
+### Hello World in Hapi
+
 
 Initialise the folder as Node.js project:
 
