@@ -61,24 +61,28 @@ part is to ***try Hapi*** on a simple project to gain experience/confidence.
 
 - ***Performance*** - WalmartLabs are the guys who found/solved the
 [Node.js *CORE* Memory Leak](http://www.joyent.com/blog/walmart-node-js-memory-leak)
-they have developed Hapi follwing [Benchmark Driven Development](https://github.com/felixge/faster-than-c)
+they have developed Hapi follwing
+[Benchmark Driven Development](https://github.com/felixge/faster-than-c)
 and the result is a high-performance framework.
-- ***Security*** - they have focussed on security and battle-tested the framework
-during [Black Friday](http://nodeup.com/fiftysix)
+- ***Security*** - they have focussed on security and battle-tested the
+framework during [Black Friday](http://nodeup.com/fiftysix)
 (holiday shopping busy day) without incident.
 - **Mobile Optimised** (lightweight - built for mobile e-commerce)
-- Plugin Architecture - easy to extend / add your own modules (good ecosystem)
-- ***DevOps Friendly*** (great stats logging) see: https://github.com/spumko/good
+- Plugin Architecture - easy to extend/add your own modules (good ecosystem)
+- ***DevOps Friendly*** (great stats logging)
+see: https://github.com/spumko/good
 - Built-in ***Caching*** (Redis, MongoDB or Memcached)
 - ***100% Code Coverage*** (for the core)
-- Key Functionality is **Built-in** and good plugins add other functionality seamlessly.
+- Key Functionality is **Built-in** and good plugins add other
+functionality seamlessly.
 
 
 ## Dive In!
 
 ## Requirements
 
-- [x] A computer that can run [Node.js](http://nodejs.org/download/)  Mac/Windows/Linux/Chromebook
+- [x] A computer that can run [Node.js](http://nodejs.org/download/)  
+Mac/Windows/Linux/Chromebook
 - [x] Access to the Internet (only required for installation)
 - [x] 60 minutes of time +/-
 
@@ -122,49 +126,6 @@ in the **/makemehapi** directory or if you still don't get it, **ask me**:
 <hr />
 
 ## Intermediate
-
-### Hello World in Hapi
-
-
-Initialise the folder as Node.js project:
-
-```
-npm init
-```
-(Use all the default values you can change them later)
-
-Download and save Hapi:
-
-```
-npm install hapi --save
-```
-
-Type out (or copy-paste) this code into a file called **hellohapi.js**
-
-```
-// Start the app from your command line with: node hellohapi.js
-// then visit: http://localhost:3000/YOURNAME in your browser
-
-var Hapi = require('hapi');
-var server = new Hapi.Server('0.0.0.0', 3000);
-
-server.route({
-	method: 'GET',
-	path: '/{yourname*}',
-	handler: function(req, reply) {
-		reply('Hello ' + req.params.yourname + '!')
-	}
-});
-
-server.start(function(){ // boots your server
-	console.log('Now Visit: http://localhost:3000/YOURNAME')
-});
-```
-
-Visit: http://localhost:3000/YOURNAME (in your browser) <br />
-you should see something like:
-![hello world in hapi](http://i.imgur.com/m9qcs17.png)
-
 
 ### Validation with Joi
 
