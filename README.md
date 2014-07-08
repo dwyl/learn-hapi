@@ -127,6 +127,43 @@ in the **/makemehapi** directory or if you still don't get it, **ask me**:
 
 ## Intermediate
 
+### Recap: Hello World in Hapi
+
+Following on from the **makemehapi** workshop, lets create a new directory
+called **hapiapp**
+
+```sh
+mkdir hapiapp && cd hapiapp
+```
+
+Type out (or copy-paste) this code into a file called **index.js**
+
+```js
+var Hapi = require('hapi');
+var server = new Hapi.Server('0.0.0.0', 3000);
+
+server.route({
+	method: 'GET',
+	path: '/{yourname*}',
+	handler: function(req, reply) {
+		reply('Hello ' + req.params.yourname + '!')
+	}
+});
+
+server.start(function(){ // boots your server
+	console.log('Now Visit: http://localhost:3000/YOURNAME')
+});
+```
+Run:
+```
+node .
+```
+
+Visit: http://localhost:3000/YOURNAME (in your browser) <br />
+you should see something like:
+![hello world in hapi](http://i.imgur.com/m9qcs17.png)
+
+
 ### Validation with Joi
 
 **Validation** is a fancy way of saying "checking" a value is
@@ -260,6 +297,15 @@ We have **100% code coverage** so we can move on to our next test!
 - Lab github module: https://github.com/spumko/lab
 - Testing post: https://medium.com/the-spumko-suite/testing-hapi-services-with-lab-96ac463c490a
 - Is TDD Dead? http://www.youtube.com/watch?v=z9quxZsLcfo (hint: no!)
+
+## Continuous Integration
+
+Making sure your code is working as you expect it to (over time)
+
+### Integrating Hapi with Travis CI
+
+see: https://github.com/nelsonic/learn-travis
+(I've got it working with https://github.com/nelsonic/time)
 
 
 ### Error Handling with Boom
