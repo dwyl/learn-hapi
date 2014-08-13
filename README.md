@@ -1,6 +1,6 @@
 ![Happiness Is...](http://i.imgur.com/Df5Z18T.jpg)
 
-Learn Hapi [ Work in Progress ]
+Learn Hapi
 ==========
 
 Happiness is learning how to use the Hapi (Node.js) web framework to
@@ -395,23 +395,14 @@ recommend going with [Google Node.js API](https://github.com/google/google-api-n
 
 
 The Hapi wrapper for Passport.js is called [Travelogue](https://github.com/spumko/travelogue).
-Tomorrow we will be going over it.
 
-> Sadly the current version of Travelogue is not compatible with Hapi 5.x or 6.x
-> There's an open issue for it: https://github.com/spumko/travelogue/issues/83
-
+Sadly, the current version of Travelogue is not compatible with Hapi 5.x or 6.x <br />
 ```
 npm ERR! peerinvalid The package hapi does not satisfy its siblings' peerDependencies requirements!
 npm ERR! peerinvalid Peer travelogue@2.0.1 wants hapi@4.x.x
 npm ERR! peerinvalid Peer yar@2.2.0 wants hapi@>=2.x.x
 ```
-
-> Back to drawing board? or use the Passport module as-is...?
-
-- https://github.com/spumko/travelogue
-- https://github.com/spumko/hapi-auth-cookie
-- http://stackoverflow.com/questions/10099341/google-authentication-with-nodejs
-
+There's an open issue for it: https://github.com/spumko/travelogue/issues/83
 
 #### Spumko/Bell
 
@@ -419,9 +410,7 @@ Informed by [@hueniverse](https://github.com/hueniverse) that
 https://github.com/spumko/bell is the go-to alternative for 3rd Party Login
 in Hapi.js apps.
 
-> investigating Bell... https://github.com/spumko/bell
-
-
+- https://github.com/spumko/bell
 
 
 
@@ -452,6 +441,11 @@ http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-sock
 Requires a bit more work...
 
 
+
+## Suggest Improvements!
+
+If you want to extend this tutorial or simply request additional sections,
+open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
 
 
 
