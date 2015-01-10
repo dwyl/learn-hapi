@@ -4,7 +4,11 @@
 var Hapi = require('hapi'),
     Joi  = require('joi');
 
-var server = new Hapi.Server('0.0.0.0', 3000);
+var server = new Hapi.Server();
+server.connection({
+	host: '0.0.0.0',
+	port: 3000
+});
 
 server.route({ 
 	method: 'GET',

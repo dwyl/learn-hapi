@@ -29,6 +29,7 @@
     "socket.io": "^1.2.1"
   },
   "devDependencies": {
+    "code": "^1.2.1",
     "lab": "^5.2.0"
   }
 }
