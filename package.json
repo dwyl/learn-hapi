@@ -21,14 +21,14 @@
   },
   "homepage": "https://github.com/nelsonic/learn-hapi",
   "dependencies": {
-    "hapi": "7.1.1",
-    "joi": "^4.7.0",
-    "socket.io": "^1.2",
-    "boom": "^2.6",
-    "bell": "^1.3.0",
-    "handlebars": "^2.0.0"
+    "bell": "^2.0.0",
+    "boom": "^2.6.1",
+    "handlebars": "^2.0.0",
+    "hapi": "^8.1.0",
+    "joi": "^5.1.0",
+    "socket.io": "^1.2.1"
   },
   "devDependencies": {
-    "lab": "5.0.1"
+    "lab": "^5.2.0"
   }
 }
