@@ -1,13 +1,16 @@
 // Start this app from your command line with: node hellovalidate.js
 // then visit: http://localhost:3000/YOURNAME
 
-var Hapi = require('hapi'),
-    Joi  = require('joi'),
-    Boom = require('boom'); // Todo: add boom to the top of the file
+var Hapi = require('hapi');
+var Joi  = require('joi');
+var Boom = require('boom');
+var port = 3000; // process.env.PORT || 3000; // allow port to be set by environment
 
-var server = new Hapi.Server('0.0.0.0', 3000);
 
-server.route({ 
+var server = new Hapi.Server();
+server.connection({ port: port });
+
+server.route({
   method: 'GET',
   path: '/{yourname*}',
   config: {  // validate will ensure YOURNAME is valid before replying to your request
@@ -18,7 +21,7 @@ server.route({
   }
 });
 
-server.route({ 
+server.route({
   method: 'GET',
   path: '/photo/{id*}',
   config: {  // validate will ensure YOURNAME is valid before replying to your request

@@ -1,15 +1,16 @@
 <!doctype html>
 <html>
   <head>
-    <title>Coverage</title>
+    <title>Tests &amp; Coverage</title>
     <script>
       headings = [];
 
-      onload = function(){
+      onload = function () {
           headings = document.querySelectorAll('h2');
+          reset();
       };
 
-      onscroll = function(e){
+      onscroll = function (e) {
           var heading = find(window.scrollY);
           if (!heading) return;
           var links = document.querySelectorAll('#menu a')
@@ -21,7 +22,7 @@
           }
       };
 
-      function find(y) {
+      function find (y) {
           var i = headings.length
                   , heading;
 
@@ -31,6 +32,52 @@
                   return heading;
               }
           }
+      }
+
+      function toggle (className) {
+
+          var elements = document.getElementsByClassName(className);
+
+          for (var i = 0, il = elements.length; i < il; ++i) {
+              var element = elements[i];
+
+              if (element.classList.contains('hide')) {
+                  element.classList.remove('hide');
+                  element.classList.add('show');
+              }
+              else {
+                  element.classList.remove('show');
+                  element.classList.add('hide');
+              }
+          };
+      }
+
+      function reset () {
+
+          var shownElements = document.getElementsByClassName('show');
+          var filterElements = document.querySelectorAll('input[type=checkbox]');
+
+          for (var i = 0, il = filterElements.length; i < il; ++i) {
+              filterElements[i].checked = false;
+          }
+
+          // Check any filters with visible elements
+          for (i = 0, il = shownElements.length; i < il; ++i) {
+              var shownElement = shownElements[i];
+              var classNames = shownElement.className.split(' ');
+              for (var ci = 0, cl = classNames.length; ci < cl; ++ci){
+                  var element = document.getElementById('show-' + classNames[ci]);
+                  if (element) {
+                      element.checked = true;
+                  }
+              }
+          }
+      };
+
+      function filter (element) {
+
+          toggle(element.value);
+          reset();
       }
     </script>
     <style>
@@ -135,7 +182,7 @@
         padding: 2px 3px;
     }
 
-    .stats:nth-child(2n) {
+    #files .stats:nth-child(2n) {
         display: inline-block;
         margin-top: 15px;
         border: 1px solid #eee;
@@ -164,9 +211,44 @@
         color: #b6b6b6;
     }
 
-    .stats .hits,
-    .stats .misses {
-        display: none;
+    .stats .hits::before {
+        content: '(';
+        color: #b6b6b6;
+    }
+
+    .stats .hits::after {
+        content: ' Covered';
+        color: #b6b6b6;
+    }
+
+    .stats .misses::after {
+        content: ' Not Covered)';
+        color: #b6b6b6;
+    }
+
+    .stats .failures::after {
+        content: ' Failures';
+        color: #b6b6b6;
+    }
+
+    .stats .skipped::after {
+        content: ' Skipped';
+        color: #b6b6b6;
+    }
+
+    .stats .test-count::after {
+        content: ' Tests';
+        color: #b6b6b6;
+    }
+
+    .stats .duration::before {
+        content: '(';
+        color: #b6b6b6;
+    }
+
+    .stats .duration::after {
+        content: ' ms)';
+        color: #b6b6b6;
     }
 
     .high {
@@ -183,7 +265,7 @@
         font-weight: bold;
     }
 
-    table {
+    #files table {
         width: 80%;
         margin-top: 10px;
         border-collapse: collapse;
@@ -192,7 +274,7 @@
         border-radius: 3px;
     }
 
-    table thead {
+    #files thead {
         display: none;
     }
 
@@ -210,6 +292,16 @@
         width: 10px;
         padding: 2px 5px;
         color: rgba(0,0,0,.2);
+        background: #f0f0f0;
+    }
+
+    table td.sourcemaps {
+        width: 1%;
+        border-left: 1px solid #cbcbcb;
+        padding: 0 10px;
+    }
+
+    td.sourcemaps.file {
         background: #f0f0f0;
     }
 
@@ -244,34 +336,153 @@
     td.source div.never {
         background: #f8d5d8;
     }
+
+    #tests {
+        padding: 60px;
+    }
+
+    #tests table {
+        width: 80%;
+        margin-top: 10px;
+        border-collapse: collapse;
+        border: 1px solid #cbcbcb;
+        color: #363636;
+        border-radius: 3px;
+    }
+
+    #tests thead {
+        background: #F5F5F5;
+    }
+
+    #tests tr {
+        border: 1px solid #ccc;
+    }
+
+    #tests td {
+        padding-left: 8px;
+    }
+
+    #tests .success:nth-child(2n) {
+        background: #F5F5F5;
+    }
+
+    #tests .failure  {
+        background: #FF9E9E;
+    }
+
+    #tests table .skipped  {
+        background: #AA82FF;
+    }
+
+    #tests .success {
+        color: #949494;
+    }
+
+    #tests .failure .test-title  {
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
+    #tests .stack {
+        margin-top: 4px;
+        padding-left: 15px;
+        margin-bottom: 12px;
+        font: 12px monaco, monospace;
+        white-space: pre;
+        line-height: 15px;
+    }
+
+    .hide {
+        position: absolute;
+        left: -9999em;
+    }
+
+    .show {
+        position: relative;
+    }
+
+    #filters {
+        width: 75%;
+        margin-top: 25px;
+    }
+
+    #filters label {
+        margin-right: 10px;
+    }
     </style>
   </head>
   <body>
+  <div id="tests">
+      <h1>Test Report</h1>
+      <div class="stats high">
+          <div class="failures">0</div>
+          <div class="skipped">0</div>
+          <div class="test-count">3</div>
+          <div class="duration">28</div>
+      </div>
+      <div id="filters">
+          <input type="checkbox" checked="" onchange="filter(this)" value="success" id="show-success"><label for="show-success">Show Success</label></input>
+          <input type="checkbox" checked="" onchange="filter(this)" value="failure" id="show-failure"><label for="show-failure">Show Failure</label></input>
+          <input type="checkbox" checked="" onchange="filter(this)" value="Basic_HTTP_Tests" id="show-Basic_HTTP_Tests"><label for="show-Basic_HTTP_Tests">Basic HTTP Tests</label></input>
+          <input type="checkbox" checked="" onchange="filter(this)" value="Authentication_Required_to_View_Photo" id="show-Authentication_Required_to_View_Photo"><label for="show-Authentication_Required_to_View_Photo">Authentication Required to View Photo</label></input>
+      </div>
+      <table>
+          <thead>
+          <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Duration (ms)</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="show Basic_HTTP_Tests success">
+              <td class="test-id">1</td>
+              <td class="test-title">Basic HTTP Tests Main endpoint /{yourname*} 
+                  
+              </td>
+              <td class="test-duration">22</td>
+          </tr>
+          <tr class="show Basic_HTTP_Tests success">
+              <td class="test-id">2</td>
+              <td class="test-title">Basic HTTP Tests creating valid user
+                  
+              </td>
+              <td class="test-duration">4</td>
+          </tr>
+          <tr class="show Authentication_Required_to_View_Photo success">
+              <td class="test-id">3</td>
+              <td class="test-title">Authentication Required to View Photo Deny view of photo if unauthenticated /photo/{id*} 
+                  
+              </td>
+              <td class="test-duration">1</td>
+          </tr>
+          </tbody>
+      </table>
+  </div>
+
     <div id="coverage">
-        <h1 id="overview">Code Coverage Report</h1>
+        <h1>Code Coverage Report</h1>
         <div id="menu">
-            <li><a href="#overview">overview</a></li>
-            
+            <li><a href="#tests">Test Report</a></li>
+            <li><a href="#coverage">Coverage Report</a></li>
             <li>
                 <span class="cov high">100</span>
                 <a href="#index.js"><span class="basename">index.js</span></a>
             </li>
-            
         </div>
         <div class="stats high">
             <div class="percentage">100%</div>
-            <div class="sloc">31</div>
-            <div class="hits">31</div>
+            <div class="sloc">33</div>
+            <div class="hits">33</div>
             <div class="misses">0</div>
         </div>
         <div id="files">
-            
             <div class="file">
                 <h2 id="index.js">index.js</h2>
                 <div class="stats high">
                     <div class="percentage">100%</div>
-                    <div class="sloc">31</div>
-                    <div class="hits">31</div>
+                    <div class="sloc">33</div>
+                    <div class="hits">33</div>
                     <div class="misses">0</div>
                 </div>
                 <table>
@@ -283,307 +494,214 @@
                         </tr>
                     </thead>
                     <tbody>
-                
-                    
                         <tr class="hit">
                             <td class="line">1</td>
                             <td class="hits"></td>
                             <td class="source">// Start this app from your command line with: node hellovalidate.js</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">2</td>
                             <td class="hits"></td>
                             <td class="source">// then visit: http://localhost:3000/YOURNAME</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">3</td>
                             <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">4</td>
                             <td class="hits">1</td>
-                            <td class="source">var Hapi = require(&#x27;hapi&#x27;),</td>
+                            <td class="source">var Hapi = require(&#x27;hapi&#x27;);</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">5</td>
-                            <td class="hits"></td>
-                            <td class="source">    Joi  = require(&#x27;joi&#x27;),</td>
+                            <td class="hits">1</td>
+                            <td class="source">var Joi  = require(&#x27;joi&#x27;);</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">6</td>
-                            <td class="hits"></td>
-                            <td class="source">    Boom = require(&#x27;boom&#x27;); // Todo: add boom to the top of the file</td>
+                            <td class="hits">1</td>
+                            <td class="source">var Boom = require(&#x27;boom&#x27;);</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">7</td>
+                            <td class="hits">1</td>
+                            <td class="source">var port = 3000; // process.env.PORT || 3000; // allow port to be set by environment</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line">8</td>
                             <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">8</td>
-                            <td class="hits">1</td>
-                            <td class="source">var server = new Hapi.Server(&#x27;0.0.0.0&#x27;, 3000);</td>
-                        </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">9</td>
                             <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">10</td>
                             <td class="hits">1</td>
-                            <td class="source">server.route({ </td>
+                            <td class="source">var server = new Hapi.Server();</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">11</td>
-                            <td class="hits"></td>
-                            <td class="source">  method: &#x27;GET&#x27;,</td>
+                            <td class="hits">1</td>
+                            <td class="source">server.connection({ port: port });</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">12</td>
                             <td class="hits"></td>
-                            <td class="source">  path: &#x27;/{yourname*}&#x27;,</td>
+                            <td class="source"></td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">13</td>
-                            <td class="hits"></td>
-                            <td class="source">  config: {  // validate will ensure YOURNAME is valid before replying to your request</td>
+                            <td class="hits">1</td>
+                            <td class="source">server.route({</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">14</td>
                             <td class="hits"></td>
-                            <td class="source">    validate: { params: { yourname: Joi.string().max(40).min(2).alphanum() } },</td>
+                            <td class="source">  method: &#x27;GET&#x27;,</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">15</td>
                             <td class="hits"></td>
-                            <td class="source">    handler: function (req,reply) {</td>
+                            <td class="source">  path: &#x27;/{yourname*}&#x27;,</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">16</td>
-                            <td class="hits">1</td>
-                            <td class="source">      reply(&#x27;Hello &#x27;+ req.params.yourname + &#x27;!&#x27;);</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">17</td>
-                            <td class="hits"></td>
-                            <td class="source">    }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">18</td>
-                            <td class="hits"></td>
-                            <td class="source">  }</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">19</td>
-                            <td class="hits"></td>
-                            <td class="source">});</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">20</td>
-                            <td class="hits"></td>
-                            <td class="source"></td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">21</td>
-                            <td class="hits">1</td>
-                            <td class="source">server.route({ </td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">22</td>
-                            <td class="hits"></td>
-                            <td class="source">  method: &#x27;GET&#x27;,</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">23</td>
-                            <td class="hits"></td>
-                            <td class="source">  path: &#x27;/photo/{id*}&#x27;,</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">24</td>
                             <td class="hits"></td>
                             <td class="source">  config: {  // validate will ensure YOURNAME is valid before replying to your request</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
-                            <td class="line">25</td>
+                            <td class="line">17</td>
                             <td class="hits"></td>
-                            <td class="source">    validate: { params: { id: Joi.string().max(40).min(2).alphanum() } },</td>
+                            <td class="source">    validate: { params: { yourname: Joi.string().max(40).min(2).alphanum() } },</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
-                            <td class="line">26</td>
+                            <td class="line">18</td>
                             <td class="hits"></td>
                             <td class="source">    handler: function (req,reply) {</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
-                            <td class="line">27</td>
-                            <td class="hits"></td>
-                            <td class="source">        // until we implement authentication we are simply returning a 401:</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">28</td>
+                            <td class="line">19</td>
                             <td class="hits">1</td>
-                            <td class="source">        reply(Boom.unauthorized(&#x27;Please log-in to see that&#x27;));</td>
+                            <td class="source">      reply(&#x27;Hello &#x27;+ req.params.yourname + &#x27;!&#x27;);</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
-                            <td class="line">29</td>
+                            <td class="line">20</td>
                             <td class="hits"></td>
                             <td class="source">    }</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
-                            <td class="line">30</td>
+                            <td class="line">21</td>
                             <td class="hits"></td>
                             <td class="source">  }</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
-                            <td class="line">31</td>
+                            <td class="line">22</td>
                             <td class="hits"></td>
                             <td class="source">});</td>
                         </tr>
-                    
-                
-                    
+                        <tr class="hit">
+                            <td class="line">23</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line">24</td>
+                            <td class="hits">1</td>
+                            <td class="source">server.route({</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line">25</td>
+                            <td class="hits"></td>
+                            <td class="source">  method: &#x27;GET&#x27;,</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line">26</td>
+                            <td class="hits"></td>
+                            <td class="source">  path: &#x27;/photo/{id*}&#x27;,</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line">27</td>
+                            <td class="hits"></td>
+                            <td class="source">  config: {  // validate will ensure YOURNAME is valid before replying to your request</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line">28</td>
+                            <td class="hits"></td>
+                            <td class="source">    validate: { params: { id: Joi.string().max(40).min(2).alphanum() } },</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line">29</td>
+                            <td class="hits"></td>
+                            <td class="source">    handler: function (req,reply) {</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line">30</td>
+                            <td class="hits"></td>
+                            <td class="source">        // until we implement authentication we are simply returning a 401:</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line">31</td>
+                            <td class="hits">1</td>
+                            <td class="source">        reply(Boom.unauthorized(&#x27;Please log-in to see that&#x27;));</td>
+                        </tr>
                         <tr class="hit">
                             <td class="line">32</td>
                             <td class="hits"></td>
-                            <td class="source"></td>
+                            <td class="source">    }</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">33</td>
-                            <td class="hits">1</td>
-                            <td class="source">server.start(function() {</td>
+                            <td class="hits"></td>
+                            <td class="source">  }</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
                             <td class="line">34</td>
-                            <td class="hits">1</td>
-                            <td class="source">  console.log(&#x27;Now Visit: http://localhost:3000/YOURNAME&#x27;)</td>
-                        </tr>
-                    
-                
-                    
-                        <tr class="hit">
-                            <td class="line">35</td>
                             <td class="hits"></td>
                             <td class="source">});</td>
                         </tr>
-                    
-                
-                    
                         <tr class="hit">
-                            <td class="line">36</td>
+                            <td class="line">35</td>
                             <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
-                    
-                
-                    
+                        <tr class="hit">
+                            <td class="line">36</td>
+                            <td class="hits">1</td>
+                            <td class="source">server.start(function() {</td>
+                        </tr>
                         <tr class="hit">
                             <td class="line">37</td>
                             <td class="hits">1</td>
+                            <td class="source">  console.log(&#x27;Now Visit: http://localhost:3000/YOURNAME&#x27;)</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line">38</td>
+                            <td class="hits"></td>
+                            <td class="source">});</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line">39</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line">40</td>
+                            <td class="hits">1</td>
                             <td class="source">module.exports = server;</td>
                         </tr>
-                    
-                
+                        <tr class="hit">
+                            <td class="line">41</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-            
         </div>
     </div>
   </body>
