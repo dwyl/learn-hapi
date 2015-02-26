@@ -5,11 +5,17 @@
 */
 var Hapi = require('hapi');
 
-var server = new Hapi.Server('0.0.0.0', process.env.PORT || 3000, {
+var server = new Hapi.Server({
 	debug: {
     	request: ["received"] // logs all requests to stdout
 	}
 });
+
+server.connection({
+	host: '0.0.0.0',
+	port: 3000
+});
+
 
 server.route({
 	method: 'GET',

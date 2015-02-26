@@ -6,7 +6,6 @@ var Joi  = require('joi');
 var Boom = require('boom');
 var port = 3000; // process.env.PORT || 3000; // allow port to be set by environment
 
-
 var server = new Hapi.Server();
 server.connection({ port: port });
 

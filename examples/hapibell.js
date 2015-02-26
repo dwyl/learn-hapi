@@ -1,8 +1,11 @@
 var Hapi = require('hapi');
-var server = new Hapi.Server(3000);
+var server = new Hapi.Server();
+server.connection({
+    port: 3000
+});
 
 // Register bell with the server
-server.pack.register(require('bell'), function (err) {
+server.register(require('bell'), function (err) {
 
     // Declare an authentication strategy using the bell scheme
     // with the name of the provider, cookie encryption password,

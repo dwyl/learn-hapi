@@ -25,12 +25,14 @@
     "hapi": "^8.x.x",
     "joi": "^4.7.0",
     "socket.io": "^1.2",
-    "boom": "^2.6",
-    "bell": "^1.3.0",
+    "bell": "^2.0.0",
+    "boom": "^2.6.1",
     "handlebars": "^2.0.0"
   },
   "devDependencies": {
     "code": "^1.3.0",
-    "lab": "5.0.1"
+    "lab": "^5.2.0",
+    "handlebars": "^2.0.0",
+    "socket.io": "^1.2.1"
   }
 }
