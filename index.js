@@ -33,7 +33,7 @@ server.route({
 });
 
 server.start(function() {
-  console.log('Now Visit: http://localhost:3000/YOURNAME')
+  console.log('Now Visit: http://localhost:'+port+'/YOURNAME')
 });
 
 module.exports = server;
