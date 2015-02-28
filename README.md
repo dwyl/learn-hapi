@@ -3,12 +3,10 @@
 
 [![Build Status](https://travis-ci.org/nelsonic/learn-hapi.png?branch=master)](https://travis-ci.org/nelsonic/learn-hapi)
 [![Test Coverage](https://codeclimate.com/github/nelsonic/learn-hapi/badges/coverage.svg)](https://codeclimate.com/github/nelsonic/learn-hapi)
-<!-- [![Code Climate](https://codeclimate.com/github/nelsonic/learn-hapi.png)](https://codeclimate.com/github/nelsonic/learn-hapi) -->
 [![Dependencies](https://david-dm.org/nelsonic/learn-hapi.png?theme=shields.io)](https://david-dm.org/nelsonic/learn-hapi)
 [![devDependency Status](https://david-dm.org/nelsonic/learn-hapi/dev-status.svg)](https://david-dm.org/nelsonic/learn-hapi#info=devDependencies)
-<!--
-[![NPM version](https://badge.fury.io/js/learn-hapi.png)](https://npmjs.org/package/learn-hapi)
--->
+[![NPM Version][npm-image]][npm-url]
+<!-- [![Code Climate](https://codeclimate.com/github/nelsonic/learn-hapi.png)](https://codeclimate.com/github/nelsonic/learn-hapi) -->
 
 Learn Hapi
 ==========
@@ -545,6 +543,5 @@ goes against your ethics. <br />
 If you find a *better* open-source Node.js stack that fits your needs,
 *please* ***[tell me](https://twitter.com/nelsonic)*** about it!
 
-http://www.brainyquote.com/quotes/topics/topic_happiness.html
-
-> https://medium.com/code-adventures/farewell-node-js-4ba9e7f3e52b
+[npm-image]: https://img.shields.io/npm/v/learn-hapi.svg?style=flat
+[npm-url]: https://npmjs.org/package/learn-hapi
