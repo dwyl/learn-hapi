@@ -418,7 +418,7 @@
           <div class="failures">0</div>
           <div class="skipped">0</div>
           <div class="test-count">3</div>
-          <div class="duration">28</div>
+          <div class="duration">32</div>
       </div>
       <div id="filters">
           <input type="checkbox" checked="" onchange="filter(this)" value="success" id="show-success"><label for="show-success">Show Success</label></input>
@@ -440,21 +440,21 @@
               <td class="test-title">Basic HTTP Tests Main endpoint /{yourname*} 
                   
               </td>
-              <td class="test-duration">22</td>
+              <td class="test-duration">24</td>
           </tr>
           <tr class="show Basic_HTTP_Tests success">
               <td class="test-id">2</td>
               <td class="test-title">Basic HTTP Tests creating valid user
                   
               </td>
-              <td class="test-duration">4</td>
+              <td class="test-duration">5</td>
           </tr>
           <tr class="show Authentication_Required_to_View_Photo success">
               <td class="test-id">3</td>
               <td class="test-title">Authentication Required to View Photo Deny view of photo if unauthenticated /photo/{id*} 
                   
               </td>
-              <td class="test-duration">1</td>
+              <td class="test-duration">2</td>
           </tr>
           </tbody>
       </table>
@@ -536,166 +536,161 @@
                         </tr>
                         <tr class="hit">
                             <td class="line">9</td>
-                            <td class="hits"></td>
-                            <td class="source"></td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line">10</td>
                             <td class="hits">1</td>
                             <td class="source">var server = new Hapi.Server();</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">11</td>
+                            <td class="line">10</td>
                             <td class="hits">1</td>
                             <td class="source">server.connection({ port: port });</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">12</td>
+                            <td class="line">11</td>
                             <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">13</td>
+                            <td class="line">12</td>
                             <td class="hits">1</td>
                             <td class="source">server.route({</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line">13</td>
+                            <td class="hits"></td>
+                            <td class="source">  method: &#x27;GET&#x27;,</td>
                         </tr>
                         <tr class="hit">
                             <td class="line">14</td>
                             <td class="hits"></td>
-                            <td class="source">  method: &#x27;GET&#x27;,</td>
+                            <td class="source">  path: &#x27;/{yourname*}&#x27;,</td>
                         </tr>
                         <tr class="hit">
                             <td class="line">15</td>
                             <td class="hits"></td>
-                            <td class="source">  path: &#x27;/{yourname*}&#x27;,</td>
+                            <td class="source">  config: {  // validate will ensure YOURNAME is valid before replying to your request</td>
                         </tr>
                         <tr class="hit">
                             <td class="line">16</td>
                             <td class="hits"></td>
-                            <td class="source">  config: {  // validate will ensure YOURNAME is valid before replying to your request</td>
+                            <td class="source">    validate: { params: { yourname: Joi.string().max(40).min(2).alphanum() } },</td>
                         </tr>
                         <tr class="hit">
                             <td class="line">17</td>
                             <td class="hits"></td>
-                            <td class="source">    validate: { params: { yourname: Joi.string().max(40).min(2).alphanum() } },</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line">18</td>
-                            <td class="hits"></td>
                             <td class="source">    handler: function (req,reply) {</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">19</td>
+                            <td class="line">18</td>
                             <td class="hits">1</td>
                             <td class="source">      reply(&#x27;Hello &#x27;+ req.params.yourname + &#x27;!&#x27;);</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">20</td>
+                            <td class="line">19</td>
                             <td class="hits"></td>
                             <td class="source">    }</td>
+                        </tr>
+                        <tr class="hit">
+                            <td class="line">20</td>
+                            <td class="hits"></td>
+                            <td class="source">  }</td>
                         </tr>
                         <tr class="hit">
                             <td class="line">21</td>
                             <td class="hits"></td>
-                            <td class="source">  }</td>
+                            <td class="source">});</td>
                         </tr>
                         <tr class="hit">
                             <td class="line">22</td>
                             <td class="hits"></td>
-                            <td class="source">});</td>
-                        </tr>
-                        <tr class="hit">
-                            <td class="line">23</td>
-                            <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">24</td>
+                            <td class="line">23</td>
                             <td class="hits">1</td>
                             <td class="source">server.route({</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">25</td>
+                            <td class="line">24</td>
                             <td class="hits"></td>
                             <td class="source">  method: &#x27;GET&#x27;,</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">26</td>
+                            <td class="line">25</td>
                             <td class="hits"></td>
                             <td class="source">  path: &#x27;/photo/{id*}&#x27;,</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">27</td>
+                            <td class="line">26</td>
                             <td class="hits"></td>
                             <td class="source">  config: {  // validate will ensure YOURNAME is valid before replying to your request</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">28</td>
+                            <td class="line">27</td>
                             <td class="hits"></td>
                             <td class="source">    validate: { params: { id: Joi.string().max(40).min(2).alphanum() } },</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">29</td>
+                            <td class="line">28</td>
                             <td class="hits"></td>
                             <td class="source">    handler: function (req,reply) {</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">30</td>
+                            <td class="line">29</td>
                             <td class="hits"></td>
                             <td class="source">        // until we implement authentication we are simply returning a 401:</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">31</td>
+                            <td class="line">30</td>
                             <td class="hits">1</td>
                             <td class="source">        reply(Boom.unauthorized(&#x27;Please log-in to see that&#x27;));</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">32</td>
+                            <td class="line">31</td>
                             <td class="hits"></td>
                             <td class="source">    }</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">33</td>
+                            <td class="line">32</td>
                             <td class="hits"></td>
                             <td class="source">  }</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">34</td>
+                            <td class="line">33</td>
                             <td class="hits"></td>
                             <td class="source">});</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">35</td>
+                            <td class="line">34</td>
                             <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">36</td>
+                            <td class="line">35</td>
                             <td class="hits">1</td>
                             <td class="source">server.start(function() {</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">37</td>
+                            <td class="line">36</td>
                             <td class="hits">1</td>
-                            <td class="source">  console.log(&#x27;Now Visit: http://localhost:3000/YOURNAME&#x27;)</td>
+                            <td class="source">  console.log(&#x27;Now Visit: http://localhost:&#x27;+port+&#x27;/YOURNAME&#x27;)</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">38</td>
+                            <td class="line">37</td>
                             <td class="hits"></td>
                             <td class="source">});</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">39</td>
+                            <td class="line">38</td>
                             <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">40</td>
+                            <td class="line">39</td>
                             <td class="hits">1</td>
                             <td class="source">module.exports = server;</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">41</td>
+                            <td class="line">40</td>
                             <td class="hits"></td>
                             <td class="source"></td>
                         </tr>

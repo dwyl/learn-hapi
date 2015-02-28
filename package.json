@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/lab/bin/lab -c && ./node_modules/lab/bin/lab -r html -o ./test/coverage.html",
-    "start": "node index.js"
+    "start": "node index.js",
+    "coverage": "./node_modules/lab/bin/lab -r lcov -o ./test/lcov.info && CODECLIMATE_REPO_TOKEN=c1fd44b286100ffb10e243fd0a8efb7421adbfa77bb0198c8fce92e0baeb55bf ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./test/lcov.info"
+
   },
   "repository": {
     "type": "git",
@@ -22,17 +24,17 @@
   },
   "homepage": "https://github.com/nelsonic/learn-hapi",
   "dependencies": {
-    "hapi": "^8.x.x",
-    "joi": "^4.7.0",
+    "hapi": "^8.2.x",
+    "joi": "^6.0.0",
     "socket.io": "^1.2",
     "bell": "^2.0.0",
     "boom": "^2.6.1",
-    "handlebars": "^2.0.0"
+    "handlebars": "^3.0.0"
   },
   "devDependencies": {
     "code": "^1.3.0",
+    "codeclimate-test-reporter": "0.0.4",
     "lab": "^5.2.0",
-    "handlebars": "^2.0.0",
     "socket.io": "^1.2.1"
   }
 }
