@@ -1,0 +1,1 @@
+console.log('hello (should print in the console)');
