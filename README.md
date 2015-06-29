@@ -1,12 +1,12 @@
 ![Happiness Is...](http://i.imgur.com/Df5Z18T.jpg)
 
-
 [![Build Status](https://travis-ci.org/nelsonic/learn-hapi.png?branch=master)](https://travis-ci.org/nelsonic/learn-hapi)
 [![Test Coverage](https://codeclimate.com/github/nelsonic/learn-hapi/badges/coverage.svg)](https://codeclimate.com/github/nelsonic/learn-hapi)
+[![Code Climate](https://codeclimate.com/github/nelsonic/learn-hapi.png)](https://codeclimate.com/github/nelsonic/learn-hapi)
 [![Dependencies](https://david-dm.org/nelsonic/learn-hapi.png?theme=shields.io)](https://david-dm.org/nelsonic/learn-hapi)
 [![devDependency Status](https://david-dm.org/nelsonic/learn-hapi/dev-status.svg)](https://david-dm.org/nelsonic/learn-hapi#info=devDependencies)
 [![NPM Version][npm-image]][npm-url]
-<!-- [![Code Climate](https://codeclimate.com/github/nelsonic/learn-hapi.png)](https://codeclimate.com/github/nelsonic/learn-hapi) -->
+
 
 Learn Hapi
 ==========
@@ -114,7 +114,7 @@ npm install -g makemehapi@latest
 ```
 (if it fails to install try `sudo npm install -g makemehapi` <br />
 	if you prefer not to use sudo, you can run it locally by cloning the
-	[makemehapi repo](https://github.com/spumko/makemehapi) and then running
+	[makemehapi repo](https://github.com/hapijs/makemehapi) and then running
 	`node makemehapi`)
 
 Once its installed, start the tutorial with the following command:
