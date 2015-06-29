@@ -12,15 +12,15 @@ Learn Hapi
 ==========
 
 Happiness is learning how to use the Hapi (Node.js) web framework to
-build reliable/scalable apps faster.
+_**build reliable/scalable apps faster**_.
 
 ## What is Hapi?
 
-Hapi is *the* framework for rapidly building RESTful web services
+Hapi is *the* framework for rapidly building RESTful & Real-Time web services
 in Node.js. <br />
-Whether you are building a very simple set of RESTful services
+Whether you are building a very simple API
 for your website/mobile app or a large scale, cache heavy,
-and secure set of services, hapi has you covered.
+secure e-commerce website, hapi has you covered.
 Hapi will help get your server developed quickly with its wide range
 of configurable options.
 
@@ -483,6 +483,8 @@ open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
 - More examples: https://github.com/wpreul/hapikc (*old* version of Hapi!)
 - Pursuit of Hapi-ness: http://blog.modulus.io/nodejs-and-hapi-create-rest-api (Hapi v.2)
 - BDD with Hapi and Lab: https://gist.github.com/thebillkidy/10a11fed1bf61d04c3c5
++ If you like React.js checkout Mullet.js (Hapi.js + React.js):
+http://mullet.io/ + https://github.com/lynnaloo/mullet
 
 > *Respond* to these SO Q:
 - http://stackoverflow.com/questions/22934340/hapi-js-api-authentication
@@ -491,11 +493,11 @@ open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
 
 
 <br /> <br /> <br />
-### Note: Hapi is built by Walmart
+### Note: Hapi was built by Walmart
 
 ![Hapi is Made by Walmart](http://i.imgur.com/bxYADdu.png)
 
-Hapi is built by [@WalmartLabs](http://en.wikipedia.org/wiki/@WalmartLabs)
+Hapi was (_originally_) built by (_the fantastic team of people assembled by [@hueniverse](https://github.com/hueniverse)_) [@WalmartLabs](http://en.wikipedia.org/wiki/@WalmartLabs)
 for Walmart.
 
 [Walmart](http://en.wikipedia.org/wiki/Walmart) is *by far* the most successful
@@ -511,9 +513,11 @@ I took the time to read *extensively* about Walmart as part of my
 Retail course at University
 see: [History of Walmart](http://en.wikipedia.org/wiki/History_of_Walmart)
 and [In Sam We Trust](http://www.bizsum.com/summaries/sam-we-trust).
-The fact is that Sam Walton acheived *much* of his success through
+The fact is that
+[Sam Walton](https://en.wikipedia.org/wiki/Sam_Walton)
+achieved *much* of his success through
 investing in *technology*
-(Barcodes, EPOS, Satelite Uplink for Logistics Tracking, etc)
+(Barcodes, EPOS, Satellite Uplink for faster IT Systems and Logistics Tracking, etc)
 to drive cost savings and passed those savings on to the
 customers where other retailers got left behind with their paper-based
 "*it still works, why change?*" approach.
@@ -541,7 +545,7 @@ By chosing Hapi you are opting for the jet-engine.
 Make up your own mind on whether you feel that using code written for Walmart
 goes against your ethics. <br />
 If you find a *better* open-source Node.js stack that fits your needs,
-*please* ***[tell me](https://twitter.com/nelsonic)*** about it!
+*please* ***[tell us](https://twitter.com/nelsonic)*** about it!
 
 [npm-image]: https://img.shields.io/npm/v/learn-hapi.svg?style=flat
 [npm-url]: https://npmjs.org/package/learn-hapi
