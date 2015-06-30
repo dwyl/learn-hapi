@@ -91,10 +91,7 @@ Install the workshop:
 ```
 npm install -g makemehapi@latest
 ```
-(if it fails to install try `sudo npm install -g makemehapi` <br />
-	if you prefer not to use sudo, you can run it locally by cloning the
-	[makemehapi repo](https://github.com/hapijs/makemehapi) and then running
-	`node makemehapi`)
+( if it fails to install see: http://stackoverflow.com/questions/16151018/npm-throws-error-without-sudo )
 
 Once its installed, start the tutorial with the following command:
 ```
