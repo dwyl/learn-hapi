@@ -30,7 +30,7 @@ of configurable options.
 please read:
 https://github.com/docdis/learn-api-design
 
-## Why Hapi instead of XYZ framework?
+## _Why_ Hapi instead of XYZ framework?
 
 **Q**: I already know how to build REST APIs in `{framework-xyz}` why learn a *new* framework?  <br />
 **A**: If you are *happy* with your existing system & level of team productivity,
@@ -61,11 +61,11 @@ framework during [Black Friday](http://nodeup.com/fiftysix)
 see: https://github.com/spumko/good
 - Built-in ***Caching*** (Redis, MongoDB or Memcached)
 - ***100% Code Coverage*** (for the core)
-- Key Functionality is **Built-in** and good plugins add other
+- **Key Functionality** is **Built-in** and good plugins add other
 functionality seamlessly.
 
 
-## Dive In!
+## _Dive In_!
 
 ## Requirements
 
@@ -73,12 +73,12 @@ functionality seamlessly.
 - [x] Access to the Internet (only required for installation)
 - [x] 60 minutes of time +/-
 
-## Beginner: Make Me Hapi ("Official" _Beginner Workshop_)
+## Make Me Hapi ("_Official_" _Beginner Workshop_)
 
-First thing you should do to get acquainted with Hapi is work through the
-[makemehapi](http://nodeschool.io/#makemehapi). <br />
-(assumes some [node.js](http://nodeschool.io/#learn-you-node) prior
-knowledge but otherwise a gentle intro)
+First thing you should do to get familiar with Hapi is work through the
+[makemehapi](http://nodeschool.io/#makemehapi) workshop. <br />
+(_assumes some [node.js](http://nodeschool.io/#learn-you-node) prior
+knowledge but otherwise a gentle self-paced introduction_)
 
 Create a new folder on your local machine for your answers to **makemehapi**:
 
