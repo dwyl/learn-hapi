@@ -24,39 +24,19 @@ secure e-commerce website, hapi has you covered.
 Hapi will help get your server developed quickly with its wide range
 of configurable options.
 
-> *Watch* this video: http://youtu.be/BsyvnVOhp4U (good/recent intro to Hapi)
+> *Watch* this intro/background to Hapi: https://youtu.be/BsyvnVOhp4U?t=3m50s
 
-### What is a RESTful web service?
-
-![restful API](http://i.imgur.com/xKXnKGT.jpg)
-
-[ReST](http://en.wikipedia.org/wiki/Representational_state_transfer)
-is a structured way of building web services and applications.
-When something is described as "RESTful" it simply means it follows a
-predefined predictable pattern for how it responds to requests.
-
-#### Video Explanation of REST
-
-- Intro to REST: http://youtu.be/llpr5924N7E
-- Google Developers Intro to REST: https://www.youtube.com/watch?v=YCcAE2SCQ6k
-
-#### Read more about REST APIs / RESTful Web Services
-
-- REST Wikipedia: http://en.wikipedia.org/wiki/REST (*Skim* and make sure you understand the concepts)
-- Beginners Guide: http://www.restapitutorial.com/
-- Basic Q&A for REST: http://katgleason.tumblr.com/post/37836552900/how-i-explained-rest-to-my-wife
-- What are RESTful web services: http://stackoverflow.com/a/3636470/1148249
-- What is "CRUD"? http://en.wikipedia.org/wiki/Create,_read,_update_and_delete
-
+*Most* people/teams that have _tried_ Hapi have _embraced_ Hapi to build *complete* web applications. But if you are only building a REST API (_e.g. for a mobile app_)
+please read:
+https://github.com/docdis/learn-api-design
 
 ## Why Hapi instead of XYZ framework?
 
-**Q**: I already know how to build REST APIs in [Express](http://expressjs.com/)
-and [Restify](http://mcavage.me/node-restify/) why learn a *new* framework?  <br />
+**Q**: I already know how to build REST APIs in `{framework-xyz}` why learn a *new* framework?  <br />
 **A**: If you are *happy* with your existing system & level of team productivity,
 stick with what you know. If not, learn [how to be] Hapi.
-(I have built Sites/APIs with both Express and Restify and find Hapi has solved more
-"real world" problems and thus I end up writing less code. YMMV. See benefits below)
+(We have built Sites/APIs with both Express and Restify and find Hapi has solved more
+"real world" problems and thus we end up writing less code. YMMV. See benefits below)
 
 **Q**: Hapi looks like quite a steep learning curve,
 how long will it take me to learn? <br />
@@ -89,12 +69,11 @@ functionality seamlessly.
 
 ## Requirements
 
-- [x] A computer that can run [Node.js](http://nodejs.org/download/)  
-Mac/Windows/Linux/Chromebook
+- [x] A **computer** that can run [**Node.js**](http://nodejs.org/download/)  Mac/Windows/Linux/Chromebook
 - [x] Access to the Internet (only required for installation)
 - [x] 60 minutes of time +/-
 
-## Beginner: Make Me Hapi
+## Beginner: Make Me Hapi ("Official" _Beginner Workshop_)
 
 First thing you should do to get acquainted with Hapi is work through the
 [makemehapi](http://nodeschool.io/#makemehapi). <br />
@@ -122,14 +101,16 @@ Once its installed, start the tutorial with the following command:
 makemehapi
 ```
 
-Try to complete all challenges.
+_Try_ to complete all challenges.
 
 ![makemehapi complete](http://i.imgur.com/11Vx4rF.png)
 
-If you get *stuck*, you can either google for the specific error you are
-seeing or if you are not "getting" it, you can always look at my solutions
-in the **/makemehapi** directory or if you still don't get it, **ask me**:
-[@nelsonic](https://twitter.com/nelsonic)
+If you get *stuck*, you can either _google_ for the specific error you are
+seeing or if you are not "getting" it, you can always look at ~~my~~ _the_ solutions
+in the **/makemehapi/exercies/{exercise-name}/solution** directory  
+e.g: https://github.com/hapijs/makemehapi/tree/master/exercises/hello_hapi/solution  
+or if you still don't get it, _**ask us**_:
+https://github.com/nelsonic/learn-hapi/issues
 
 <hr />
 
@@ -225,7 +206,7 @@ in our Client/App and we can display a more user-friendly error to people.
 [Joi](https://github.com/spumko/joi) has many more useful validation methods.
 We will use a few of them later on when we build our example app.
 
-- https://github.com/spumko/joi#example
++ Detailed example: https://github.com/hapijs/joi#example
 - http://vawks.com/blog/2014/03/22/the-joi-of-validation/
 - https://medium.com/@_expr/creating-validation-schemas-with-joi-eb4ff19f6688
 
