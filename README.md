@@ -24,7 +24,9 @@ secure e-commerce website, hapi has you covered.
 Hapi will help get your server developed quickly with its wide range
 of configurable options.
 
-> *Watch* this intro/background to Hapi: https://youtu.be/BsyvnVOhp4U?t=3m50s
+> *Watch* this intro/background to Hapi video:
+
+[![What is Hapi?](http://i.imgur.com/sZRoxdD.png)](https://youtu.be/BsyvnVOhp4U?t=3m50s "What is Hapi.js - Click to Watch!)
 
 *Most* people/teams that have _tried_ Hapi have _embraced_ Hapi to build *complete* web applications. But if you are only building a REST API (_e.g. for a mobile app_)
 please read:
