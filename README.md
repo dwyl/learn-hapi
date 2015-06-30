@@ -11,7 +11,7 @@
 Learn Hapi
 ==========
 
-Happiness is learning how to use the Hapi (Node.js) web framework to
+Happiness is learning how to use the [**Hapi.js**](http://hapijs.com/) (Node.js) web framework to
 _**build reliable/scalable apps faster**_.
 
 ## What is Hapi?
@@ -115,8 +115,8 @@ https://github.com/nelsonic/learn-hapi/issues
 
 ### Recap: Hello World in Hapi
 
-Following on from the **makemehapi** workshop, lets create a new directory
-called **hapiapp**
+Once you have completed the **makemehapi** workshop, on your computer, create a new directory
+called "**hapiapp**"
 
 ```sh
 mkdir hapiapp && cd hapiapp
@@ -153,19 +153,22 @@ you should see something like:
 ### Validation with Joi
 
 **Validation** is a fancy way of saying "checking" a value is
-the **type** you expect it to be.
+the **type** / **format** and **length** you expect it to be.
 
 e.g. imagine you ask people to input their phone number
 and some joker enters letters instead of numbers. The validation
 will display a message to the person informing the data is incorrect.
 
-[Joi](https://github.com/spumko/joi) is the validation library built by
-the same team as Hapi (for use with Hapi)
+[**Joi**](https://github.com/hapijs/joi) is the validation library built by
+the same team as Hapi.
+Most people use Joi with Hapi, but given that it is a separate
+module, plenty of people no use Joi independently;
+its well worth checking it out!
 
 A simple example:
 Type out (or copy-paste) this code into a file called **hellovalidate.js**
 
-```
+```js
 // Start this app from your command line with: node hellovalidate.js
 // then visit: http://localhost:3000/YOURNAME
 
@@ -196,7 +199,7 @@ You should see a **Validation Error**:
 
 ![Hapi Joi validation error](http://i.imgur.com/Dyhel2V.png)
 
-This might not look like a "Friendly" Error message.
+This might not _look_ like a "Friendly" Error message.
 But as we will see later, it provides all the information we need
 in our Client/App and we can display a more user-friendly error to people.
 
@@ -209,47 +212,44 @@ We will use a few of them later on when we build our example app.
 
 ### Testing with Lab
 
-If you're new to Software Testing read: http://en.wikipedia.org/wiki/Software_testing <br />
-And watch
+If you're new to Testing Driven Development (**TDD**) read: https://github.com/nelsonic/learn-tdd (_first_)  
+and then come back to this tutorial!
 
-- Video intro to Software Development Lifecycle: http://youtu.be/qMkV_TDdDeA
-- "What is Software Testing" video: http://youtu.be/UZy1Dj9JIg4
-- "**How to Write Clean, Testable Code**": http://youtu.be/XcT4yYu_TTs (ignore the Java code focus on the general principals )
-
-If you've done functional or unit testing in previous software projects you
-will be at home with Lab.
+If you've done functional or unit testing in previous
+programming projects you will be at home with Lab.
 
 Lab borrows *heavily* from [Mocha](http://visionmedia.github.io/mocha), so if you followed my
-[learn-mocha](https://github.com/nelsonic/learn-mocha) tutorial this should all be familiar.
+[learn-mocha](https://github.com/docdis/learn-mocha) tutorial this should all be familiar.
 
 (Using the code we wrote above in the **Validation with Joi** section with a minor addition)
 A simple example of testing with Lab:
 
-```
-var Lab = require("lab"),    // the Lab
-    server = require("../"); // require index.js
+```js
+var Lab = require("lab");            // load Lab module
+var server = require("../index.js"); // our index.js from above
+
 Lab.experiment("Basic HTTP Tests", function() {
-    // tests
-    Lab.test("Main endpoint /{yourname*} ", function(done) {
-	    var options = {
-	        method: "GET",
-	        url: "/Timmy"
-	    };
-	 	// server.inject lets you similate an http request
-	    server.inject(options, function(response) {
-	        Lab.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
-	        Lab.expect(response.result).to.have.length(12); // Expect result to be "Hello Timmy!" (12 chars long)
-	        done();                                         // done() callback is required to end the test.
-	    });
+	// tests
+	Lab.test("GET /{yourname*} (endpoit test)", function(done) {
+		var options = {
+			method: "GET",
+			url: "/Timmy"
+		};
+		// server.inject lets you similate an http request
+		server.inject(options, function(response) {
+			Lab.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
+			Lab.expect(response.result).to.have.length(12); // Expect result to be "Hello Timmy!" (12 chars long)
+			done();                                         // done() callback is required to end the test.
+		});
 	});
 });
 ```
 First we create a *test suite* for our test **Lab.experiment**
-(the first argument is the name of of the test suite "Basic HTTP Tests")
+(the _first argument_ is the name of of the test suite "Basic HTTP Tests")
 
 Next is a basic test that calls the only route we have `/{yourname}`
-in this case**GET /Timmy**.
-We expect to receive a **200** http status code and the result to be
+in this case **GET /Timmy**.  
+We expect to receive a **200** http status code and the response body to be
 the text "Hello Timmy!".
 
 1. Create a **new directory** in your project called **test**
@@ -307,7 +307,7 @@ First **install boom**:
 Next write a test in ./test/**test.js**
 (If you aren't used to "Test First" - ***trust*** the process...)
 
-```
+```js
 Lab.experiment("Authentication Required to View Photo", function() {
     // tests
     Lab.test("Deny view of photo if unauthenticated /photo/{id*} ", function(done) {
@@ -335,7 +335,7 @@ The right way is to create a generic route which responds to any request for a p
 And since we don't currently have any authentication set up, we ***mock*** (fake) it.
 (Don't worry we will get to the authentication in the next step...)
 
-```
+```js
 var Boom = require('boom');
 server.route({
   method: 'GET',
@@ -380,43 +380,15 @@ recommend going with [Google Node.js API](https://github.com/google/google-api-n
 4. Bell - a 3rd party Login Hapi.js Plugin
 
 
-The Hapi wrapper for Passport.js is called [Travelogue](https://github.com/spumko/travelogue).
-
-Sadly, the current version of Travelogue is not compatible with Hapi 5.x or 6.x <br />
-```
-npm ERR! peerinvalid The package hapi does not satisfy its siblings' peerDependencies requirements!
-npm ERR! peerinvalid Peer travelogue@2.0.1 wants hapi@4.x.x
-npm ERR! peerinvalid Peer yar@2.2.0 wants hapi@>=2.x.x
-```
-There's an open issue for it: https://github.com/spumko/travelogue/issues/83
-
-#### Spumko/Bell
+#### Bell
 
 Informed by [@hueniverse](https://github.com/hueniverse) that
-https://github.com/spumko/bell is the go-to alternative for 3rd Party Login
+https://github.com/hapijs/bell is the go-to alternative for 3rd Party Login
 in Hapi.js apps.
-
-- https://github.com/spumko/bell
-
-
-
-
-#### Note to the Auth Innovators
-
-If you think you've got a *genuine* improvement over existing
-auth solutions email+password, [OAuth2](http://tools.ietf.org/html/rfc6749)
-or newly proposed systems
-such as [Persona](https://login.persona.org/about)
-or [SQRL](https://www.grc.com/sqrl/sqrl.htm)
-I'd *love* to hear about them or see your code on GitHub.
-The rest of us will be using a 3rd Party solution.
-
-
-
 
 ### Caching with Catbox
 
-https://github.com/spumko/catbox/
+See: https://github.com/hapijs/catbox/
 
 
 
@@ -428,7 +400,7 @@ Requires a bit more work...
 
 
 
-## Suggest Improvements!
+## Suggest Improvements! [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/nelsonic/learn-hapi/issues)
 
 If you want to extend this tutorial or simply request additional sections,
 open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
