@@ -2,10 +2,11 @@
 
 [![Build Status](https://travis-ci.org/nelsonic/learn-hapi.png?branch=master)](https://travis-ci.org/nelsonic/learn-hapi)
 [![Test Coverage](https://codeclimate.com/github/nelsonic/learn-hapi/badges/coverage.svg)](https://codeclimate.com/github/nelsonic/learn-hapi)
-[![Code Climate](https://codeclimate.com/github/nelsonic/learn-hapi.png)](https://codeclimate.com/github/nelsonic/learn-hapi)
+<!-- [![Code Climate](https://codeclimate.com/github/nelsonic/learn-hapi.png)](https://codeclimate.com/github/nelsonic/learn-hapi) -->
 [![Dependencies](https://david-dm.org/nelsonic/learn-hapi.png?theme=shields.io)](https://david-dm.org/nelsonic/learn-hapi)
 [![devDependency Status](https://david-dm.org/nelsonic/learn-hapi/dev-status.svg)](https://david-dm.org/nelsonic/learn-hapi#info=devDependencies)
 [![NPM Version][npm-image]][npm-url]
+[![bitHound Score](https://www.bithound.io/github/nelsonic/learn-hapi/badges/score.svg)](https://www.bithound.io/github/nelsonic/learn-hapi)
 
 
 Learn Hapi
@@ -66,6 +67,10 @@ see: https://github.com/spumko/good
 - **Key Functionality** is **Built-in** and good plugins add other
 functionality seamlessly.
 
+## Who (_is using Hapi_) ?
+
+The list of teams using Hapi.js to build their node.js apps grows every day!
+See: http://hapijs.com/community
 
 ## _Dive In_!
 
