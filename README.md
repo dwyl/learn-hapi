@@ -292,9 +292,15 @@ Making sure your code is working as you expect it to (over time)
 
 ### Integrating Hapi with Travis CI
 
-see: https://github.com/nelsonic/learn-travis
-(I've got it working with https://github.com/nelsonic/time)
+If you are new to Travis-CI or need a refresher see:  https://github.com/dwyl/learn-travis  
+We have Travis-CI enabled for all our hapi.js based projects:
++ https://github.com/dwyl/hapi-socketio-redis-chat-example
++ https://github.com/dwyl/hapi-auth-jwt2
++ https://github.com/dwyl/time
++ https://github.com/dwyl/api
 
+So if you need an example to follow, check out our repos!  
+And as always, if you have _any questions, **ask**_!
 
 ### Error Handling with Boom
 
@@ -384,21 +390,28 @@ recommend going with [Google Node.js API](https://github.com/google/google-api-n
 
 #### Bell
 
-Informed by [@hueniverse](https://github.com/hueniverse) that
-https://github.com/hapijs/bell is the go-to alternative for 3rd Party Login
-in Hapi.js apps.
+The go-to solution for 3rd party authentication in hapi is bell: https://github.com/hapijs/bell
+There are a few good examples in the repo: https://github.com/hapijs/bell/tree/master/examples
 
 ### Caching with Catbox
 
-See: https://github.com/hapijs/catbox/
+Most apps don't _need_ caching from "Day 1"
+(_because you don't **know** up-front where your app's bottlenecks are going to be..._)
+
+But, once again, the team that brought you Hapi.js have _solved_ the problem of caching,
+see: https://github.com/hapijs/catbox/ and http://hapijs.com/tutorials/caching
+> We use Redis for blazing fast application and data caching.
+Hapi.js Catbox makes this very easy!
 
 
 
-### Using Socket.io with Hapi
+### Using Socket.io with Hapi for Real-Time Apps
 
-https://github.com/spumko/hapi/blob/master/examples/socketio.js
-http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js
-Requires a bit more work...
+Using Socket.io with Hapi.js could _not_ be easier!
+To help you get started we've built a fully-functional chat application with tests
+which demonstrates the power of Real-Time data-synching in your apps
+
+> https://github.com/dwyl/hapi-socketio-redis-chat-example
 
 
 
