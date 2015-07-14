@@ -10,12 +10,12 @@ var server = new Hapi.Server();
 server.connection({ port: port });
 
 server.route({
-  method: 'GET',
-  path: '/{yourname*}',
+  method: '*',
+  path: '/{name*}',
   config: {  // validate will ensure YOURNAME is valid before replying to your request
-    validate: { params: { yourname: Joi.string().max(40).min(2).alphanum() } },
+    validate: { params: { name: Joi.string().max(40).min(2).alphanum() } },
     handler: function (req,reply) {
-      reply('Hello '+ req.params.yourname + '!');
+      reply('Hello '+ req.params.name + '!');
     }
   }
 });
@@ -33,7 +33,7 @@ server.route({
 });
 
 server.start(function() {
-  console.log('Now Visit: http://localhost:'+port+'/YOURNAME')
+  console.log('Now Visit: http://localhost:' + port + '/YOURNAME');
 });
 
 module.exports = server;

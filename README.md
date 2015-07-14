@@ -1,62 +1,44 @@
 ![Happiness Is...](http://i.imgur.com/Df5Z18T.jpg)
 
-
 [![Build Status](https://travis-ci.org/nelsonic/learn-hapi.png?branch=master)](https://travis-ci.org/nelsonic/learn-hapi)
 [![Test Coverage](https://codeclimate.com/github/nelsonic/learn-hapi/badges/coverage.svg)](https://codeclimate.com/github/nelsonic/learn-hapi)
+[![Code Climate](https://codeclimate.com/github/nelsonic/learn-hapi.png)](https://codeclimate.com/github/nelsonic/learn-hapi)
 [![Dependencies](https://david-dm.org/nelsonic/learn-hapi.png?theme=shields.io)](https://david-dm.org/nelsonic/learn-hapi)
 [![devDependency Status](https://david-dm.org/nelsonic/learn-hapi/dev-status.svg)](https://david-dm.org/nelsonic/learn-hapi#info=devDependencies)
 [![NPM Version][npm-image]][npm-url]
-<!-- [![Code Climate](https://codeclimate.com/github/nelsonic/learn-hapi.png)](https://codeclimate.com/github/nelsonic/learn-hapi) -->
+
 
 Learn Hapi
 ==========
 
-Happiness is learning how to use the Hapi (Node.js) web framework to
-build reliable/scalable apps faster.
+Happiness is learning how to use the [**Hapi.js**](http://hapijs.com/) (Node.js) web framework to
+_**build reliable/scalable apps faster**_.
 
 ## What is Hapi?
 
-Hapi is *the* framework for rapidly building RESTful web services
+Hapi is *the* framework for rapidly building RESTful & Real-Time web services
 in Node.js. <br />
-Whether you are building a very simple set of RESTful services
+Whether you are building a very simple API
 for your website/mobile app or a large scale, cache heavy,
-and secure set of services, hapi has you covered.
+secure e-commerce website, hapi has you covered.
 Hapi will help get your server developed quickly with its wide range
 of configurable options.
 
-> *Watch* this video: http://youtu.be/BsyvnVOhp4U (good/recent intro to Hapi)
+> *Watch* this intro/background to Hapi video:
 
-### What is a RESTful web service?
+[![What is Hapi?](http://i.imgur.com/sZRoxdD.png)](https://youtu.be/BsyvnVOhp4U?t=3m50s "What is Hapi.js - Click to Watch!)
 
-![restful API](http://i.imgur.com/xKXnKGT.jpg)
+*Most* people/teams that have _tried_ Hapi have _embraced_ Hapi to build *complete* web applications. But if you are only building a REST API (_e.g. for a mobile app_)
+please read:
+https://github.com/docdis/learn-api-design
 
-[ReST](http://en.wikipedia.org/wiki/Representational_state_transfer)
-is a structured way of building web services and applications.
-When something is described as "RESTful" it simply means it follows a
-predefined predictable pattern for how it responds to requests.
+## _Why_ Hapi instead of XYZ framework?
 
-#### Video Explanation of REST
-
-- Intro to REST: http://youtu.be/llpr5924N7E
-- Google Developers Intro to REST: https://www.youtube.com/watch?v=YCcAE2SCQ6k
-
-#### Read more about REST APIs / RESTful Web Services
-
-- REST Wikipedia: http://en.wikipedia.org/wiki/REST (*Skim* and make sure you understand the concepts)
-- Beginners Guide: http://www.restapitutorial.com/
-- Basic Q&A for REST: http://katgleason.tumblr.com/post/37836552900/how-i-explained-rest-to-my-wife
-- What are RESTful web services: http://stackoverflow.com/a/3636470/1148249
-- What is "CRUD"? http://en.wikipedia.org/wiki/Create,_read,_update_and_delete
-
-
-## Why Hapi instead of XYZ framework?
-
-**Q**: I already know how to build REST APIs in [Express](http://expressjs.com/)
-and [Restify](http://mcavage.me/node-restify/) why learn a *new* framework?  <br />
+**Q**: I already know how to build REST APIs in `{framework-xyz}` why learn a *new* framework?  <br />
 **A**: If you are *happy* with your existing system & level of team productivity,
 stick with what you know. If not, learn [how to be] Hapi.
-(I have built Sites/APIs with both Express and Restify and find Hapi has solved more
-"real world" problems and thus I end up writing less code. YMMV. See benefits below)
+(We have built Sites/APIs with both Express and Restify and find Hapi has solved more
+"real world" problems and thus we end up writing less code. YMMV. See benefits below)
 
 **Q**: Hapi looks like quite a steep learning curve,
 how long will it take me to learn? <br />
@@ -81,25 +63,24 @@ framework during [Black Friday](http://nodeup.com/fiftysix)
 see: https://github.com/spumko/good
 - Built-in ***Caching*** (Redis, MongoDB or Memcached)
 - ***100% Code Coverage*** (for the core)
-- Key Functionality is **Built-in** and good plugins add other
+- **Key Functionality** is **Built-in** and good plugins add other
 functionality seamlessly.
 
 
-## Dive In!
+## _Dive In_!
 
 ## Requirements
 
-- [x] A computer that can run [Node.js](http://nodejs.org/download/)  
-Mac/Windows/Linux/Chromebook
+- [x] A **computer** that can run [**Node.js**](http://nodejs.org/download/)  Mac/Windows/Linux/Chromebook
 - [x] Access to the Internet (only required for installation)
 - [x] 60 minutes of time +/-
 
-## Beginner: Make Me Hapi
+## Make Me Hapi ("_Official_" _Beginner Workshop_)
 
-First thing you should do to get acquainted with Hapi is work through the
-[makemehapi](http://nodeschool.io/#makemehapi). <br />
-(assumes some [node.js](http://nodeschool.io/#learn-you-node) prior
-knowledge but otherwise a gentle intro)
+First thing you should do to get familiar with Hapi is work through the
+[makemehapi](http://nodeschool.io/#makemehapi) workshop. <br />
+(_assumes some [node.js](http://nodeschool.io/#learn-you-node) prior
+knowledge but otherwise a gentle self-paced introduction_)
 
 Create a new folder on your local machine for your answers to **makemehapi**:
 
@@ -112,24 +93,23 @@ Install the workshop:
 ```
 npm install -g makemehapi@latest
 ```
-(if it fails to install try `sudo npm install -g makemehapi` <br />
-	if you prefer not to use sudo, you can run it locally by cloning the
-	[makemehapi repo](https://github.com/spumko/makemehapi) and then running
-	`node makemehapi`)
+( if it fails to install see: http://stackoverflow.com/questions/16151018/npm-throws-error-without-sudo )
 
 Once its installed, start the tutorial with the following command:
 ```
 makemehapi
 ```
 
-Try to complete all challenges.
+_Try_ to complete all challenges.
 
 ![makemehapi complete](http://i.imgur.com/11Vx4rF.png)
 
-If you get *stuck*, you can either google for the specific error you are
-seeing or if you are not "getting" it, you can always look at my solutions
-in the **/makemehapi** directory or if you still don't get it, **ask me**:
-[@nelsonic](https://twitter.com/nelsonic)
+If you get *stuck*, you can either _google_ for the specific error you are
+seeing or if you are not "getting" it, you can always look at ~~my~~ _the_ solutions
+in the **/makemehapi/exercies/{exercise-name}/solution** directory  
+e.g: https://github.com/hapijs/makemehapi/tree/master/exercises/hello_hapi/solution  
+or if you still don't get it, _**ask us**_:
+https://github.com/nelsonic/learn-hapi/issues
 
 <hr />
 
@@ -137,8 +117,8 @@ in the **/makemehapi** directory or if you still don't get it, **ask me**:
 
 ### Recap: Hello World in Hapi
 
-Following on from the **makemehapi** workshop, lets create a new directory
-called **hapiapp**
+Once you have completed the **makemehapi** workshop, on your computer, create a new directory
+called "**hapiapp**"
 
 ```sh
 mkdir hapiapp && cd hapiapp
@@ -175,19 +155,22 @@ you should see something like:
 ### Validation with Joi
 
 **Validation** is a fancy way of saying "checking" a value is
-the **type** you expect it to be.
+the **type** / **format** and **length** you expect it to be.
 
 e.g. imagine you ask people to input their phone number
 and some joker enters letters instead of numbers. The validation
 will display a message to the person informing the data is incorrect.
 
-[Joi](https://github.com/spumko/joi) is the validation library built by
-the same team as Hapi (for use with Hapi)
+[**Joi**](https://github.com/hapijs/joi) is the validation library built by
+the same team as Hapi.
+Most people use Joi with Hapi, but given that it is a separate
+module, plenty of people no use Joi independently;
+its well worth checking it out!
 
 A simple example:
 Type out (or copy-paste) this code into a file called **hellovalidate.js**
 
-```
+```js
 // Start this app from your command line with: node hellovalidate.js
 // then visit: http://localhost:3000/YOURNAME
 
@@ -218,60 +201,57 @@ You should see a **Validation Error**:
 
 ![Hapi Joi validation error](http://i.imgur.com/Dyhel2V.png)
 
-This might not look like a "Friendly" Error message.
+This might not _look_ like a "Friendly" Error message.
 But as we will see later, it provides all the information we need
 in our Client/App and we can display a more user-friendly error to people.
 
 [Joi](https://github.com/spumko/joi) has many more useful validation methods.
 We will use a few of them later on when we build our example app.
 
-- https://github.com/spumko/joi#example
++ Detailed example: https://github.com/hapijs/joi#example
 - http://vawks.com/blog/2014/03/22/the-joi-of-validation/
 - https://medium.com/@_expr/creating-validation-schemas-with-joi-eb4ff19f6688
 
 ### Testing with Lab
 
-If you're new to Software Testing read: http://en.wikipedia.org/wiki/Software_testing <br />
-And watch
+If you're new to Testing Driven Development (**TDD**) read: https://github.com/nelsonic/learn-tdd (_first_)  
+and then come back to this tutorial!
 
-- Video intro to Software Development Lifecycle: http://youtu.be/qMkV_TDdDeA
-- "What is Software Testing" video: http://youtu.be/UZy1Dj9JIg4
-- "**How to Write Clean, Testable Code**": http://youtu.be/XcT4yYu_TTs (ignore the Java code focus on the general principals )
-
-If you've done functional or unit testing in previous software projects you
-will be at home with Lab.
+If you've done functional or unit testing in previous
+programming projects you will be at home with Lab.
 
 Lab borrows *heavily* from [Mocha](http://visionmedia.github.io/mocha), so if you followed my
-[learn-mocha](https://github.com/nelsonic/learn-mocha) tutorial this should all be familiar.
+[learn-mocha](https://github.com/docdis/learn-mocha) tutorial this should all be familiar.
 
 (Using the code we wrote above in the **Validation with Joi** section with a minor addition)
 A simple example of testing with Lab:
 
-```
-var Lab = require("lab"),    // the Lab
-    server = require("../"); // require index.js
+```js
+var Lab = require("lab");            // load Lab module
+var server = require("../index.js"); // our index.js from above
+
 Lab.experiment("Basic HTTP Tests", function() {
-    // tests
-    Lab.test("Main endpoint /{yourname*} ", function(done) {
-	    var options = {
-	        method: "GET",
-	        url: "/Timmy"
-	    };
-	 	// server.inject lets you similate an http request
-	    server.inject(options, function(response) {
-	        Lab.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
-	        Lab.expect(response.result).to.have.length(12); // Expect result to be "Hello Timmy!" (12 chars long)
-	        done();                                         // done() callback is required to end the test.
-	    });
+	// tests
+	Lab.test("GET /{yourname*} (endpoit test)", function(done) {
+		var options = {
+			method: "GET",
+			url: "/Timmy"
+		};
+		// server.inject lets you similate an http request
+		server.inject(options, function(response) {
+			Lab.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
+			Lab.expect(response.result).to.have.length(12); // Expect result to be "Hello Timmy!" (12 chars long)
+			done();                                         // done() callback is required to end the test.
+		});
 	});
 });
 ```
 First we create a *test suite* for our test **Lab.experiment**
-(the first argument is the name of of the test suite "Basic HTTP Tests")
+(the _first argument_ is the name of of the test suite "Basic HTTP Tests")
 
 Next is a basic test that calls the only route we have `/{yourname}`
-in this case**GET /Timmy**.
-We expect to receive a **200** http status code and the result to be
+in this case **GET /Timmy**.  
+We expect to receive a **200** http status code and the response body to be
 the text "Hello Timmy!".
 
 1. Create a **new directory** in your project called **test**
@@ -312,9 +292,15 @@ Making sure your code is working as you expect it to (over time)
 
 ### Integrating Hapi with Travis CI
 
-see: https://github.com/nelsonic/learn-travis
-(I've got it working with https://github.com/nelsonic/time)
+If you are new to Travis-CI or need a refresher see:  https://github.com/dwyl/learn-travis  
+We have Travis-CI enabled for all our hapi.js based projects:
++ https://github.com/dwyl/hapi-socketio-redis-chat-example
++ https://github.com/dwyl/hapi-auth-jwt2
++ https://github.com/dwyl/time
++ https://github.com/dwyl/api
 
+So if you need an example to follow, check out our repos!  
+And as always, if you have _any questions, **ask**_!
 
 ### Error Handling with Boom
 
@@ -329,7 +315,7 @@ First **install boom**:
 Next write a test in ./test/**test.js**
 (If you aren't used to "Test First" - ***trust*** the process...)
 
-```
+```js
 Lab.experiment("Authentication Required to View Photo", function() {
     // tests
     Lab.test("Deny view of photo if unauthenticated /photo/{id*} ", function(done) {
@@ -357,7 +343,7 @@ The right way is to create a generic route which responds to any request for a p
 And since we don't currently have any authentication set up, we ***mock*** (fake) it.
 (Don't worry we will get to the authentication in the next step...)
 
-```
+```js
 var Boom = require('boom');
 server.route({
   method: 'GET',
@@ -402,55 +388,34 @@ recommend going with [Google Node.js API](https://github.com/google/google-api-n
 4. Bell - a 3rd party Login Hapi.js Plugin
 
 
-The Hapi wrapper for Passport.js is called [Travelogue](https://github.com/spumko/travelogue).
+#### Bell
 
-Sadly, the current version of Travelogue is not compatible with Hapi 5.x or 6.x <br />
-```
-npm ERR! peerinvalid The package hapi does not satisfy its siblings' peerDependencies requirements!
-npm ERR! peerinvalid Peer travelogue@2.0.1 wants hapi@4.x.x
-npm ERR! peerinvalid Peer yar@2.2.0 wants hapi@>=2.x.x
-```
-There's an open issue for it: https://github.com/spumko/travelogue/issues/83
-
-#### Spumko/Bell
-
-Informed by [@hueniverse](https://github.com/hueniverse) that
-https://github.com/spumko/bell is the go-to alternative for 3rd Party Login
-in Hapi.js apps.
-
-- https://github.com/spumko/bell
-
-
-
-
-#### Note to the Auth Innovators
-
-If you think you've got a *genuine* improvement over existing
-auth solutions email+password, [OAuth2](http://tools.ietf.org/html/rfc6749)
-or newly proposed systems
-such as [Persona](https://login.persona.org/about)
-or [SQRL](https://www.grc.com/sqrl/sqrl.htm)
-I'd *love* to hear about them or see your code on GitHub.
-The rest of us will be using a 3rd Party solution.
-
-
-
+The go-to solution for 3rd party authentication in hapi is bell: https://github.com/hapijs/bell
+There are a few good examples in the repo: https://github.com/hapijs/bell/tree/master/examples
 
 ### Caching with Catbox
 
-https://github.com/spumko/catbox/
+Most apps don't _need_ caching from "Day 1"
+(_because you don't **know** up-front where your app's bottlenecks are going to be..._)
+
+But, once again, the team that brought you Hapi.js have _solved_ the problem of caching,
+see: https://github.com/hapijs/catbox/ and http://hapijs.com/tutorials/caching
+> We use Redis for blazing fast application and data caching.
+Hapi.js Catbox makes this very easy!
 
 
 
-### Using Socket.io with Hapi
+### Using Socket.io with Hapi for Real-Time Apps
 
-https://github.com/spumko/hapi/blob/master/examples/socketio.js
-http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js
-Requires a bit more work...
+Using Socket.io with Hapi.js could _not_ be easier!
+To help you get started we've built a fully-functional chat application with tests
+which demonstrates the power of Real-Time data-synching in your apps
+
+> https://github.com/dwyl/hapi-socketio-redis-chat-example
 
 
 
-## Suggest Improvements!
+## Suggest Improvements! [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/nelsonic/learn-hapi/issues)
 
 If you want to extend this tutorial or simply request additional sections,
 open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
@@ -483,6 +448,8 @@ open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
 - More examples: https://github.com/wpreul/hapikc (*old* version of Hapi!)
 - Pursuit of Hapi-ness: http://blog.modulus.io/nodejs-and-hapi-create-rest-api (Hapi v.2)
 - BDD with Hapi and Lab: https://gist.github.com/thebillkidy/10a11fed1bf61d04c3c5
++ If you like React.js checkout Mullet.js (Hapi.js + React.js):
+http://mullet.io/ + https://github.com/lynnaloo/mullet
 
 > *Respond* to these SO Q:
 - http://stackoverflow.com/questions/22934340/hapi-js-api-authentication
@@ -491,11 +458,11 @@ open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
 
 
 <br /> <br /> <br />
-### Note: Hapi is built by Walmart
+### Note: Hapi was built by Walmart
 
 ![Hapi is Made by Walmart](http://i.imgur.com/bxYADdu.png)
 
-Hapi is built by [@WalmartLabs](http://en.wikipedia.org/wiki/@WalmartLabs)
+Hapi was (_originally_) built by (_the fantastic team of people assembled by [@hueniverse](https://github.com/hueniverse)_) [@WalmartLabs](http://en.wikipedia.org/wiki/@WalmartLabs)
 for Walmart.
 
 [Walmart](http://en.wikipedia.org/wiki/Walmart) is *by far* the most successful
@@ -511,9 +478,11 @@ I took the time to read *extensively* about Walmart as part of my
 Retail course at University
 see: [History of Walmart](http://en.wikipedia.org/wiki/History_of_Walmart)
 and [In Sam We Trust](http://www.bizsum.com/summaries/sam-we-trust).
-The fact is that Sam Walton acheived *much* of his success through
+The fact is that
+[Sam Walton](https://en.wikipedia.org/wiki/Sam_Walton)
+achieved *much* of his success through
 investing in *technology*
-(Barcodes, EPOS, Satelite Uplink for Logistics Tracking, etc)
+(Barcodes, EPOS, Satellite Uplink for faster IT Systems and Logistics Tracking, etc)
 to drive cost savings and passed those savings on to the
 customers where other retailers got left behind with their paper-based
 "*it still works, why change?*" approach.
@@ -541,7 +510,7 @@ By chosing Hapi you are opting for the jet-engine.
 Make up your own mind on whether you feel that using code written for Walmart
 goes against your ethics. <br />
 If you find a *better* open-source Node.js stack that fits your needs,
-*please* ***[tell me](https://twitter.com/nelsonic)*** about it!
+*please* ***[tell us](https://twitter.com/nelsonic)*** about it!
 
 [npm-image]: https://img.shields.io/npm/v/learn-hapi.svg?style=flat
 [npm-url]: https://npmjs.org/package/learn-hapi

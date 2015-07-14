@@ -1,4 +1,4 @@
 module.exports = function(context) {
-  // console.log('context', context);
-  return context.data.root.query.name + context.data.root.query.suffix;
+    var query = context.data.root.query;
+    return query.name + query.suffix;
 }
