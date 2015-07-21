@@ -10,12 +10,12 @@ var server = new Hapi.Server();
 server.connection({ port: port });
 
 server.route({
-  method: '*',
+  method: ['GET', 'POST'],
   path: '/{name*}',
   config: {  // validate will ensure YOURNAME is valid before replying to your request
     validate: { params: { name: Joi.string().max(40).min(2).alphanum() } },
-    handler: function (req,reply) {
-      reply('Hello '+ req.params.name + '!');
+    handler: function (request, reply) {
+      reply('Hai '+ reqest.params.name + '!');
     }
   }
 });
