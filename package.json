@@ -26,13 +26,13 @@
     "bell": "^5.0.0",
     "boom": "^2.8.0",
     "handlebars": "^3.0.3",
-    "hapi": "^8.6.x",
+    "hapi": "^8.8.0",
     "joi": "^6.5.0",
     "socket.io": "^1.3.5"
   },
   "devDependencies": {
     "code": "^1.4.1",
-    "codeclimate-test-reporter": "0.0.4",
-    "lab": "^5.11.1"
+    "codeclimate-test-reporter": "0.1.0",
+    "lab": "^5.13.0"
   }
 }

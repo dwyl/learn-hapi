@@ -2,10 +2,11 @@
 
 [![Build Status](https://travis-ci.org/nelsonic/learn-hapi.png?branch=master)](https://travis-ci.org/nelsonic/learn-hapi)
 [![Test Coverage](https://codeclimate.com/github/nelsonic/learn-hapi/badges/coverage.svg)](https://codeclimate.com/github/nelsonic/learn-hapi)
-[![Code Climate](https://codeclimate.com/github/nelsonic/learn-hapi.png)](https://codeclimate.com/github/nelsonic/learn-hapi)
+<!-- [![Code Climate](https://codeclimate.com/github/nelsonic/learn-hapi.png)](https://codeclimate.com/github/nelsonic/learn-hapi) -->
 [![Dependencies](https://david-dm.org/nelsonic/learn-hapi.png?theme=shields.io)](https://david-dm.org/nelsonic/learn-hapi)
 [![devDependency Status](https://david-dm.org/nelsonic/learn-hapi/dev-status.svg)](https://david-dm.org/nelsonic/learn-hapi#info=devDependencies)
 [![NPM Version][npm-image]][npm-url]
+[![bitHound Score](https://www.bithound.io/github/nelsonic/learn-hapi/badges/score.svg)](https://www.bithound.io/github/nelsonic/learn-hapi)
 
 
 Learn Hapi
@@ -65,6 +66,10 @@ framework during [Black Friday](http://nodeup.com/fiftysix)
 - **Key Functionality** is **Built-in** and there are many plugins for other
 functionality: http://hapijs.com/plugins
 
+## Who (_is using Hapi_) ?
+
+The list of teams using Hapi.js to build their node.js apps grows every day!
+See: http://hapijs.com/community
 
 ## _Dive In_!
 
@@ -293,9 +298,15 @@ Making sure your code is working as you expect it to (over time)
 
 ### Integrating Hapi with Travis CI
 
-see: https://github.com/nelsonic/learn-travis
-(I've got it working with https://github.com/nelsonic/time)
+If you are new to Travis-CI or need a refresher see:  https://github.com/dwyl/learn-travis  
+We have Travis-CI enabled for all our hapi.js based projects:
++ https://github.com/dwyl/hapi-socketio-redis-chat-example
++ https://github.com/dwyl/hapi-auth-jwt2
++ https://github.com/dwyl/time
++ https://github.com/dwyl/api
 
+So if you need an example to follow, check out our repos!  
+And as always, if you have _any questions, **ask**_!
 
 ### Error Handling with Boom
 
@@ -385,21 +396,28 @@ recommend going with [Google Node.js API](https://github.com/google/google-api-n
 
 #### Bell
 
-Informed by [@hueniverse](https://github.com/hueniverse) that
-https://github.com/hapijs/bell is the go-to alternative for 3rd Party Login
-in Hapi.js apps.
+The go-to solution for 3rd party authentication in hapi is bell: https://github.com/hapijs/bell
+There are a few good examples in the repo: https://github.com/hapijs/bell/tree/master/examples
 
 ### Caching with Catbox
 
-See: https://github.com/hapijs/catbox/
+Most apps don't _need_ caching from "Day 1"
+(_because you don't **know** up-front where your app's bottlenecks are going to be..._)
+
+But, once again, the team that brought you Hapi.js have _solved_ the problem of caching,
+see: https://github.com/hapijs/catbox/ and http://hapijs.com/tutorials/caching
+> We use Redis for blazing fast application and data caching.
+Hapi.js Catbox makes this very easy!
 
 
 
-### Using Socket.io with Hapi
+### Using Socket.io with Hapi for Real-Time Apps
 
-https://github.com/spumko/hapi/blob/master/examples/socketio.js
-http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js
-Requires a bit more work...
+Using Socket.io with Hapi.js could _not_ be easier!
+To help you get started we've built a fully-functional chat application with tests
+which demonstrates the power of Real-Time data-synching in your apps
+
+> https://github.com/dwyl/hapi-socketio-redis-chat-example
 
 
 
