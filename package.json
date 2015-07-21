@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/nelsonic/learn-hapi",
   "dependencies": {
-    "bell": "^4.0.0",
+    "bell": "^5.0.0",
     "boom": "^2.8.0",
     "handlebars": "^3.0.3",
     "hapi": "^8.6.x",
