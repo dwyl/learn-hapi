@@ -418,7 +418,7 @@
           <div class="failures">0</div>
           <div class="skipped">0</div>
           <div class="test-count">3</div>
-          <div class="duration">39</div>
+          <div class="duration">51</div>
       </div>
       <div id="filters">
           <input type="checkbox" checked="" onchange="filter(this)" value="success" id="show-success"><label for="show-success">Show Success</label></input>
@@ -440,21 +440,21 @@
               <td class="test-title">Basic HTTP Tests Main endpoint /{yourname*} 
                   
               </td>
-              <td class="test-duration">29</td>
+              <td class="test-duration">34</td>
           </tr>
           <tr class="show Basic_HTTP_Tests success">
               <td class="test-id">2</td>
               <td class="test-title">Basic HTTP Tests creating valid user
                   
               </td>
-              <td class="test-duration">5</td>
+              <td class="test-duration">12</td>
           </tr>
           <tr class="show Authentication_Required_to_View_Photo success">
               <td class="test-id">3</td>
               <td class="test-title">Authentication Required to View Photo Deny view of photo if unauthenticated /photo/{id*} 
                   
               </td>
-              <td class="test-duration">2</td>
+              <td class="test-duration">4</td>
           </tr>
           </tbody>
       </table>
@@ -557,12 +557,12 @@
                         <tr class="hit">
                             <td class="line">13</td>
                             <td class="hits"></td>
-                            <td class="source">  method: &#x27;GET&#x27;,</td>
+                            <td class="source">  method: [&#x27;GET&#x27;, &#x27;POST&#x27;],</td>
                         </tr>
                         <tr class="hit">
                             <td class="line">14</td>
                             <td class="hits"></td>
-                            <td class="source">  path: &#x27;/{yourname*}&#x27;,</td>
+                            <td class="source">  path: &#x27;/{name*}&#x27;,</td>
                         </tr>
                         <tr class="hit">
                             <td class="line">15</td>
@@ -572,17 +572,17 @@
                         <tr class="hit">
                             <td class="line">16</td>
                             <td class="hits"></td>
-                            <td class="source">    validate: { params: { yourname: Joi.string().max(40).min(2).alphanum() } },</td>
+                            <td class="source">    validate: { params: { name: Joi.string().max(40).min(2).alphanum() } },</td>
                         </tr>
                         <tr class="hit">
                             <td class="line">17</td>
                             <td class="hits"></td>
-                            <td class="source">    handler: function (req,reply) {</td>
+                            <td class="source">    handler: function (request, reply) {</td>
                         </tr>
                         <tr class="hit">
                             <td class="line">18</td>
                             <td class="hits">1</td>
-                            <td class="source">      reply(&#x27;Hello &#x27;+ req.params.yourname + &#x27;!&#x27;);</td>
+                            <td class="source">      reply(&#x27;Hai &#x27;+ request.params.name + &#x27;!&#x27;);</td>
                         </tr>
                         <tr class="hit">
                             <td class="line">19</td>
@@ -632,7 +632,7 @@
                         <tr class="hit">
                             <td class="line">28</td>
                             <td class="hits"></td>
-                            <td class="source">    handler: function (req,reply) {</td>
+                            <td class="source">    handler: function (request, reply) {</td>
                         </tr>
                         <tr class="hit">
                             <td class="line">29</td>
@@ -672,7 +672,7 @@
                         <tr class="hit">
                             <td class="line">36</td>
                             <td class="hits">1</td>
-                            <td class="source">  console.log(&#x27;Now Visit: http://localhost:&#x27;+port+&#x27;/YOURNAME&#x27;)</td>
+                            <td class="source">  console.log(&#x27;Now Visit: http://localhost:&#x27; + port + &#x27;/YOURNAME&#x27;);</td>
                         </tr>
                         <tr class="hit">
                             <td class="line">37</td>

@@ -15,7 +15,7 @@ server.route({
   config: {  // validate will ensure YOURNAME is valid before replying to your request
     validate: { params: { name: Joi.string().max(40).min(2).alphanum() } },
     handler: function (request, reply) {
-      reply('Hai '+ reqest.params.name + '!');
+      reply('Hai '+ request.params.name + '!');
     }
   }
 });
@@ -25,7 +25,7 @@ server.route({
   path: '/photo/{id*}',
   config: {  // validate will ensure YOURNAME is valid before replying to your request
     validate: { params: { id: Joi.string().max(40).min(2).alphanum() } },
-    handler: function (req,reply) {
+    handler: function (request, reply) {
         // until we implement authentication we are simply returning a 401:
         reply(Boom.unauthorized('Please log-in to see that'));
     }
