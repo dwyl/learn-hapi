@@ -108,7 +108,7 @@ _Try_ to complete all challenges.
 ![makemehapi complete](http://i.imgur.com/luXMDmg.png)
 
 If you get *stuck*, you can either _google_ for the specific error you are
-seeing or if you are not "getting" it, you can always look at my in the /**makemehapi** directory of this tutorial ***or***  
+seeing or if you are not "getting" it, you can always look at my answers in the /**makemehapi** directory of this repository ***or***  
 _the_ "official" solutions
 in the **/makemehapi/exercies/{exercise-name}/solution** directory  
 e.g: https://github.com/hapijs/makemehapi/tree/master/exercises/hello_hapi/solution  
