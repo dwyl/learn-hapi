@@ -17,8 +17,7 @@ _**build reliable/scalable apps faster**_.
 
 ## What is Hapi?
 
-Hapi is *the* framework for rapidly building RESTful & Real-Time web services
-in Node.js. <br />
+Hapi is *the* framework for rapidly building RESTful & Real-Time web applications and services with Node.js. <br />
 Whether you are building a very simple API
 for your website/mobile app or a large scale, cache heavy,
 secure e-commerce website, hapi has you covered.
