@@ -11,16 +11,16 @@ server.connection({
 });
 
 server.route({
-	method: 'GET',
-	path: '/{name*}',
+	method: '*',
+	path: '/{firstname*}',
 	config: {  // validate will ensure YOURNAME is valid before replying to your request
-		validate: { params: { yourname: Joi.string().max(40).min(2).alphanum() } },
-		handler: function (req,reply) {
-			reply('Hello '+ req.params.yourname + '!');
+		validate: { params: { firstname: Joi.string().max(40).min(2).alphanum() } },
+		handler: function (req, reply) {
+			reply('Hello '+ req.params.firstname + '!');
 		}
 	}
 });
 
 server.start(function() {
-	console.log('Now Visit: http://localhost:3000/YOURNAME');
+	console.log('Now Visit: http://localhost:3000/Alex');
 });

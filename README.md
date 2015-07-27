@@ -17,8 +17,7 @@ _**build reliable/scalable apps faster**_.
 
 ## What is Hapi?
 
-Hapi is *the* framework for rapidly building RESTful & Real-Time web services
-in Node.js. <br />
+Hapi is *the* framework for rapidly building RESTful & Real-Time web applications and services with Node.js. <br />
 Whether you are building a very simple API
 for your website/mobile app or a large scale, cache heavy,
 secure e-commerce website, hapi has you covered.
@@ -60,12 +59,11 @@ framework during [Black Friday](http://nodeup.com/fiftysix)
 (holiday shopping busy day) without incident.
 - **Mobile Optimised** (lightweight - built for mobile e-commerce)
 - Plugin Architecture - easy to extend/add your own modules (good ecosystem)
-- ***DevOps Friendly*** (great stats logging)
-see: https://github.com/spumko/good
+- ***DevOps Friendly*** - configuration based deployment and great stats/logging see: https://github.com/hapijs/good
 - Built-in ***Caching*** (Redis, MongoDB or Memcached)
-- ***100% Code Coverage*** (for the core)
-- **Key Functionality** is **Built-in** and good plugins add other
-functionality seamlessly.
+- ***100% Test/Code Coverage*** (for the core) - *disciplined approach to code quality*.
+- **Key Functionality** is **Built-in** and there are many plugins for other
+functionality: http://hapijs.com/plugins
 
 ## Who (_is using Hapi_) ?
 
@@ -107,12 +105,14 @@ makemehapi
 
 _Try_ to complete all challenges.
 
-![makemehapi complete](http://i.imgur.com/11Vx4rF.png)
+![makemehapi complete](http://i.imgur.com/luXMDmg.png)
 
 If you get *stuck*, you can either _google_ for the specific error you are
-seeing or if you are not "getting" it, you can always look at ~~my~~ _the_ solutions
+seeing or if you are not "getting" it, you can always look at my answers in the /**makemehapi** directory of this repository ***or***  
+_the_ "official" solutions
 in the **/makemehapi/exercies/{exercise-name}/solution** directory  
 e.g: https://github.com/hapijs/makemehapi/tree/master/exercises/hello_hapi/solution  
+
 or if you still don't get it, _**ask us**_:
 https://github.com/nelsonic/learn-hapi/issues
 
@@ -499,7 +499,7 @@ and [The Wal-Mart Effect](http://en.wikipedia.org/wiki/The_Wal-Mart_Effect)
 
 While I think we can/should continue send a
 [*clear message*](http://en.wikipedia.org/wiki/Dollar_voting)
-to [Bentonville](http://en.wikipedia.org/wiki/Bentonville,_Arkansas)
+to [Bentonville](https://en.wikipedia.org/wiki/Walmart#Corporate_affairs)
 by prefering to spend our $¥£€ at Local & Fairtrade retailers where ever possible,
 we can still *use* the ***best-in-class*** code the *fantastic engineers*
 have built (to meet their *vast* supply-chain and e-commerce needs and

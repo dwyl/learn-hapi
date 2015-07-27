@@ -1,7 +1,7 @@
 {
   "name": "learn-hapi",
   "version": "8.8.0",
-  "description": "Learn to build APIs using Hapi.js",
+  "description": "Learn to build Web Applications & APIs using Hapi.js",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/lab/bin/lab -c && ./node_modules/lab/bin/lab -r html -o ./test/coverage.html",
@@ -23,12 +23,12 @@
   },
   "homepage": "https://github.com/nelsonic/learn-hapi",
   "dependencies": {
-    "bell": "^4.0.1",
+    "bell": "^5.0.0",
     "boom": "^2.8.0",
     "handlebars": "^3.0.3",
     "hapi": "^8.8.0",
-    "joi": "^6.5.0",
-    "socket.io": "^1.3.5"
+    "joi": "^6.6.1",
+    "socket.io": "^1.3.6"
   },
   "devDependencies": {
     "code": "^1.4.1",
