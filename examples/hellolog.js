@@ -1,6 +1,6 @@
 /**
    Start this app from your command line with:
-   node hellolog.js
+   node examples/hellolog.js
    then visit: http://localhost:3000/YOURNAME
 */
 var Hapi = require('hapi');
