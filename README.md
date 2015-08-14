@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/nelsonic/learn-hapi.png?branch=master)](https://travis-ci.org/nelsonic/learn-hapi)
 [![Test Coverage](https://codeclimate.com/github/nelsonic/learn-hapi/badges/coverage.svg)](https://codeclimate.com/github/nelsonic/learn-hapi)
-<!-- [![Code Climate](https://codeclimate.com/github/nelsonic/learn-hapi.png)](https://codeclimate.com/github/nelsonic/learn-hapi) -->
+[![Code Climate](https://codeclimate.com/github/nelsonic/learn-hapi.png)](https://codeclimate.com/github/nelsonic/learn-hapi)
 [![Dependencies](https://david-dm.org/nelsonic/learn-hapi.png?theme=shields.io)](https://david-dm.org/nelsonic/learn-hapi)
 [![devDependency Status](https://david-dm.org/nelsonic/learn-hapi/dev-status.svg)](https://david-dm.org/nelsonic/learn-hapi#info=devDependencies)
 [![NPM Version][npm-image]][npm-url]
@@ -362,7 +362,6 @@ server.route({
     }
   }
 });
-
 ```
 
 Our test passes but the point was to show that returning errors
@@ -417,7 +416,6 @@ To help you get started we've built a fully-functional chat application with tes
 which demonstrates the power of Real-Time data-synching in your apps
 
 > https://github.com/dwyl/hapi-socketio-redis-chat-example
-
 
 
 ## Suggest Improvements! [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/nelsonic/learn-hapi/issues)

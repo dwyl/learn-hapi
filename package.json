@@ -1,6 +1,6 @@
 {
   "name": "learn-hapi",
-  "version": "8.8.0",
+  "version": "9.0.1",
   "description": "Learn to build Web Applications & APIs using Hapi.js",
   "main": "index.js",
   "scripts": {
@@ -23,16 +23,16 @@
   },
   "homepage": "https://github.com/nelsonic/learn-hapi",
   "dependencies": {
-    "bell": "^5.0.0",
+    "bell": "^5.0.1",
     "boom": "^2.8.0",
     "handlebars": "^3.0.3",
-    "hapi": "^8.8.0",
+    "hapi": "^9.0.1",
     "joi": "^6.6.1",
     "socket.io": "^1.3.6"
   },
   "devDependencies": {
-    "code": "^1.4.1",
+    "code": "^1.5.0",
     "codeclimate-test-reporter": "0.1.0",
-    "lab": "^5.13.0"
+    "lab": "^5.15.1"
   }
 }
