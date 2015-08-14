@@ -21,9 +21,9 @@ server.route({
 	}
 })
 
-server.start();
-// server.log(["test"], "This is my log entry!");
-console.log('Now Visit: http://localhost:3000/YOURNAME')
+server.start(function(){
+  console.log('Now Visit: http://localhost:3000/YOURNAME')
+});
 
 server.on("log", function(event, tags) {
     var tagsJoined = Object.keys(tags).join();
