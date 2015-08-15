@@ -8,7 +8,6 @@
 [![NPM Version][npm-image]][npm-url]
 [![bitHound Score](https://www.bithound.io/github/nelsonic/learn-hapi/badges/score.svg)](https://www.bithound.io/github/nelsonic/learn-hapi)
 
-
 Learn Hapi
 ==========
 
