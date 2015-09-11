@@ -50,7 +50,7 @@ part is to ***try Hapi*** on a simple project to gain experience/confidence.
 
 - ***Performance*** - WalmartLabs are the guys who found/solved the
 [Node.js *CORE* Memory Leak](http://www.joyent.com/blog/walmart-node-js-memory-leak)
-they have developed Hapi follwing
+they have developed Hapi following
 [Benchmark Driven Development](https://github.com/felixge/faster-than-c)
 and the result is a high-performance framework.
 - ***Security*** - they have focussed on security and battle-tested the
