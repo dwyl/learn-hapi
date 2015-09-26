@@ -146,6 +146,8 @@ server.route({
 server.start(function(){ // boots your server
 	console.log('Now Visit: http://localhost:3000/YOURNAME')
 });
+
+module.exports = server;
 ```
 Run:
 ```
@@ -234,20 +236,22 @@ Lab borrows *heavily* from [Mocha](http://visionmedia.github.io/mocha), so if yo
 A simple example of testing with Lab:
 
 ```js
-var Lab = require("lab");            // load Lab module
+var Lab = require("lab");           // load Lab module
+var lab = exports.lab = Lab.script(); //export test script
+var Code = require("code");		 //assertion library
 var server = require("../index.js"); // our index.js from above
 
-Lab.experiment("Basic HTTP Tests", function() {
+lab.experiment("Basic HTTP Tests", function() {
 	// tests
-	Lab.test("GET /{yourname*} (endpoint test)", function(done) {
+	lab.test("GET /{yourname*} (endpoint test)", function(done) {
 		var options = {
 			method: "GET",
 			url: "/Timmy"
 		};
 		// server.inject lets you similate an http request
 		server.inject(options, function(response) {
-			Lab.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
-			Lab.expect(response.result).to.have.length(12); // Expect result to be "Hello Timmy!" (12 chars long)
+			Code.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
+			Code.expect(response.result).to.have.length(12); // Expect result to be "Hello Timmy!" (12 chars long)
 			done();                                         // done() callback is required to end the test.
 		});
 	});
@@ -268,7 +272,7 @@ the text "Hello Timmy!".
 5. Add a **scripts** section to the package.json file with the following:
 ```
   "scripts": {
-    "test": "./node_modules/lab/bin/lab -c"
+    "test": "lab -c"
   }
 ```
 6. Save the package.json file
@@ -311,29 +315,29 @@ And as always, if you have _any questions, **ask**_!
 
 ### Error Handling with Boom
 
-[Boom](https://github.com/spumko/boom) makes custom errors easy in Hapi.
+[Boom](https://github.com/spumko/boom) makes custom errors easy in Hapi.    
 Imagine you have a page or item of content (photo, message, etc.) that
-you want to protect from public view (only show to someone who is logged in)
+you want to protect from public view (only show to someone who is logged in).
 
 First **install boom**:
 
 `npm install boom --save`
 
-Next write a test in ./test/**test.js**
+Next write another test in ./test/**test.js**
 (If you aren't used to "Test First" - ***trust*** the process...)
 
 ```js
-Lab.experiment("Authentication Required to View Photo", function() {
+lab.experiment("Authentication Required to View Photo", function() {
     // tests
-    Lab.test("Deny view of photo if unauthenticated /photo/{id*} ", function(done) {
+    lab.test("Deny view of photo if unauthenticated /photo/{id*} ", function(done) {
 	    var options = {
 	        method: "GET",
 	        url: "/photo/8795"
 	    };
 	 	// server.inject lets you similate an http request
 	    server.inject(options, function(response) {
-	        Lab.expect(response.statusCode).to.equal(401);  //  Expect http response status code to be 200 ("Ok")
-	        Lab.expect(response.result.message).to.equal("Please log-in to see that"); // (Don't hard-code error messages)
+	        Code.expect(response.statusCode).to.equal(401);  //  Expect http response status code to be 200 ("Ok")
+	        Code.expect(response.result.message).to.equal("Please log-in to see that"); // (Don't hard-code error messages)
 	        done();
 	    });
 	});
@@ -347,7 +351,7 @@ When you run `npm test` you will see a fail:
 Next we want to make this test pass. <br />
 The easy (wrong) way of doing this is to explicitly hard-code the response for this route.
 The right way is to create a generic route which responds to any request for a photo with any id.
-And since we don't currently have any authentication set up, we ***mock*** (fake) it.
+And since we don't currently have any authentication set up, we ***mock*** (fake) it.    
 (Don't worry we will get to the authentication in the next step...)
 
 ```js
@@ -355,12 +359,12 @@ var Boom = require('boom');
 server.route({
   method: 'GET',
   path: '/photo/{id*}',
-  config: {  // validate will ensure YOURNAME is valid before replying to your request
+  config: {  // validate will ensure `id` is valid before replying to your request
     validate: { params: { id: Joi.string().max(40).min(2).alphanum() } },
     handler: function (req,reply) {
         // until we implement authentication we are simply returning a 401:
         reply(Boom.unauthorized('Please log-in to see that'));
-        // the key here is our use of the Boom.unauthorised method.
+        // the key here is our use of the Boom.unauthorised method
     }
   }
 });
@@ -368,6 +372,8 @@ server.route({
 
 Our test passes but the point was to show that returning errors
 with specific messages is *easy* with **Boom**.
+
+<img width="504" alt="learn-hapi-clearer-boom-message" src="https://cloud.githubusercontent.com/assets/4185328/10119795/474a8504-6499-11e5-9833-76a4f0fb3818.png">
 
 Have a look at https://github.com/spumko/boom for more error response options.
 We will be using these later as we build our app.
@@ -397,7 +403,7 @@ recommend going with [Google Node.js API](https://github.com/google/google-api-n
 #### Bell
 
 The go-to solution for 3rd party authentication in hapi is bell: https://github.com/hapijs/bell.   
-There are a few good examples in the repo: https://github.com/hapijs/bell/tree/master/examples
+There are a few good examples in the repo: https://github.com/hapijs/bell/tree/master/examples.
 
 ### Caching with Catbox
 
@@ -420,7 +426,7 @@ which demonstrates the power of Real-Time data-synching in your apps.
 > https://github.com/dwyl/hapi-socketio-redis-chat-example
 
 
-## Suggest Improvements! [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/nelsonic/learn-hapi/issues)
+## Please Suggest Improvements! [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/nelsonic/learn-hapi/issues)
 
 If you want to extend this tutorial or simply request additional sections,
 open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
