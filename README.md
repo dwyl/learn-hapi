@@ -169,7 +169,7 @@ will display a message to the person informing the data is incorrect.
 [**Joi**](https://github.com/hapijs/joi) is the validation library built by
 the same team as Hapi.
 Most people use Joi with Hapi, but given that it is a separate
-module, plenty of people no use Joi independently;
+module, plenty of people use Joi independently;
 its well worth checking it out!
 
 A simple example:
@@ -239,7 +239,7 @@ var server = require("../index.js"); // our index.js from above
 
 Lab.experiment("Basic HTTP Tests", function() {
 	// tests
-	Lab.test("GET /{yourname*} (endpoit test)", function(done) {
+	Lab.test("GET /{yourname*} (endpoint test)", function(done) {
 		var options = {
 			method: "GET",
 			url: "/Timmy"
@@ -295,7 +295,7 @@ We have **100% code coverage** so we can move on to our next test!
 
 ## Continuous Integration
 
-Making sure your code is working as you expect it to (over time)
+Making sure your code is working as you expect it to (over time).
 
 ### Integrating Hapi with Travis CI
 
@@ -371,7 +371,7 @@ with specific messages is *easy* with **Boom**.
 
 Have a look at https://github.com/spumko/boom for more error response options.
 We will be using these later as we build our app.
-lets move on to authentication.
+Let's move on to authentication.
 
 
 
@@ -384,7 +384,7 @@ Authentication (or "Auth") is something many *novice* (*naive*?)
 developers attempt to write themselves. (I was once that kid...
 trust me, we have *bigger fish to fry*, use a well-written/tested library!)
 
-We have 4 options with
+We have 4 options:
 
 1. Google - If you are building an "enterprise" or "education" app
 which you know will be used in Google-enabled companies/schools I
@@ -396,13 +396,13 @@ recommend going with [Google Node.js API](https://github.com/google/google-api-n
 
 #### Bell
 
-The go-to solution for 3rd party authentication in hapi is bell: https://github.com/hapijs/bell
+The go-to solution for 3rd party authentication in hapi is bell: https://github.com/hapijs/bell.   
 There are a few good examples in the repo: https://github.com/hapijs/bell/tree/master/examples
 
 ### Caching with Catbox
 
 Most apps don't _need_ caching from "Day 1"
-(_because you don't **know** up-front where your app's bottlenecks are going to be..._)
+(_because you don't **know** upfront where your app's bottlenecks are going to be..._).
 
 But, once again, the team that brought you Hapi.js have _solved_ the problem of caching,
 see: https://github.com/hapijs/catbox/ and http://hapijs.com/tutorials/caching
@@ -414,8 +414,8 @@ Hapi.js Catbox makes this very easy!
 ### Using Socket.io with Hapi for Real-Time Apps
 
 Using Socket.io with Hapi.js could _not_ be easier!
-To help you get started we've built a fully-functional chat application with tests
-which demonstrates the power of Real-Time data-synching in your apps
+To help you get started we've built a fully-functional chat application with tests (now [featured on the hapijs.com Resources page](hapijs.com/resources#Tutorials)),
+which demonstrates the power of Real-Time data-synching in your apps.
 
 > https://github.com/dwyl/hapi-socketio-redis-chat-example
 
@@ -440,10 +440,10 @@ open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
 
 ### Tutorials
 
-- Hapi Boilerplate app: https://github.com/poeticninja/hapi-ninja [updated for Hapi 6.0!]
+- Hapi Boilerplate app: https://github.com/poeticninja/hapi-ninja [updated for hapi 8.0]
 - Building APIs with Hapi and MongoDB: https://speakerdeck.com/donnfelker/building-web-apis-with-hapi-dot-js-and-mongodb-mongoose
 - Repo for the above speakerdeck: https://github.com/donnfelker/hapi-mongodb-example
-- The Pursuit of Hapi-ness: https://medium.com/the-javascript-collection/the-pursuit-of-hapi-ness-d82777afaa4b (V.3)
+- The Pursuit of Hapi-ness: https://medium.com/the-javascript-collection/the-pursuit-of-hapi-ness-d82777afaa4b (Old version of hapi)
 - Micro-tutorial: https://github.com/spumko/makemehapi
 - http://blog.nodeknockout.com/post/34571027029/making-an-api-happy-with-hapi (Old version of Hapi)
 - http://stackoverflow.com/questions/21455076/hapi-and-node-js-to-create-a-rest-api-server
@@ -451,7 +451,6 @@ open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
 - Authentication: https://github.com/spumko/hapi-auth-cookie
 - A few examples: https://github.com/andyroyle/hapi-examples
 - More examples: https://github.com/wpreul/hapikc (*old* version of Hapi!)
-- Pursuit of Hapi-ness: http://blog.modulus.io/nodejs-and-hapi-create-rest-api (Hapi v.2)
 - BDD with Hapi and Lab: https://gist.github.com/thebillkidy/10a11fed1bf61d04c3c5
 + If you like React.js checkout Mullet.js (Hapi.js + React.js):
 http://mullet.io/ + https://github.com/lynnaloo/mullet
@@ -472,7 +471,7 @@ for Walmart.
 
 [Walmart](http://en.wikipedia.org/wiki/Walmart) is *by far* the most successful
 retailer in the world and they have achieved their success (*in part*) by
-investing heavily in their *technological competitve advantage*.
+investing heavily in their *technological competitive advantage*.
 
 If you are not keen on Walmart for any of
 [these](http://en.wikipedia.org/wiki/Criticism_of_Walmart) reasons,
@@ -482,7 +481,7 @@ node stack to allow others to benefit from their hard work.
 I took the time to read *extensively* about Walmart as part of my
 Retail course at University
 see: [History of Walmart](http://en.wikipedia.org/wiki/History_of_Walmart)
-and [In Sam We Trust](http://www.bizsum.com/summaries/sam-we-trust).
+and [In Sam We Trust](http://www.bizsum.com/summaries/sam-we-trust).   
 The fact is that
 [Sam Walton](https://en.wikipedia.org/wiki/Sam_Walton)
 achieved *much* of his success through
@@ -500,21 +499,21 @@ and [The Wal-Mart Effect](http://en.wikipedia.org/wiki/The_Wal-Mart_Effect)
 While I think we can/should continue send a
 [*clear message*](http://en.wikipedia.org/wiki/Dollar_voting)
 to [Bentonville](https://en.wikipedia.org/wiki/Walmart#Corporate_affairs)
-by prefering to spend our $¥£€ at Local & Fairtrade retailers where ever possible,
+by preferring to spend our $¥£€ at Local & Fairtrade retailers where ever possible,
 we can still *use* the ***best-in-class*** code the *fantastic engineers*
 have built (to meet their *vast* supply-chain and e-commerce needs and
 open-sourced) to craft our own software products/projects.
 
 Using the transport analogy, I don't *like* using fossil fuels to get from A-to-B
-because of the CO2 emmissions. But I'm *pragmatic* about how I travel
+because of the CO2 emissions. But I'm *pragmatic* about how I travel
 the [thousand miles](http://www.wolframalpha.com/input/?i=distance+from+London+to+Lisbon)
 to visit my family twice a year. I could do two weeks by horse-and-cart,
-two days by train or two hours by plane each way. Which option do you take...?
-By chosing Hapi you are opting for the jet-engine.
+two days by train or two hours by plane each way. Which option do you take...?    
+By chosing Hapi you are opting for the jet engine.
 
 Make up your own mind on whether you feel that using code written for Walmart
 goes against your ethics. <br />
-If you find a *better* open-source Node.js stack that fits your needs,
+If you find a *better* open source Node.js stack that fits your needs,
 *please* ***[tell us](https://twitter.com/nelsonic)*** about it!
 
 [npm-image]: https://img.shields.io/npm/v/learn-hapi.svg?style=flat
