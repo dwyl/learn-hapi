@@ -42,25 +42,24 @@ stick with what you know. If not, learn [how to be] Hapi.
 **Q**: Hapi looks like quite a steep learning curve,
 how long will it take me to learn? <br />
 **A**: You can get started *immediately* with the simple examples below,
-it will take aprox **60 mins** to complete them all.
-(after that add a couple of hours to read/learn further) the most important
-part is to ***try Hapi*** on a simple project to gain experience/confidence.
+it will take aprox **60 mins** to complete them all (after that add a couple of hours to read/learn further).    
+The most important part is to ***try Hapi*** on a simple project to gain experience/confidence.
 
 ### Key Benefits
 
 - ***Performance*** - WalmartLabs are the guys who found/solved the
-[Node.js *CORE* Memory Leak](http://www.joyent.com/blog/walmart-node-js-memory-leak)
+[Node.js *CORE* Memory Leak](http://www.joyent.com/blog/walmart-node-js-memory-leak);
 they have developed Hapi following
 [Benchmark Driven Development](https://github.com/felixge/faster-than-c)
-and the result is a high-performance framework.
+and the result is a high-performance framework
 - ***Security*** - they have focussed on security and battle-tested the
 framework during [Black Friday](http://nodeup.com/fiftysix)
 (holiday shopping busy day) without incident.
 - **Mobile Optimised** (lightweight - built for mobile e-commerce)
-- Plugin Architecture - easy to extend/add your own modules (good ecosystem)
+- **Plugin Architecture** - easy to extend/add your own modules (good ecosystem)
 - ***DevOps Friendly*** - configuration based deployment and great stats/logging see: https://github.com/hapijs/good
 - Built-in ***Caching*** (Redis, MongoDB or Memcached)
-- ***100% Test/Code Coverage*** (for the core) - *disciplined approach to code quality*.
+- ***100% Test/Code Coverage*** (for the core) - *disciplined approach to code quality*
 - **Key Functionality** is **Built-in** and there are many plugins for other
 functionality: http://hapijs.com/plugins
 
@@ -132,7 +131,9 @@ Type out (or copy-paste) this code into a file called **index.js**
 
 ```js
 var Hapi = require('hapi');
-var server = new Hapi.Server('0.0.0.0', 3000);
+var server = new Hapi.Server();
+
+server.connection({port: 3000});
 
 server.route({
 	method: 'GET',
@@ -181,7 +182,9 @@ Type out (or copy-paste) this code into a file called **hellovalidate.js**
 var Hapi = require('hapi'),
     Joi  = require('joi');
 
-var server = new Hapi.Server('0.0.0.0', 3000);
+var server = new Hapi.Server();
+
+server.connection({ port: 3000 });
 
 server.route({
 	method: 'GET',
