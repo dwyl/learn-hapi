@@ -219,7 +219,6 @@ We will use a few of them later on when we build our example app.
 
 + Detailed example: https://github.com/hapijs/joi#example
 - http://vawks.com/blog/2014/03/22/the-joi-of-validation/
-- https://medium.com/@_expr/creating-validation-schemas-with-joi-eb4ff19f6688
 
 ### Testing with Lab
 
@@ -294,8 +293,8 @@ We have **100% code coverage** so we can move on to our next test!
 #### Related Links
 
 - Lab github module: https://github.com/spumko/lab
-- Testing post: https://medium.com/the-spumko-suite/testing-hapi-services-with-lab-96ac463c490a
 - Is TDD Dead? http://www.youtube.com/watch?v=z9quxZsLcfo (hint: no!)
+- Getting Started with HapiJS and Testing: http://blog.abcedmindedness.com/2014/10/getting-started-with-hapijs-and-testing.html (on hapi v8.0)
 
 ## Continuous Integration
 
@@ -450,15 +449,13 @@ open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
 - Hapi Boilerplate app: https://github.com/poeticninja/hapi-ninja [updated for hapi 8.0]
 - Building APIs with Hapi and MongoDB: https://speakerdeck.com/donnfelker/building-web-apis-with-hapi-dot-js-and-mongodb-mongoose
 - Repo for the above speakerdeck: https://github.com/donnfelker/hapi-mongodb-example
-- The Pursuit of Hapi-ness: https://medium.com/the-javascript-collection/the-pursuit-of-hapi-ness-d82777afaa4b (Old version of hapi)
 - Micro-tutorial: https://github.com/spumko/makemehapi
-- http://blog.nodeknockout.com/post/34571027029/making-an-api-happy-with-hapi (Old version of Hapi)
 - http://stackoverflow.com/questions/21455076/hapi-and-node-js-to-create-a-rest-api-server
 - Hapi + Twilio (sms): http://code.tutsplus.com/tutorials/creating-a-node-web-app-with-hapi-and-twilio-integration--cms-20769
 - Authentication: https://github.com/spumko/hapi-auth-cookie
 - A few examples: https://github.com/andyroyle/hapi-examples
-- More examples: https://github.com/wpreul/hapikc (*old* version of Hapi!)
-- BDD with Hapi and Lab: https://gist.github.com/thebillkidy/10a11fed1bf61d04c3c5
+- More examples: https://github.com/wpreul/hapikc (*very old* version of Hapi!)
+- BDD with Hapi and Lab: https://gist.github.com/thebillkidy/10a11fed1bf61d04c3c5 (*old* version of Hapi!)
 + If you like React.js checkout Mullet.js (Hapi.js + React.js):
 http://mullet.io/ + https://github.com/lynnaloo/mullet
 
