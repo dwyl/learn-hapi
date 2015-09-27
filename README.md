@@ -280,7 +280,7 @@ the text "Hello Timmy!".
 
 The result should look something like this:
 
-![Hapi testing with Lab 100% coverage](http://i.imgur.com/AIr9MiD.png)
+<img width="287" alt="Hapi testing with Lab 100% coverage" src="https://cloud.githubusercontent.com/assets/4185328/10119715/6232f530-6495-11e5-86ef-17d2bd61795a.png">
 
 Note how the test script has a ** -c** flag above
 this give us the **code coverage**.
@@ -346,9 +346,10 @@ lab.experiment("Authentication Required to View Photo", function() {
 
 When you run `npm test` you will see a fail:
 
-![Hapi auth test fail](http://i.imgur.com/Ha5WjJo.png)
+<img width="809" alt="Hapi auth test fail" src="https://cloud.githubusercontent.com/assets/4185328/10119711/21c84fc2-6495-11e5-8d51-c6df5181e4f4.png">
 
-Next we want to make this test pass. <br />
+Next we want to make this test pass and we'll use Boom to get our custom error message. 
+
 The easy (wrong) way of doing this is to explicitly hard-code the response for this route.
 The right way is to create a generic route which responds to any request for a photo with any id.
 And since we don't currently have any authentication set up, we ***mock*** (fake) it.    
