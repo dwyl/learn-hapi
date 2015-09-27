@@ -42,25 +42,24 @@ stick with what you know. If not, learn [how to be] Hapi.
 **Q**: Hapi looks like quite a steep learning curve,
 how long will it take me to learn? <br />
 **A**: You can get started *immediately* with the simple examples below,
-it will take aprox **60 mins** to complete them all.
-(after that add a couple of hours to read/learn further) the most important
-part is to ***try Hapi*** on a simple project to gain experience/confidence.
+it will take aprox **60 mins** to complete them all (after that add a couple of hours to read/learn further).    
+The most important part is to ***try Hapi*** on a simple project to gain experience/confidence.
 
 ### Key Benefits
 
 - ***Performance*** - WalmartLabs are the guys who found/solved the
-[Node.js *CORE* Memory Leak](http://www.joyent.com/blog/walmart-node-js-memory-leak)
+[Node.js *CORE* Memory Leak](http://www.joyent.com/blog/walmart-node-js-memory-leak);
 they have developed Hapi following
 [Benchmark Driven Development](https://github.com/felixge/faster-than-c)
-and the result is a high-performance framework.
+and the result is a high-performance framework
 - ***Security*** - they have focussed on security and battle-tested the
 framework during [Black Friday](http://nodeup.com/fiftysix)
 (holiday shopping busy day) without incident.
 - **Mobile Optimised** (lightweight - built for mobile e-commerce)
-- Plugin Architecture - easy to extend/add your own modules (good ecosystem)
+- **Plugin Architecture** - easy to extend/add your own modules (good ecosystem)
 - ***DevOps Friendly*** - configuration based deployment and great stats/logging see: https://github.com/hapijs/good
 - Built-in ***Caching*** (Redis, MongoDB or Memcached)
-- ***100% Test/Code Coverage*** (for the core) - *disciplined approach to code quality*.
+- ***100% Test/Code Coverage*** (for the core) - *disciplined approach to code quality*
 - **Key Functionality** is **Built-in** and there are many plugins for other
 functionality: http://hapijs.com/plugins
 
@@ -132,7 +131,9 @@ Type out (or copy-paste) this code into a file called **index.js**
 
 ```js
 var Hapi = require('hapi');
-var server = new Hapi.Server('0.0.0.0', 3000);
+var server = new Hapi.Server();
+
+server.connection({port: 3000});
 
 server.route({
 	method: 'GET',
@@ -145,6 +146,8 @@ server.route({
 server.start(function(){ // boots your server
 	console.log('Now Visit: http://localhost:3000/YOURNAME')
 });
+
+module.exports = server;
 ```
 Run:
 ```
@@ -168,7 +171,7 @@ will display a message to the person informing the data is incorrect.
 [**Joi**](https://github.com/hapijs/joi) is the validation library built by
 the same team as Hapi.
 Most people use Joi with Hapi, but given that it is a separate
-module, plenty of people no use Joi independently;
+module, plenty of people use Joi independently;
 its well worth checking it out!
 
 A simple example:
@@ -181,7 +184,9 @@ Type out (or copy-paste) this code into a file called **hellovalidate.js**
 var Hapi = require('hapi'),
     Joi  = require('joi');
 
-var server = new Hapi.Server('0.0.0.0', 3000);
+var server = new Hapi.Server();
+
+server.connection({ port: 3000 });
 
 server.route({
 	method: 'GET',
@@ -231,20 +236,22 @@ Lab borrows *heavily* from [Mocha](http://visionmedia.github.io/mocha), so if yo
 A simple example of testing with Lab:
 
 ```js
-var Lab = require("lab");            // load Lab module
+var Lab = require("lab");           // load Lab module
+var lab = exports.lab = Lab.script(); //export test script
+var Code = require("code");		 //assertion library
 var server = require("../index.js"); // our index.js from above
 
-Lab.experiment("Basic HTTP Tests", function() {
+lab.experiment("Basic HTTP Tests", function() {
 	// tests
-	Lab.test("GET /{yourname*} (endpoit test)", function(done) {
+	lab.test("GET /{yourname*} (endpoint test)", function(done) {
 		var options = {
 			method: "GET",
 			url: "/Timmy"
 		};
 		// server.inject lets you similate an http request
 		server.inject(options, function(response) {
-			Lab.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
-			Lab.expect(response.result).to.have.length(12); // Expect result to be "Hello Timmy!" (12 chars long)
+			Code.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
+			Code.expect(response.result).to.have.length(12); // Expect result to be "Hello Timmy!" (12 chars long)
 			done();                                         // done() callback is required to end the test.
 		});
 	});
@@ -265,7 +272,7 @@ the text "Hello Timmy!".
 5. Add a **scripts** section to the package.json file with the following:
 ```
   "scripts": {
-    "test": "./node_modules/lab/bin/lab -c"
+    "test": "lab -c"
   }
 ```
 6. Save the package.json file
@@ -292,7 +299,7 @@ We have **100% code coverage** so we can move on to our next test!
 
 ## Continuous Integration
 
-Making sure your code is working as you expect it to (over time)
+Making sure your code is working as you expect it to (over time).
 
 ### Integrating Hapi with Travis CI
 
@@ -308,29 +315,29 @@ And as always, if you have _any questions, **ask**_!
 
 ### Error Handling with Boom
 
-[Boom](https://github.com/spumko/boom) makes custom errors easy in Hapi.
+[Boom](https://github.com/spumko/boom) makes custom errors easy in Hapi.    
 Imagine you have a page or item of content (photo, message, etc.) that
-you want to protect from public view (only show to someone who is logged in)
+you want to protect from public view (only show to someone who is logged in).
 
 First **install boom**:
 
 `npm install boom --save`
 
-Next write a test in ./test/**test.js**
+Next write another test in ./test/**test.js**
 (If you aren't used to "Test First" - ***trust*** the process...)
 
 ```js
-Lab.experiment("Authentication Required to View Photo", function() {
+lab.experiment("Authentication Required to View Photo", function() {
     // tests
-    Lab.test("Deny view of photo if unauthenticated /photo/{id*} ", function(done) {
+    lab.test("Deny view of photo if unauthenticated /photo/{id*} ", function(done) {
 	    var options = {
 	        method: "GET",
 	        url: "/photo/8795"
 	    };
 	 	// server.inject lets you similate an http request
 	    server.inject(options, function(response) {
-	        Lab.expect(response.statusCode).to.equal(401);  //  Expect http response status code to be 200 ("Ok")
-	        Lab.expect(response.result.message).to.equal("Please log-in to see that"); // (Don't hard-code error messages)
+	        Code.expect(response.statusCode).to.equal(401);  //  Expect http response status code to be 200 ("Ok")
+	        Code.expect(response.result.message).to.equal("Please log-in to see that"); // (Don't hard-code error messages)
 	        done();
 	    });
 	});
@@ -344,7 +351,7 @@ When you run `npm test` you will see a fail:
 Next we want to make this test pass. <br />
 The easy (wrong) way of doing this is to explicitly hard-code the response for this route.
 The right way is to create a generic route which responds to any request for a photo with any id.
-And since we don't currently have any authentication set up, we ***mock*** (fake) it.
+And since we don't currently have any authentication set up, we ***mock*** (fake) it.    
 (Don't worry we will get to the authentication in the next step...)
 
 ```js
@@ -352,12 +359,12 @@ var Boom = require('boom');
 server.route({
   method: 'GET',
   path: '/photo/{id*}',
-  config: {  // validate will ensure YOURNAME is valid before replying to your request
+  config: {  // validate will ensure `id` is valid before replying to your request
     validate: { params: { id: Joi.string().max(40).min(2).alphanum() } },
     handler: function (req,reply) {
         // until we implement authentication we are simply returning a 401:
         reply(Boom.unauthorized('Please log-in to see that'));
-        // the key here is our use of the Boom.unauthorised method.
+        // the key here is our use of the Boom.unauthorised method
     }
   }
 });
@@ -366,9 +373,11 @@ server.route({
 Our test passes but the point was to show that returning errors
 with specific messages is *easy* with **Boom**.
 
+<img width="504" alt="learn-hapi-clearer-boom-message" src="https://cloud.githubusercontent.com/assets/4185328/10119795/474a8504-6499-11e5-9833-76a4f0fb3818.png">
+
 Have a look at https://github.com/spumko/boom for more error response options.
 We will be using these later as we build our app.
-lets move on to authentication.
+Let's move on to authentication.
 
 
 
@@ -381,7 +390,7 @@ Authentication (or "Auth") is something many *novice* (*naive*?)
 developers attempt to write themselves. (I was once that kid...
 trust me, we have *bigger fish to fry*, use a well-written/tested library!)
 
-We have 4 options with
+We have 4 options:
 
 1. Google - If you are building an "enterprise" or "education" app
 which you know will be used in Google-enabled companies/schools I
@@ -393,13 +402,13 @@ recommend going with [Google Node.js API](https://github.com/google/google-api-n
 
 #### Bell
 
-The go-to solution for 3rd party authentication in hapi is bell: https://github.com/hapijs/bell
-There are a few good examples in the repo: https://github.com/hapijs/bell/tree/master/examples
+The go-to solution for 3rd party authentication in hapi is bell: https://github.com/hapijs/bell.   
+There are a few good examples in the repo: https://github.com/hapijs/bell/tree/master/examples.
 
 ### Caching with Catbox
 
 Most apps don't _need_ caching from "Day 1"
-(_because you don't **know** up-front where your app's bottlenecks are going to be..._)
+(_because you don't **know** upfront where your app's bottlenecks are going to be..._).
 
 But, once again, the team that brought you Hapi.js have _solved_ the problem of caching,
 see: https://github.com/hapijs/catbox/ and http://hapijs.com/tutorials/caching
@@ -411,13 +420,13 @@ Hapi.js Catbox makes this very easy!
 ### Using Socket.io with Hapi for Real-Time Apps
 
 Using Socket.io with Hapi.js could _not_ be easier!
-To help you get started we've built a fully-functional chat application with tests
-which demonstrates the power of Real-Time data-synching in your apps
+To help you get started we've built a fully-functional chat application with tests (now [featured on the hapijs.com Resources page](hapijs.com/resources#Tutorials)),
+which demonstrates the power of Real-Time data-synching in your apps.
 
 > https://github.com/dwyl/hapi-socketio-redis-chat-example
 
 
-## Suggest Improvements! [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/nelsonic/learn-hapi/issues)
+## Please Suggest Improvements! [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/nelsonic/learn-hapi/issues)
 
 If you want to extend this tutorial or simply request additional sections,
 open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
@@ -437,10 +446,10 @@ open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
 
 ### Tutorials
 
-- Hapi Boilerplate app: https://github.com/poeticninja/hapi-ninja [updated for Hapi 6.0!]
+- Hapi Boilerplate app: https://github.com/poeticninja/hapi-ninja [updated for hapi 8.0]
 - Building APIs with Hapi and MongoDB: https://speakerdeck.com/donnfelker/building-web-apis-with-hapi-dot-js-and-mongodb-mongoose
 - Repo for the above speakerdeck: https://github.com/donnfelker/hapi-mongodb-example
-- The Pursuit of Hapi-ness: https://medium.com/the-javascript-collection/the-pursuit-of-hapi-ness-d82777afaa4b (V.3)
+- The Pursuit of Hapi-ness: https://medium.com/the-javascript-collection/the-pursuit-of-hapi-ness-d82777afaa4b (Old version of hapi)
 - Micro-tutorial: https://github.com/spumko/makemehapi
 - http://blog.nodeknockout.com/post/34571027029/making-an-api-happy-with-hapi (Old version of Hapi)
 - http://stackoverflow.com/questions/21455076/hapi-and-node-js-to-create-a-rest-api-server
@@ -448,7 +457,6 @@ open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
 - Authentication: https://github.com/spumko/hapi-auth-cookie
 - A few examples: https://github.com/andyroyle/hapi-examples
 - More examples: https://github.com/wpreul/hapikc (*old* version of Hapi!)
-- Pursuit of Hapi-ness: http://blog.modulus.io/nodejs-and-hapi-create-rest-api (Hapi v.2)
 - BDD with Hapi and Lab: https://gist.github.com/thebillkidy/10a11fed1bf61d04c3c5
 + If you like React.js checkout Mullet.js (Hapi.js + React.js):
 http://mullet.io/ + https://github.com/lynnaloo/mullet
@@ -469,7 +477,7 @@ for Walmart.
 
 [Walmart](http://en.wikipedia.org/wiki/Walmart) is *by far* the most successful
 retailer in the world and they have achieved their success (*in part*) by
-investing heavily in their *technological competitve advantage*.
+investing heavily in their *technological competitive advantage*.
 
 If you are not keen on Walmart for any of
 [these](http://en.wikipedia.org/wiki/Criticism_of_Walmart) reasons,
@@ -479,7 +487,7 @@ node stack to allow others to benefit from their hard work.
 I took the time to read *extensively* about Walmart as part of my
 Retail course at University
 see: [History of Walmart](http://en.wikipedia.org/wiki/History_of_Walmart)
-and [In Sam We Trust](http://www.bizsum.com/summaries/sam-we-trust).
+and [In Sam We Trust](http://www.bizsum.com/summaries/sam-we-trust).   
 The fact is that
 [Sam Walton](https://en.wikipedia.org/wiki/Sam_Walton)
 achieved *much* of his success through
@@ -497,21 +505,21 @@ and [The Wal-Mart Effect](http://en.wikipedia.org/wiki/The_Wal-Mart_Effect)
 While I think we can/should continue send a
 [*clear message*](http://en.wikipedia.org/wiki/Dollar_voting)
 to [Bentonville](https://en.wikipedia.org/wiki/Walmart#Corporate_affairs)
-by prefering to spend our $¥£€ at Local & Fairtrade retailers where ever possible,
+by preferring to spend our $¥£€ at Local & Fairtrade retailers where ever possible,
 we can still *use* the ***best-in-class*** code the *fantastic engineers*
 have built (to meet their *vast* supply-chain and e-commerce needs and
 open-sourced) to craft our own software products/projects.
 
 Using the transport analogy, I don't *like* using fossil fuels to get from A-to-B
-because of the CO2 emmissions. But I'm *pragmatic* about how I travel
+because of the CO2 emissions. But I'm *pragmatic* about how I travel
 the [thousand miles](http://www.wolframalpha.com/input/?i=distance+from+London+to+Lisbon)
 to visit my family twice a year. I could do two weeks by horse-and-cart,
-two days by train or two hours by plane each way. Which option do you take...?
-By chosing Hapi you are opting for the jet-engine.
+two days by train or two hours by plane each way. Which option do you take...?    
+By chosing Hapi you are opting for the jet engine.
 
 Make up your own mind on whether you feel that using code written for Walmart
 goes against your ethics. <br />
-If you find a *better* open-source Node.js stack that fits your needs,
+If you find a *better* open source Node.js stack that fits your needs,
 *please* ***[tell us](https://twitter.com/nelsonic)*** about it!
 
 [npm-image]: https://img.shields.io/npm/v/learn-hapi.svg?style=flat
