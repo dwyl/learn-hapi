@@ -4,28 +4,34 @@
     <title>Tests &amp; Coverage</title>
     <script>
       headings = [];
-
+    
       onload = function () {
           headings = document.querySelectorAll('h2');
           reset();
       };
-
+    
       onscroll = function (e) {
           var heading = find(window.scrollY);
-          if (!heading) return;
+          if (!heading) {
+            var current = document.querySelector('#menu a.active');
+            if (current) {
+              current.className = '';
+            }
+            return;
+          }
           var links = document.querySelectorAll('#menu a')
                   , link;
-
+    
           for (var i = 0, len = links.length; i < len; ++i) {
               link = links[i];
               link.className = link.getAttribute('href') == '#' + heading.id ? 'active' : '';
           }
       };
-
+    
       function find (y) {
           var i = headings.length
                   , heading;
-
+    
           while (i--) {
               heading = headings[i];
               if (y >= heading.offsetTop) {
@@ -33,14 +39,14 @@
               }
           }
       }
-
+    
       function toggle (className) {
-
+    
           var elements = document.getElementsByClassName(className);
-
+    
           for (var i = 0, il = elements.length; i < il; ++i) {
               var element = elements[i];
-
+    
               if (element.classList.contains('hide')) {
                   element.classList.remove('hide');
                   element.classList.add('show');
@@ -51,16 +57,16 @@
               }
           };
       }
-
+    
       function reset () {
-
+    
           var shownElements = document.getElementsByClassName('show');
           var filterElements = document.querySelectorAll('input[type=checkbox]');
-
+    
           for (var i = 0, il = filterElements.length; i < il; ++i) {
               filterElements[i].checked = false;
           }
-
+    
           // Check any filters with visible elements
           for (i = 0, il = shownElements.length; i < il; ++i) {
               var shownElement = shownElements[i];
@@ -73,356 +79,484 @@
               }
           }
       };
-
+    
       function filter (element) {
-
+    
           toggle(element.value);
           reset();
       }
     </script>
     <style>
-    body {
-        font: 14px/1.6 Helvetica, Arial, sans-serif;
-        margin: 0;
-        color: #2c2c2c;
-    }
-
-    #coverage {
-        padding: 60px;
-    }
-
-    h1 a:hover {
-        text-decoration: none;
-    }
-
-    h2 {
-        width: 80%;
-        margin-top: 80px;
-        margin-bottom: 0;
-        font-weight: 100;
-        letter-spacing: 1px;
-    }
-
-    ul {
-        margin-top: 20px;
-        padding: 0 15px;
-        width: 100%;
-    }
-
-    ul li {
-        float: left;
-        width: 40%;
-        margin-top: 5px;
-        margin-right: 60px;
-        list-style: none;
-        padding: 5px 0;
-        font-size: 12px;
-    }
-
-    #menu {
-        position: fixed;
-        font-size: 12px;
-        overflow-y: auto;
-        top: 0;
-        right: 0;
-        margin: 0;
-        height: 100%;
-        padding: 15px 15px;
-        border-left: 1px solid #eee;
-        background-color: #666;
-    }
-
-    #menu::after {
-        display: block;
-        content: '';
-        padding-top: 80px;
-    }
-
-    #menu li a {
-        display: block;
-        color: white;
-        padding: 0 5px 0 35px;
-        transition: background 300ms;
-        text-decoration: none;
-    }
-
-    #menu li {
-        position: relative;
-        list-style: none;
-    }
-
-    #menu a:hover,
-    #menu a.active {
-        text-decoration: none;
-        background: rgba(255,255,255,.4);
-    }
-
-    #menu li:hover .cov {
-        opacity: 1;
-    }
-
-    #menu li .dirname {
-        opacity: .60;
-        padding-right: 2px;
-    }
-
-    #menu li .basename {
-        opacity: 1;
-    }
-
-    #menu .cov {
-        background: rgba(0,0,0,.3);
-        position: absolute;
-        top: 0;
-        font-size: 9px;
-        text-align: center;
-        opacity: .8;
-        width: 22px;
-        border-radius: 10px;
-        padding: 2px 3px;
-    }
-
-    #files .stats:nth-child(2n) {
-        display: inline-block;
-        margin-top: 15px;
-        border: 1px solid #eee;
-        padding: 10px;
-        border-radius: 5px;
-    }
-
-    .stats div {
-        float: left;
-        padding: 0 5px;
-    }
-
-    .stats::after {
-        display: block;
-        content: '';
-        clear: both;
-    }
-
-    .stats .sloc::after {
-        content: ' SLOC';
-        color: #b6b6b6;
-    }
-
-    .stats .percentage::after {
-        content: ' coverage';
-        color: #b6b6b6;
-    }
-
-    .stats .hits::before {
-        content: '(';
-        color: #b6b6b6;
-    }
-
-    .stats .hits::after {
-        content: ' Covered';
-        color: #b6b6b6;
-    }
-
-    .stats .misses::after {
-        content: ' Not Covered)';
-        color: #b6b6b6;
-    }
-
-    .stats .failures::after {
-        content: ' Failures';
-        color: #b6b6b6;
-    }
-
-    .stats .skipped::after {
-        content: ' Skipped';
-        color: #b6b6b6;
-    }
-
-    .stats .test-count::after {
-        content: ' Tests';
-        color: #b6b6b6;
-    }
-
-    .stats .duration::before {
-        content: '(';
-        color: #b6b6b6;
-    }
-
-    .stats .duration::after {
-        content: ' ms)';
-        color: #b6b6b6;
-    }
-
-    .high {
-        color: #00d4b4;
-    }
-    .medium {
-        color: #e87d0d;
-    }
-    .low {
-        color: #d4081a;
-    }
-    .terrible {
-        color: #d4081a;
-        font-weight: bold;
-    }
-
-    #files table {
-        width: 80%;
-        margin-top: 10px;
-        border-collapse: collapse;
-        border: 1px solid #cbcbcb;
-        color: #363636;
-        border-radius: 3px;
-    }
-
-    #files thead {
-        display: none;
-    }
-
-    table td.line,
-    table td.hits {
-        width: 20px;
-        background: #eaeaea;
-        text-align: center;
-        font-size: 11px;
-        padding: 0 10px;
-        color: #949494;
-    }
-
-    table td.hits {
-        width: 10px;
-        padding: 2px 5px;
-        color: rgba(0,0,0,.2);
-        background: #f0f0f0;
-    }
-
-    table td.sourcemaps {
-        width: 1%;
-        border-left: 1px solid #cbcbcb;
-        padding: 0 10px;
-    }
-
-    td.sourcemaps.file {
-        background: #f0f0f0;
-    }
-
-    tr.miss td.line,
-    tr.miss td.hits {
-        background: #e6c3c7;
-    }
-
-    tr.miss td {
-        background: #f8d5d8;
-    }
-
-    td.source {
-        padding-left: 15px;
-        line-height: 15px;
-        white-space: pre;
-        font: 12px monaco, monospace;
-    }
-
-    td.source div {
-        display: inline-block;
-    }
-
-    td.source div.true {
-        background: #bae8bf;
-    }
-
-    td.source div.false {
-        background: #e8e5ba;
-    }
-
-    td.source div.never {
-        background: #f8d5d8;
-    }
-
-    #tests {
-        padding: 60px;
-    }
-
-    #tests table {
-        width: 80%;
-        margin-top: 10px;
-        border-collapse: collapse;
-        border: 1px solid #cbcbcb;
-        color: #363636;
-        border-radius: 3px;
-    }
-
-    #tests thead {
-        background: #F5F5F5;
-    }
-
-    #tests tr {
-        border: 1px solid #ccc;
-    }
-
-    #tests td {
-        padding-left: 8px;
-    }
-
-    #tests .success:nth-child(2n) {
-        background: #F5F5F5;
-    }
-
-    #tests .failure  {
-        background: #FF9E9E;
-    }
-
-    #tests table .skipped  {
-        background: #AA82FF;
-    }
-
-    #tests .success {
-        color: #949494;
-    }
-
-    #tests .failure .test-title  {
-        font-weight: bold;
-        margin-top: 5px;
-    }
-
-    #tests .stack {
-        margin-top: 4px;
-        padding-left: 15px;
-        margin-bottom: 12px;
-        font: 12px monaco, monospace;
-        white-space: pre;
-        line-height: 15px;
-    }
-
-    .hide {
-        position: absolute;
-        left: -9999em;
-    }
-
-    .show {
-        position: relative;
-    }
-
-    #filters {
-        width: 75%;
-        margin-top: 25px;
-    }
-
-    #filters label {
-        margin-right: 10px;
-    }
+        body {
+            font: 14px/1.6 Helvetica, Arial, sans-serif;
+            margin: 0;
+            color: #2c2c2c;
+        }
+    
+        #tests, #coverage, #linting {
+            padding: 60px;
+        }
+    
+        h1 a:hover {
+            text-decoration: none;
+        }
+    
+        h2 {
+            width: 80%;
+            margin-top: 80px;
+            margin-bottom: 0;
+            font-weight: 100;
+            letter-spacing: 1px;
+        }
+    
+        ul {
+            margin-top: 20px;
+            padding: 0 15px;
+            width: 100%;
+        }
+    
+        ul li {
+            float: left;
+            width: 40%;
+            margin-top: 5px;
+            margin-right: 60px;
+            list-style: none;
+            padding: 5px 0;
+            font-size: 12px;
+        }
+    
+        #menu {
+            position: fixed;
+            font-size: 12px;
+            overflow-y: auto;
+            top: 0;
+            right: 0;
+            margin: 0;
+            height: 100%;
+            padding: 15px 15px;
+            border-left: 1px solid #eee;
+            background-color: #666;
+            z-index: 1;
+        }
+    
+        #menu::after {
+            display: block;
+            content: '';
+            padding-top: 80px;
+        }
+    
+        #menu li a {
+            display: block;
+            color: white;
+            padding: 0 5px 0 35px;
+            transition: background 300ms;
+            text-decoration: none;
+        }
+    
+        #menu li {
+            position: relative;
+            list-style: none;
+        }
+    
+        #menu a:hover,
+        #menu a.active {
+            text-decoration: none;
+            background: rgba(255, 255, 255, .4);
+        }
+    
+        #menu li:hover .cov {
+            opacity: 1;
+        }
+    
+        #menu li .dirname {
+            opacity: .60;
+            padding-right: 2px;
+        }
+    
+        #menu li .basename {
+            opacity: 1;
+        }
+    
+        #menu .cov, #menu .lint {
+            background: rgba(0, 0, 0, .3);
+            position: absolute;
+            top: 0;
+            font-size: 9px;
+            text-align: center;
+            opacity: .8;
+            width: 22px;
+            border-radius: 10px;
+            padding: 2px 3px;
+        }
+    
+        #files .stats:nth-child(2n) {
+            display: inline-block;
+            margin-top: 15px;
+            border: 1px solid #eee;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    
+        .stats div {
+            float: left;
+            padding: 0 5px;
+        }
+    
+        .stats::after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+    
+        .stats .sloc::after {
+            content: ' SLOC';
+            color: #b6b6b6;
+        }
+    
+        .stats .percentage::after {
+            content: ' coverage';
+            color: #b6b6b6;
+        }
+    
+        .stats .hits::before {
+            content: '(';
+            color: #b6b6b6;
+        }
+    
+        .stats .hits::after {
+            content: ' Covered';
+            color: #b6b6b6;
+        }
+    
+        .stats .misses::after {
+            content: ' Not Covered)';
+            color: #b6b6b6;
+        }
+    
+        .stats .failures::after {
+            content: ' Failures';
+            color: #b6b6b6;
+        }
+    
+        .stats .skipped::after {
+            content: ' Skipped';
+            color: #b6b6b6;
+        }
+    
+        .stats .test-count::after {
+            content: ' Tests';
+            color: #b6b6b6;
+        }
+    
+        .stats .duration::before {
+            content: '(';
+            color: #b6b6b6;
+        }
+    
+        .stats .duration::after {
+            content: ' ms)';
+            color: #b6b6b6;
+        }
+    
+        .high {
+            color: #00d4b4;
+        }
+    
+        .medium {
+            color: #e87d0d;
+        }
+    
+        .low {
+            color: #d4081a;
+        }
+    
+        .terrible {
+            color: #d4081a;
+            font-weight: bold;
+        }
+    
+        #files table {
+            width: 80%;
+            margin-top: 10px;
+            border-collapse: collapse;
+            border: 1px solid #cbcbcb;
+            color: #363636;
+            border-radius: 3px;
+        }
+    
+        #files thead {
+            display: none;
+        }
+    
+        table td.line,
+        table td.lint,
+        table td.hits {
+            width: 20px;
+            background: #eaeaea;
+            text-align: right;
+            font-size: 11px;
+            padding: 0 10px;
+            color: #949494;
+            white-space: nowrap;
+        }
+    
+        table td.hits {
+            width: 10px;
+            padding: 2px 5px;
+            color: rgba(0, 0, 0, .2);
+            background: #f0f0f0;
+        }
+    
+        table td.sourcemaps {
+            width: 1%;
+            border-left: 1px solid #cbcbcb;
+            padding: 0 10px;
+        }
+    
+        table td.lint.empty {
+            width: 0;
+            padding: 0;
+        }
+    
+        table td.lint > span {
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            vertical-align: baseline;
+        }
+    
+        table td.lint .errors {
+            background-color: red;
+        }
+    
+        table td.lint .warnings {
+            background-color: orange;
+        }
+    
+        td.sourcemaps.file {
+            background: #f0f0f0;
+        }
+    
+        tr.miss td.line,
+        tr.miss td.hits {
+            background: #e6c3c7;
+        }
+    
+        tr.miss td {
+            background: #f8d5d8;
+        }
+    
+        td.source {
+            padding-left: 15px;
+            line-height: 15px;
+            white-space: pre;
+            font: 12px monaco, monospace;
+        }
+    
+        td.source div {
+            display: inline-block;
+        }
+    
+        td.source div.true {
+            background: #bae8bf;
+        }
+    
+        td.source div.false {
+            background: #e8e5ba;
+        }
+    
+        td.source div.never {
+            background: #f8d5d8;
+        }
+    
+        #tests table {
+            width: 80%;
+            margin-top: 10px;
+            border-collapse: collapse;
+            border: 1px solid #cbcbcb;
+            color: #363636;
+            border-radius: 3px;
+        }
+    
+        #tests thead {
+            background: #F5F5F5;
+        }
+    
+        #tests tr {
+            border: 1px solid #ccc;
+        }
+    
+        #tests td {
+            padding-left: 8px;
+            vertical-align: top;
+        }
+    
+        #tests .success:nth-child(2n) {
+            background: #F5F5F5;
+        }
+    
+        #tests .failure {
+            background: #FF9E9E;
+        }
+    
+        #tests table .skipped {
+            background: #AA82FF;
+        }
+    
+        #tests .success {
+            color: #949494;
+        }
+    
+        #tests .failure .test-title {
+            font-weight: bold;
+            margin-top: 5px;
+        }
+    
+        #tests .stack {
+            margin-top: 4px;
+            padding-left: 15px;
+            margin-bottom: 12px;
+            font: 12px monaco, monospace;
+            white-space: pre;
+            line-height: 15px;
+        }
+    
+        .hide {
+            position: absolute;
+            left: -9999em;
+        }
+    
+        .show {
+            position: relative;
+        }
+    
+        [data-tooltip] {
+            position: relative;
+        }
+    
+        [data-tooltip]:hover:before {
+            border: solid;
+            border-color: #333 transparent;
+            border-width: 6px 6px 0 6px;
+            bottom: 20px;
+            content: "";
+            left: 0;
+            position: absolute;
+            z-index: 99;
+        }
+    
+        [data-tooltip]:hover:after {
+            background: #333;
+            background: rgba(0, 0, 0, .8);
+            border-radius: 5px;
+            bottom: 26px;
+            color: #fff;
+            left: -10px;
+            padding: 5px 15px;
+            position: absolute;
+            z-index: 98;
+            content: attr(data-tooltip);
+            white-space: pre;
+            text-align: left;
+        }
+    
+        .line[data-tooltip]:hover:after {
+            content: "Line number";
+        }
+    
+        .hits[data-tooltip]:hover:after {
+            content: "Number of hits";
+        }
+    
+        .miss .source[data-tooltip]:hover:after {
+            content: "Missed line";
+        }
+    
+        .miss.true[data-tooltip]:hover:after {
+            content: "Condition always true";
+        }
+    
+        .miss.false[data-tooltip]:hover:after {
+            content: "Condition always false";
+        }
+    
+        .miss.never[data-tooltip]:hover:after {
+            content: "Statement never reached";
+        }
+    
+        .sourcemaps.file[data-tooltip]:hover:after {
+            content: "Original file";
+        }
+    
+        .sourcemaps.line[data-tooltip]:hover:after {
+            content: "Original line";
+        }
+    
+        .lint .errors[data-tooltip]:hover:after {
+            content: "Linting errors:\A" attr(data-tooltip);
+        }
+    
+        .lint .warnings[data-tooltip]:hover:after {
+            content: "Linting warnings:\A" attr(data-tooltip);
+        }
+    
+        #filters {
+            width: 75%;
+            margin-top: 25px;
+        }
+    
+        #filters label {
+            margin-right: 10px;
+        }
+    
+        .lint-stats .lint-errors::after {
+            content: ' linting errors';
+            color: #b6b6b6;
+        }
+    
+        .lint-stats .lint-warnings::after {
+            content: ' linting warnings';
+            color: #b6b6b6;
+        }
+    
+        .lint-entry {
+            color: #b6b6b6;
+            float: none;
+            padding: 0;
+        }
+    
+        .lint-entry .level-ERROR {
+            color: #d4081a;
+        }
+    
+        .lint-entry .level-WARNING {
+            color: #e87d0d;
+        }
     </style>
   </head>
   <body>
-  <div id="tests">
+    <div id="menu">
+        <li><a href="#tests">Test Report</a></li>
+        <li><a href="#coverage">Coverage Report</a></li>
+        <li>
+            <span class="cov high">100</span>
+            <a href="#index.js"><span class="basename">index.js</span></a>
+        </li>
+        <li><a href="#linting">Linting Report</a></li>
+    </div>
+    <div id="tests">
       <h1>Test Report</h1>
       <div class="stats high">
           <div class="failures">0</div>
           <div class="skipped">0</div>
           <div class="test-count">3</div>
-          <div class="duration">51</div>
+          <div class="duration">59</div>
       </div>
       <div id="filters">
           <input type="checkbox" checked="" onchange="filter(this)" value="success" id="show-success"><label for="show-success">Show Success</label></input>
           <input type="checkbox" checked="" onchange="filter(this)" value="failure" id="show-failure"><label for="show-failure">Show Failure</label></input>
+          <br>
           <input type="checkbox" checked="" onchange="filter(this)" value="Basic_HTTP_Tests" id="show-Basic_HTTP_Tests"><label for="show-Basic_HTTP_Tests">Basic HTTP Tests</label></input>
           <input type="checkbox" checked="" onchange="filter(this)" value="Authentication_Required_to_View_Photo" id="show-Authentication_Required_to_View_Photo"><label for="show-Authentication_Required_to_View_Photo">Authentication Required to View Photo</label></input>
       </div>
@@ -440,14 +574,14 @@
               <td class="test-title">Basic HTTP Tests Main endpoint /{yourname*} 
                   
               </td>
-              <td class="test-duration">37</td>
+              <td class="test-duration">42</td>
           </tr>
           <tr class="show Basic_HTTP_Tests success">
               <td class="test-id">2</td>
               <td class="test-title">Basic HTTP Tests creating valid user
                   
               </td>
-              <td class="test-duration">9</td>
+              <td class="test-duration">11</td>
           </tr>
           <tr class="show Authentication_Required_to_View_Photo success">
               <td class="test-id">3</td>
@@ -458,18 +592,9 @@
           </tr>
           </tbody>
       </table>
-  </div>
-
-    <div id="coverage">
+    
+    </div>    <div id="coverage">
         <h1>Code Coverage Report</h1>
-        <div id="menu">
-            <li><a href="#tests">Test Report</a></li>
-            <li><a href="#coverage">Coverage Report</a></li>
-            <li>
-                <span class="cov high">100</span>
-                <a href="#index.js"><span class="basename">index.js</span></a>
-            </li>
-        </div>
         <div class="stats high">
             <div class="percentage">100%</div>
             <div class="sloc">33</div>
@@ -489,215 +614,258 @@
                     <thead>
                         <tr>
                             <th>Line</th>
+                            <th>Lint</th>
                             <th>Hits</th>
                             <th>Source</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="hit">
-                            <td class="line">1</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>1</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">// Start this app from your command line with: node hellovalidate.js</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">2</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>2</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">// then visit: http://localhost:3000/YOURNAME</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">3</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>3</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source"></td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">4</td>
-                            <td class="hits">1</td>
-                            <td class="source">var Hapi = require(&#x27;hapi&#x27;);</td>
+                            <td class="line" data-tooltip>4</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">var Hapi &#x3D; require(&#x27;hapi&#x27;);</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">5</td>
-                            <td class="hits">1</td>
-                            <td class="source">var Joi  = require(&#x27;joi&#x27;);</td>
+                            <td class="line" data-tooltip>5</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">var Joi  &#x3D; require(&#x27;joi&#x27;);</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">6</td>
-                            <td class="hits">1</td>
-                            <td class="source">var Boom = require(&#x27;boom&#x27;);</td>
+                            <td class="line" data-tooltip>6</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">var Boom &#x3D; require(&#x27;boom&#x27;);</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">7</td>
-                            <td class="hits">1</td>
-                            <td class="source">var port = 3000; // process.env.PORT || 3000; // allow port to be set by environment</td>
+                            <td class="line" data-tooltip>7</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">var port &#x3D; 3000; // process.env.PORT || 3000; // allow port to be set by environment</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">8</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>8</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source"></td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">9</td>
-                            <td class="hits">1</td>
-                            <td class="source">var server = new Hapi.Server();</td>
+                            <td class="line" data-tooltip>9</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">var server &#x3D; new Hapi.Server();</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">10</td>
-                            <td class="hits">1</td>
+                            <td class="line" data-tooltip>10</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
                             <td class="source">server.connection({ port: port });</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">11</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>11</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source"></td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">12</td>
-                            <td class="hits">1</td>
+                            <td class="line" data-tooltip>12</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
                             <td class="source">server.route({</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">13</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>13</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">  method: [&#x27;GET&#x27;, &#x27;POST&#x27;],</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">14</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>14</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">  path: &#x27;/{name*}&#x27;,</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">15</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>15</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">  config: {  // validate will ensure YOURNAME is valid before replying to your request</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">16</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>16</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">    validate: { params: { name: Joi.string().max(40).min(2).alphanum() } },</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">17</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>17</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">    handler: function (request, reply) {</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">18</td>
-                            <td class="hits">1</td>
+                            <td class="line" data-tooltip>18</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
                             <td class="source">      reply(&#x27;Hai &#x27;+ request.params.name + &#x27;!&#x27;);</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">19</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>19</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">    }</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">20</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>20</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">  }</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">21</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>21</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">});</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">22</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>22</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source"></td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">23</td>
-                            <td class="hits">1</td>
+                            <td class="line" data-tooltip>23</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
                             <td class="source">server.route({</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">24</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>24</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">  method: &#x27;GET&#x27;,</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">25</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>25</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">  path: &#x27;/photo/{id*}&#x27;,</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">26</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>26</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">  config: {  // validate will ensure YOURNAME is valid before replying to your request</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">27</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>27</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">    validate: { params: { id: Joi.string().max(40).min(2).alphanum() } },</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">28</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>28</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">    handler: function (request, reply) {</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">29</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>29</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">        // until we implement authentication we are simply returning a 401:</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">30</td>
-                            <td class="hits">1</td>
+                            <td class="line" data-tooltip>30</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
                             <td class="source">        reply(Boom.unauthorized(&#x27;Please log-in to see that&#x27;));</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">31</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>31</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">    }</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">32</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>32</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">  }</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">33</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>33</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">});</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">34</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>34</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source"></td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">35</td>
-                            <td class="hits">1</td>
+                            <td class="line" data-tooltip>35</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
                             <td class="source">server.start(function() {</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">36</td>
-                            <td class="hits">1</td>
+                            <td class="line" data-tooltip>36</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
                             <td class="source">  console.log(&#x27;Now Visit: http://localhost:&#x27; + port + &#x27;/YOURNAME&#x27;);</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">37</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>37</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source">});</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">38</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>38</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source"></td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">39</td>
-                            <td class="hits">1</td>
-                            <td class="source">module.exports = server;</td>
+                            <td class="line" data-tooltip>39</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip>1</td>
+                            <td class="source">module.exports &#x3D; server;</td>
                         </tr>
                         <tr class="hit">
-                            <td class="line">40</td>
-                            <td class="hits"></td>
+                            <td class="line" data-tooltip>40</td>
+                            <td class="lint empty"></td>
+                            <td class="hits" data-tooltip></td>
                             <td class="source"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-    </div>
-  </body>
+    </div>    <div id="linting">
+        <h1>Linting Report</h1>
+            <span>Nothing to show here, linting is disabled.</span>
+    </div>  </body>
 </html>
