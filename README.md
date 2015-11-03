@@ -8,8 +8,7 @@
 [![NPM Version][npm-image]][npm-url]
 [![bitHound Score](https://www.bithound.io/github/nelsonic/learn-hapi/badges/score.svg)](https://www.bithound.io/github/nelsonic/learn-hapi)
 
-Learn Hapi
-==========
+# Learn Hapi
 
 Happiness is learning how to use the [**Hapi.js**](http://hapijs.com/) (Node.js) web framework to
 _**build reliable/scalable apps faster**_.
@@ -23,7 +22,7 @@ secure e-commerce website, hapi has you covered.
 Hapi will help get your server developed quickly with its wide range
 of configurable options.
 
-> *Watch* this intro/background to Hapi video:
+### *Watch* this intro/background to Hapi video:
 
 [![What is Hapi?](http://i.imgur.com/sZRoxdD.png)](https://youtu.be/BsyvnVOhp4U?t=3m50s "What is Hapi.js - Click to Watch!)
 
@@ -347,7 +346,7 @@ When you run `npm test` you will see a fail:
 
 <img width="809" alt="Hapi auth test fail" src="https://cloud.githubusercontent.com/assets/4185328/10119711/21c84fc2-6495-11e5-8d51-c6df5181e4f4.png">
 
-Next we want to make this test pass and we'll use Boom to get our custom error message. 
+Next we want to make this test pass and we'll use Boom to get our custom error message.
 
 The easy (wrong) way of doing this is to explicitly hard-code the response for this route.
 The right way is to create a generic route which responds to any request for a photo with any id.
