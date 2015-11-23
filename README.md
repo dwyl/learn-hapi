@@ -51,16 +51,20 @@ The most important part is to ***try Hapi*** on a simple project to gain experie
 they have developed Hapi following
 [Benchmark Driven Development](https://github.com/felixge/faster-than-c)
 and the result is a high-performance framework
-- ***Security*** - they have focussed on security and battle-tested the
-framework during [Black Friday](http://nodeup.com/fiftysix)
-(holiday shopping busy day) without incident.
++ ***Security*** - The *Lead* Developer of Hapi is [**Eran Hammer**](https://github.com/hueniverse) who was one of the original authors
+of the OAuth (Secure Authentication) Spec. He has built a security-focussed
+mindset into Hapi and reviews all code included in Hapi. Several members of the [Node Security Project](https://nodesecurity.io) are *core* contributors to
+Hapi which means there are many security-minded eyes on the code.
+- ***Scalability*** - they have focussed on *horizontal-scalability*
+and battle-tested the framework during [Black Friday](http://nodeup.com/fiftysix)
+(*holiday shopping busy day*) without incident.
 - **Mobile Optimised** (lightweight - built for mobile e-commerce)
 - **Plugin Architecture** - easy to extend/add your own modules (good ecosystem)
 - ***DevOps Friendly*** - configuration based deployment and great stats/logging see: https://github.com/hapijs/good
 - Built-in ***Caching*** (Redis, MongoDB or Memcached)
 - ***100% Test/Code Coverage*** (for the core) - *disciplined approach to code quality*
-- **Key Functionality** is **Built-in** and there are many plugins for other
-functionality: http://hapijs.com/plugins
+- **Key Functionality** is **Built-in** and there are *many* plugins for other
+features: http://hapijs.com/plugins
 
 ## Who (_is using Hapi_) ?
 
