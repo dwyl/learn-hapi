@@ -463,6 +463,8 @@ open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
 - BDD with Hapi and Lab: https://gist.github.com/thebillkidy/10a11fed1bf61d04c3c5 (*old* version of Hapi!)
 + If you like React.js checkout Mullet.js (Hapi.js + React.js):
 http://mullet.io/ + https://github.com/lynnaloo/mullet
++ If you have an *existing* ***Express*** App and are thinking of
+migrating to Hapi, read: http://matt-harrison.com/moving-from-express-to-hapi-js/
 
 > *Respond* to these SO Q:
 - http://stackoverflow.com/questions/22934340/hapi-js-api-authentication
