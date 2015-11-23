@@ -154,6 +154,10 @@ server.start(function(){ // boots your server
 
 module.exports = server;
 ```
+Install Hapi:
+```
+npm install hapi
+```
 Run:
 ```
 node .
