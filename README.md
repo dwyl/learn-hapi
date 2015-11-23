@@ -233,7 +233,7 @@ If you've done functional or unit testing in previous
 programming projects you will be at home with Lab.
 
 Lab borrows *heavily* from [Mocha](https://github.com/mochajs/mocha),
-so if you followed my
+so if you followed our
 [learn-mocha](https://github.com/docdis/learn-mocha) tutorial this should all be familiar.
 
 (Using the code we wrote above in the **Validation with Joi** section with a minor addition)
@@ -296,7 +296,7 @@ We have **100% code coverage** so we can move on to our next test!
 
 ### Note on Testing: Tape is Simpler than Lab+Code
 
-> *While* ***Lab*** *is reall* ***Good*** *and is the "official" testing
+> *While* ***Lab*** *is really* ***Good*** *and is the "official" testing
 framework used by Hapi*, *we* ***prefer***  
 *the* ***simplicity***
 > *of* [***tape***](https://github.com/substack/tape);
