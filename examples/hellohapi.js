@@ -17,5 +17,5 @@ server.route({
 });
 
 server.start(function(){ // boots your server
-	console.log('Now Visit: http://localhost:8000');
+	console.log('Now Visit: http://localhost:'+server.info.port);
 });

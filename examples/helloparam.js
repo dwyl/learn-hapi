@@ -15,10 +15,10 @@ server.route({
 	method: 'GET',
 	path: '/{p*}',
 	handler: function(req, reply){
-		return reply('Hello ' + req.params.p)
+		return reply('Hello ' + req.params.p);
 	}
 })
 
 server.start(function(){
-  console.log('Now Visit: http://localhost:3000/YOURNAME')
+  console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
 });

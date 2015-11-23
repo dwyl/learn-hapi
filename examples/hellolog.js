@@ -13,7 +13,7 @@ var server = new Hapi.Server({
 
 server.connection({
 	host: '0.0.0.0',
-	port: 3000
+	port: 8000
 });
 
 
@@ -30,8 +30,8 @@ server.route({
 })
 
 server.start(function(){
-	console.log('Now Visit: http://localhost:3000/YOURNAME')
-	console.dir(server.info)
+	console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
+	console.dir(server.info);
 });
 
 // Listen for events of type 'log'
