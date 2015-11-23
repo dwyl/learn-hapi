@@ -232,7 +232,8 @@ and then come back to this tutorial!
 If you've done functional or unit testing in previous
 programming projects you will be at home with Lab.
 
-Lab borrows *heavily* from [Mocha](http://visionmedia.github.io/mocha), so if you followed my
+Lab borrows *heavily* from [Mocha](https://github.com/mochajs/mocha),
+so if you followed my
 [learn-mocha](https://github.com/docdis/learn-mocha) tutorial this should all be familiar.
 
 (Using the code we wrote above in the **Validation with Joi** section with a minor addition)
@@ -255,7 +256,7 @@ lab.experiment("Basic HTTP Tests", function() {
 		server.inject(options, function(response) {
 			Code.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
 			Code.expect(response.result).to.have.length(12); // Expect result to be "Hello Timmy!" (12 chars long)
-			done();                                         // done() callback is required to end the test.
+			server.stop(done);  // done() callback is required to end the test.
 		});
 	});
 });
@@ -292,6 +293,40 @@ We have **100% code coverage** so we can move on to our next test!
 
 > How do you think we would write a test for an error?
 > (hint: have a look inside ./test/test.js and see the second test :)
+
+### Note on Testing: Tape is Simpler than Lab+Code
+
+> *While* ***Lab*** *is reall* ***Good*** *and is the "official" testing
+framework used by Hapi*, *we* ***prefer***  
+*the* ***simplicity***
+> *of* [***tape***](https://github.com/substack/tape);
+> we find our tests are simpler to write/read/understand. #YMMV
+> Also we *prefer* to use a *separate* & *specialised* module for tracking
+test coverage: [istanbul](https://github.com/dwyl/learn-istanbul)
+which we find does a [better job](https://github.com/hapijs/lab/issues/401) at tracking coverage...
+
+The preceding `Lab` test can be re-written (*simplified*) in `Tape` as:
+
+```js
+var test   = require('tape');
+var server = require("../index.js"); // our index.js from above
+
+test("Basic HTTP Tests - GET /{yourname*}", function(t) { // t
+	var options = {
+		method: "GET",
+		url: "/Timmy"
+	};
+	// server.inject lets you similate an http request
+	server.inject(options, function(response) {
+		t.equal(response.statusCode, 200);  //  Expect http response status code to be 200 ("Ok")
+		t.equal(response.result.lenght, 12); // Expect result to be "Hello Timmy!" (12 chars long)
+		server.stop(t.end); // t.end() callback is required to end the test in tape
+	});
+});
+```
+These tests are *functionally equivalent* in that they test *exactly* the
+same *outcome*. Decide for yourself which one you prefer for readability
+and maintainability in your projects.
 
 
 #### Related Links
