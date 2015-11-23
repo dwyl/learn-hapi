@@ -63,6 +63,8 @@ and battle-tested the framework during [Black Friday](http://nodeup.com/fiftysix
 - ***DevOps Friendly*** - configuration based deployment and great stats/logging see: https://github.com/hapijs/good
 - Built-in ***Caching*** (Redis, MongoDB or Memcached)
 - ***100% Test/Code Coverage*** (for the core) - *disciplined approach to code quality*
++ ***Testability*** - End-to-End testing is ***built-in*** to Hapi because
+it *includes* [**shot**](https://github.com/hapijs/shot)
 - **Key Functionality** is **Built-in** and there are *many* plugins for other
 features: http://hapijs.com/plugins
 
