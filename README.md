@@ -398,11 +398,16 @@ trust me, we have *bigger fish to fry*, use a well-written/tested library!)
 We have 4 options:
 
 1. Google - If you are building an "enterprise" or "education" app
-which you know will be used in Google-enabled companies/schools I
-recommend going with [Google Node.js API](https://github.com/google/google-api-nodejs-client)
+which you know will be used in Google-enabled companies/schools we
+wrote a Hapi plugin: https://github.com/dwyl/hapi-auth-google which
+lets you include Google Login in your app in a few simple steps. The plugin uses the [***Official Google Node.js API Client***](https://github.com/google/google-api-nodejs-client) and is
+written to be as readable as possible for complete beginners.
 2. EveryAuth - Specific to Connect/Express apps: https://github.com/bnoguchi/everyauth
 3. [Passport.js](https://github.com/jaredhanson/passport) - ***100% Code Coverage*** and *many* excellent integrations http://passportjs.org/guide/providers/
-4. Bell - a 3rd party Login Hapi.js Plugin
+4. Bell - the 3rd party Login Hapi.js Plugin is *good* however we found it
+*lacking in documentation/usage examples*, which is why we wrote
+our own (*simpler*) Auth Plugin *specific* to our projects.
+see: [https://github.com/**dwyl**?query=**auth**](https://github.com/dwyl?utf8=%E2%9C%93&query=auth)
 
 
 #### Bell
@@ -467,9 +472,9 @@ http://mullet.io/ + https://github.com/lynnaloo/mullet
 migrating to Hapi, read: http://matt-harrison.com/moving-from-express-to-hapi-js/
 
 > *Respond* to these SO Q:
-- http://stackoverflow.com/questions/22934340/hapi-js-api-authentication
+- http://stackoverflow.com/questions/22934340/hapi-js-api-authentication see: http://stackoverflow.com/a/33877047/1148249 (*answer*)
 - http://stackoverflow.com/questions/22985392/how-do-you-make-a-hapi-js-plugin-module
-- http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js
+- http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js see: http://stackoverflow.com/a/33876615/1148249 (*answer*)
 
 [npm-image]: https://img.shields.io/npm/v/learn-hapi.svg?style=flat
 [npm-url]: https://npmjs.org/package/learn-hapi
