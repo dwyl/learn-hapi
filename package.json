@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/nelsonic/learn-hapi.git"
+    "url": "git://github.com/dwyl/learn-hapi.git"
   },
   "keywords": [
     "learn",
@@ -22,9 +22,9 @@
   "author": "@nelsonic & Friends!",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/nelsonic/learn-hapi/issues"
+    "url": "https://github.com/dwyl/learn-hapi/issues"
   },
-  "homepage": "https://github.com/nelsonic/learn-hapi",
+  "homepage": "https://github.com/dwyl/learn-hapi",
   "dependencies": {
     "bell": "^6.0.0",
     "boom": "^3.0.0",

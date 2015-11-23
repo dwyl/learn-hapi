@@ -1,12 +1,12 @@
 ![Happiness Is...](http://i.imgur.com/Df5Z18T.jpg)
 
-[![Build Status](https://travis-ci.org/nelsonic/learn-hapi.png?branch=master)](https://travis-ci.org/nelsonic/learn-hapi)
-[![Test Coverage](https://codeclimate.com/github/nelsonic/learn-hapi/badges/coverage.svg)](https://codeclimate.com/github/nelsonic/learn-hapi)
-[![Code Climate](https://codeclimate.com/github/nelsonic/learn-hapi.png)](https://codeclimate.com/github/nelsonic/learn-hapi)
-[![Dependencies](https://david-dm.org/nelsonic/learn-hapi.png?theme=shields.io)](https://david-dm.org/nelsonic/learn-hapi)
-[![devDependency Status](https://david-dm.org/nelsonic/learn-hapi/dev-status.svg)](https://david-dm.org/nelsonic/learn-hapi#info=devDependencies)
+[![Build Status](https://travis-ci.org/dwyl/learn-hapi.png?branch=master)](https://travis-ci.org/dwyl/learn-hapi)
+[![Test Coverage](https://codeclimate.com/github/dwyl/learn-hapi/badges/coverage.svg)](https://codeclimate.com/github/dwyl/learn-hapi)
+[![Code Climate](https://codeclimate.com/github/dwyl/learn-hapi.png)](https://codeclimate.com/github/dwyl/learn-hapi)
+[![Dependencies](https://david-dm.org/dwyl/learn-hapi.png?theme=shields.io)](https://david-dm.org/dwyl/learn-hapi)
+[![devDependency Status](https://david-dm.org/dwyl/learn-hapi/dev-status.svg)](https://david-dm.org/dwyl/learn-hapi#info=devDependencies)
 [![NPM Version][npm-image]][npm-url]
-[![bitHound Score](https://www.bithound.io/github/nelsonic/learn-hapi/badges/score.svg)](https://www.bithound.io/github/nelsonic/learn-hapi)
+[![bitHound Score](https://www.bithound.io/github/dwyl/learn-hapi/badges/score.svg)](https://www.bithound.io/github/dwyl/learn-hapi)
 
 # Learn Hapi
 
@@ -117,7 +117,7 @@ in the **/makemehapi/exercies/{exercise-name}/solution** directory
 e.g: https://github.com/hapijs/makemehapi/tree/master/exercises/hello_hapi/solution  
 
 or if you still don't get it, _**ask us**_:
-https://github.com/nelsonic/learn-hapi/issues
+https://github.com/dwyl/learn-hapi/issues
 
 <hr />
 
@@ -436,10 +436,10 @@ which demonstrates the power of Real-Time data-synching in your apps.
 > https://github.com/dwyl/hapi-socketio-redis-chat-example
 
 
-## Please Suggest Improvements! [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/nelsonic/learn-hapi/issues)
+## Please Suggest Improvements! [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/learn-hapi/issues)
 
 If you want to extend this tutorial or simply request additional sections,
-open an issue on GitHub: https://github.com/nelsonic/learn-hapi/issues
+open an issue on GitHub: https://github.com/dwyl/learn-hapi/issues
 
 
 
