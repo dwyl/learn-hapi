@@ -39,7 +39,7 @@ stick with what you know. If not, learn [how to be] Hapi.
 
 **Q**: Hapi looks like quite a steep learning curve,
 how long will it take me to learn? <br />
-**A**: You can get started *immediately* with the simple examples below,
+**A**: You can get started *immediately* with the examples below,
 it will take aprox **60 mins** to complete them all (after that add a couple of hours to read/learn further).    
 The most important part is to ***try Hapi*** on a simple project to gain experience/confidence.
 
@@ -58,7 +58,7 @@ Hapi which means there are many security-minded eyes on the code.
 and battle-tested the framework during [Black Friday](http://nodeup.com/fiftysix)
 (*holiday shopping busy day*) without incident.
 - **Mobile Optimised** (lightweight - built for mobile e-commerce)
-- **Plugin Architecture** - easy to extend/add your own modules (good ecosystem)
+- **Plugin Architecture** - extend/add your own modules (good ecosystem)
 - ***DevOps Friendly*** - configuration based deployment and great stats/logging see: https://github.com/hapijs/good
 - Built-in ***Caching*** (Redis, MongoDB or Memcached)
 - ***100% Test/Code Coverage*** (for the core) - *disciplined approach to code quality*
@@ -182,7 +182,7 @@ Most people use Joi with Hapi, but given that it is a separate
 module, plenty of people use Joi independently;
 its well worth checking it out!
 
-A simple example:
+An example:
 Type out (or copy-paste) this code into a file called **hellovalidate.js**
 
 ```js
@@ -241,7 +241,7 @@ so if you followed our
 [learn-mocha](https://github.com/docdis/learn-mocha) tutorial this should all be familiar.
 
 (Using the code we wrote above in the **Validation with Joi** section with a minor addition)
-A simple example of testing with Lab:
+An example of testing with Lab:
 
 ```js
 var Lab = require("lab");           // load Lab module
@@ -357,7 +357,7 @@ And as always, if you have _any questions, **ask**_!
 
 ### Error Handling with Boom
 
-[Boom](https://github.com/spumko/boom) makes custom errors easy in Hapi.    
+[Boom](https://github.com/spumko/boom) makes custom errors easier in Hapi.    
 Imagine you have a page or item of content (photo, message, etc.) that
 you want to protect from public view (only show to someone who is logged in).
 
@@ -392,7 +392,7 @@ When you run `npm test` you will see a fail:
 
 Next we want to make this test pass and we'll use Boom to get our custom error message.
 
-The easy (wrong) way of doing this is to explicitly hard-code the response for this route.
+The wrong way of doing this is to explicitly hard-code the response for this route.
 The right way is to create a generic route which responds to any request for a photo with any id.
 And since we don't currently have any authentication set up, we ***mock*** (fake) it.    
 (Don't worry we will get to the authentication in the next step...)
@@ -438,7 +438,7 @@ We have 4 options:
 1. Google - If you are building an "enterprise" or "education" app
 which you know will be used in Google-enabled companies/schools we
 wrote a Hapi plugin: https://github.com/dwyl/hapi-auth-google which
-lets you include Google Login in your app in a few simple steps. The plugin uses the [***Official Google Node.js API Client***](https://github.com/google/google-api-nodejs-client) and is
+lets you include Google Login in your app in a few clear steps. The plugin uses the [***Official Google Node.js API Client***](https://github.com/google/google-api-nodejs-client) and is
 written to be as readable as possible for complete beginners.
 2. EveryAuth - Specific to Connect/Express apps: https://github.com/bnoguchi/everyauth
 3. [Passport.js](https://github.com/jaredhanson/passport) - ***100% Code Coverage*** and *many* excellent integrations http://passportjs.org/guide/providers/
