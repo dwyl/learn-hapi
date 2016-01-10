@@ -7,7 +7,7 @@
 [![devDependency Status](https://david-dm.org/dwyl/learn-hapi/dev-status.svg)](https://david-dm.org/dwyl/learn-hapi#info=devDependencies)
 [![NPM Version][npm-image]][npm-url]
 
-# Learn Hapi
+# Learn Hapi [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/learn-hapi/issues)
 
 Happiness is learning how to use the [**Hapi.js**](http://hapijs.com/) (Node.js) web framework to
 _**build reliable/scalable apps faster**_.
@@ -40,7 +40,7 @@ stick with what you know. If not, learn [how to be] Hapi.
 **Q**: Hapi looks like quite a steep learning curve,
 how long will it take me to learn? <br />
 **A**: You can get started *immediately* with the examples below,
-it will take aprox **60 mins** to complete them all (after that add a couple of hours to read/learn further).    
+it will take aprox **60 mins** to complete them all (after that add a couple of hours to read/learn further).
 The most important part is to ***try Hapi*** on a simple project to gain experience/confidence.
 
 ### Key Benefits
@@ -357,7 +357,7 @@ And as always, if you have _any questions, **ask**_!
 
 ### Error Handling with Boom
 
-[Boom](https://github.com/spumko/boom) makes custom errors easier in Hapi.    
+[Boom](https://github.com/spumko/boom) makes custom errors easier in Hapi.
 Imagine you have a page or item of content (photo, message, etc.) that
 you want to protect from public view (only show to someone who is logged in).
 
@@ -394,7 +394,7 @@ Next we want to make this test pass and we'll use Boom to get our custom error m
 
 The wrong way of doing this is to explicitly hard-code the response for this route.
 The right way is to create a generic route which responds to any request for a photo with any id.
-And since we don't currently have any authentication set up, we ***mock*** (fake) it.    
+And since we don't currently have any authentication set up, we ***mock*** (fake) it.
 (Don't worry we will get to the authentication in the next step...)
 
 ```js
@@ -450,7 +450,7 @@ see: [https://github.com/**dwyl**?query=**auth**](https://github.com/dwyl?utf8=%
 
 #### Bell
 
-The go-to solution for 3rd party authentication in hapi is bell: https://github.com/hapijs/bell.   
+The go-to solution for 3rd party authentication in hapi is bell: https://github.com/hapijs/bell.
 There are a few good examples in the repo: https://github.com/hapijs/bell/tree/master/examples.
 
 ### Caching with Catbox
