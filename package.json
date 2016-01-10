@@ -4,7 +4,7 @@
   "description": "Learn to build Web Applications & APIs using Hapi.js",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/lab/bin/lab -c && ./node_modules/lab/bin/lab -r html -o coverage/lcov.info",
+    "test": "./node_modules/lab/bin/lab -c && ./node_modules/lab/bin/lab -r lcov -o coverage/lcov.info",
     "start": "node index.js",
     "coverage": "./node_modules/lab/bin/lab -r lcov -o ./test/lcov.info && CODECLIMATE_REPO_TOKEN=c1fd44b286100ffb10e243fd0a8efb7421adbfa77bb0198c8fce92e0baeb55bf ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./test/lcov.info"
   },
