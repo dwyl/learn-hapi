@@ -230,7 +230,7 @@ We will use a few of them later on when we build our example app.
 
 ### Testing with Lab
 
-If you're new to Testing Driven Development (**TDD**) read: https://github.com/nelsonic/learn-tdd (_first_)  
+If you're new to Testing Driven Development (**TDD**) read: https://github.com/dwyl/learn-tdd (_first_)  
 and then come back to this tutorial!
 
 If you've done functional or unit testing in previous

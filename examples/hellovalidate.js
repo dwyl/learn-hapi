@@ -14,7 +14,7 @@ server.route({
 	method: '*',
 	path: '/{firstname*}',
 	config: {  // validate will ensure YOURNAME is valid before replying to your request
-		validate: { params: { firstname: Joi.string().max(40).min(2).alphanum() } },
+		validate: { params: { firstname: Joi.string().max(40).min(3).alphanum() } },
 		handler: function (req, reply) {
 			reply('Hello '+ req.params.firstname + '!');
 		}
@@ -22,5 +22,7 @@ server.route({
 });
 
 server.start(function() {
-	console.log('Now Visit: http://localhost:' + server.info.port + '/Alex');
+	console.log('Now Visit: http://localhost:' + server.info.port + '/yourname');
 });
+
+module.exports = server;

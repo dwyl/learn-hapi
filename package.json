@@ -26,17 +26,17 @@
   },
   "homepage": "https://github.com/dwyl/learn-hapi",
   "dependencies": {
-    "bell": "^6.1.0",
+    "bell": "^7.1.0",
     "boom": "^3.1.2",
     "handlebars": "^4.0.5",
     "hapi": "^13.0.0",
     "inert": "^3.2.0",
-    "joi": "^7.2.3",
+    "joi": "^8.0.4",
     "socket.io": "^1.4.5",
     "vision": "^4.0.1"
   },
   "devDependencies": {
     "code": "^2.0.1",
-    "lab": "^8.2.0"
+    "lab": "^10.2.0"
   }
 }
