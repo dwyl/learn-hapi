@@ -468,7 +468,7 @@ Hapi.js Catbox makes this very easy!
 ### Using Socket.io with Hapi for Real-Time Apps
 
 Using Socket.io with Hapi.js could _not_ be easier!
-To help you get started we've built a fully-functional chat application with tests (now [featured on the hapijs.com Resources page](hapijs.com/resources#Tutorials)),
+To help you get started we've built a fully-functional chat application with tests (now [featured on the hapijs.com Resources page](http://hapijs.com/resources#Tutorials)),
 which demonstrates the power of Real-Time data-synching in your apps.
 
 > https://github.com/dwyl/hapi-socketio-redis-chat-example
