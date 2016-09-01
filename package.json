@@ -1,6 +1,6 @@
 {
   "name": "learn-hapi",
-  "version": "13.5.0",
+  "version": "15.0.3",
   "description": "Learn to build Web Applications & APIs using Hapi.js",
   "main": "index.js",
   "scripts": {
@@ -26,17 +26,17 @@
   },
   "homepage": "https://github.com/dwyl/learn-hapi",
   "dependencies": {
-    "bell": "^7.9.1",
-    "boom": "^3.2.2",
+    "bell": "^8.1.1",
+    "boom": "^4.0.0",
     "handlebars": "^4.0.5",
-    "hapi": "^13.5.0",
-    "inert": "^4.0.1",
-    "joi": "^9.0.1",
+    "hapi": "^15.0.3",
+    "inert": "^4.0.2",
+    "joi": "^9.0.4",
     "socket.io": "^1.4.8",
     "vision": "^4.1.0"
   },
   "devDependencies": {
-    "code": "^3.0.1",
-    "lab": "^10.9.0"
+    "code": "^3.0.2",
+    "lab": "^11.0.1"
   }
 }
