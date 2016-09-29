@@ -67,18 +67,39 @@ it *includes* [**shot**](https://github.com/hapijs/shot)
 - **Key Functionality** is **Built-in** and there are *many* plugins for other
 features: http://hapijs.com/plugins
 
+### _In-depth Compairson_ to Express.js
+
+[@ethanmick](https://github.com/ethanmick) wrote a detailed post on why
+_he_ prefers Hapi to Express: http://www.ethanmick.com/why-i-like-hapi-more-than-express/
+its worth a read. [PDF](https://github.com/dwyl/learn-hapi/files/502449/Why-I-like-Hapi-more-than-Express.pdf)
+
+
 ## Who (_is using Hapi_) ?
 
 The list of teams using Hapi.js to build their node.js apps grows every day!
 See: http://hapijs.com/community
 
-## _Dive In_!
+> While you should _not_ make your decisions to use a given technology
+based on who _else_ is using it, you should be _aware_ that
+and if you need to to answer the **question**:
+"***Who is already using this in Production?***"
+it's _really_ useful to have a good list.
+
+
+## _How?!_ (_Dive In_!)
 
 ## Requirements
 
 - [x] A **computer** that can run [**Node.js**](http://nodejs.org/download/)  Mac/Windows/Linux/Chromebook
 - [x] Access to the Internet (only required for installation)
 - [x] 60 minutes of time +/-
+
+### Optional
+
+(_Not essential before you start, however_) You will _benefit_ from having:
+
++ [x] Basic JavaScript knowledge
++ [x] Basic experience of using node.js's `http` module.
 
 ## Make Me Hapi ("_Official_" _Beginner Workshop_)
 
