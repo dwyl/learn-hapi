@@ -27,7 +27,7 @@ of configurable options.
 
 *Most* people/teams that have _tried_ Hapi have _embraced_ Hapi to build *complete* web applications. But if you are only building a REST API (_e.g. for a mobile app_)
 please read:
-https://github.com/docdis/learn-api-design
+https://github.com/dwyl/learn-api-design
 
 ## _Why_ Hapi instead of XYZ framework?
 
@@ -222,7 +222,7 @@ This might not _look_ like a "Friendly" Error message.
 But as we will see later, it provides all the information we need
 in our Client/App and we can display a more user-friendly error to people.
 
-[Joi](https://github.com/spumko/joi) has many more useful validation methods.
+[Joi](https://github.com/hapijs/joi) has many more useful validation methods.
 We will use a few of them later on when we build our example app.
 
 + Detailed example: https://github.com/hapijs/joi#example
@@ -238,7 +238,7 @@ programming projects you will be at home with Lab.
 
 Lab borrows *heavily* from [Mocha](https://github.com/mochajs/mocha),
 so if you followed our
-[learn-mocha](https://github.com/docdis/learn-mocha) tutorial this should all be familiar.
+[learn-mocha](https://github.com/dwyl/learn-mocha) tutorial this should all be familiar.
 
 (Using the code we wrote above in the **Validation with Joi** section with a minor addition)
 An example of testing with Lab:
@@ -335,7 +335,7 @@ and maintainability in your projects.
 
 #### Related Links
 
-- Lab github module: https://github.com/spumko/lab
+- Lab github module: https://github.com/hapijs/lab
 - Is TDD Dead? http://www.youtube.com/watch?v=z9quxZsLcfo (hint: no!)
 - Getting Started with HapiJS and Testing: http://blog.abcedmindedness.com/2014/10/getting-started-with-hapijs-and-testing.html (on hapi v8.0)
 
@@ -357,7 +357,7 @@ And as always, if you have _any questions, **ask**_!
 
 ### Error Handling with Boom
 
-[Boom](https://github.com/spumko/boom) makes custom errors easier in Hapi.
+[Boom](https://github.com/hapijs/boom) makes custom errors easier in Hapi.
 Imagine you have a page or item of content (photo, message, etc.) that
 you want to protect from public view (only show to someone who is logged in).
 
@@ -418,7 +418,7 @@ with specific messages is *easy* with **Boom**.
 
 <img width="504" alt="learn-hapi-clearer-boom-message" src="https://cloud.githubusercontent.com/assets/4185328/10119795/474a8504-6499-11e5-9833-76a4f0fb3818.png">
 
-Have a look at https://github.com/spumko/boom for more error response options.
+Have a look at https://github.com/hapijs/boom for more error response options.
 We will be using these later as we build our app.
 Let's move on to authentication.
 
@@ -483,7 +483,7 @@ open an issue on GitHub: https://github.com/dwyl/learn-hapi/issues
 
 ## Background Reading / Watching
 
-- GitHub Repo: https://github.com/spumko/hapi (has documentation)
+- GitHub Repo: https://github.com/hapijs/hapi (has documentation)
 - Restify vs Express performance: http://stackoverflow.com/questions/17589178/why-should-i-use-restify
 - REST API in Express: http://pixelhandler.com/posts/develop-a-restful-api-using-nodejs-with-express-and-mongoose
 
@@ -497,10 +497,10 @@ open an issue on GitHub: https://github.com/dwyl/learn-hapi/issues
 - Hapi Boilerplate app: https://github.com/poeticninja/hapi-ninja [updated for hapi 8.0]
 - Building APIs with Hapi and MongoDB: https://speakerdeck.com/donnfelker/building-web-apis-with-hapi-dot-js-and-mongodb-mongoose
 - Repo for the above speakerdeck: https://github.com/donnfelker/hapi-mongodb-example
-- Micro-tutorial: https://github.com/spumko/makemehapi
+- Micro-tutorial: https://github.com/hapijs/makemehapi
 - http://stackoverflow.com/questions/21455076/hapi-and-node-js-to-create-a-rest-api-server
 - Hapi + Twilio (sms): http://code.tutsplus.com/tutorials/creating-a-node-web-app-with-hapi-and-twilio-integration--cms-20769
-- Authentication: https://github.com/spumko/hapi-auth-cookie
+- Authentication: https://github.com/hapijs/hapi-auth-cookie
 - A few examples: https://github.com/andyroyle/hapi-examples
 - More examples: https://github.com/wpreul/hapikc (*very old* version of Hapi!)
 - BDD with Hapi and Lab: https://gist.github.com/thebillkidy/10a11fed1bf61d04c3c5 (*old* version of Hapi!)
@@ -515,5 +515,5 @@ see: http://stackoverflow.com/a/33877047/1148249 (*answer*)
 - http://stackoverflow.com/questions/22985392/how-do-you-make-a-hapi-js-plugin-module
 - http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js see: http://stackoverflow.com/a/33876615/1148249 (*answer*)
 
-[npm-image]: https://img.shields.io/npm/v/learn-hapi.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/hapi.svg?style=flat
 [npm-url]: https://npmjs.org/package/learn-hapi
