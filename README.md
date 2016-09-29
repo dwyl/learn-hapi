@@ -34,7 +34,7 @@ https://github.com/dwyl/learn-api-design
 **Q**: I already know how to build REST APIs in `{framework-xyz}` why learn a *new* framework?  <br />
 **A**: If you are *happy* with your existing system & level of team productivity,
 stick with what you know. If not, learn [how to be] Hapi.
-(We have built Sites/APIs with both Express and Restify and find Hapi has solved more
+(We have built Sites/APIs with both Express, Restify, Sails & Meteor and find Hapi has solved more
 "real world" problems and thus we end up writing less code. YMMV. See benefits below)
 
 **Q**: Hapi looks like quite a steep learning curve,
@@ -73,6 +73,17 @@ features: http://hapijs.com/plugins
 _he_ prefers Hapi to Express: http://www.ethanmick.com/why-i-like-hapi-more-than-express/
 its worth a read. [PDF](https://github.com/dwyl/learn-hapi/files/502449/Why-I-like-Hapi-more-than-Express.pdf)
 
+### _Beginner Friendly_ Examples/Apps to Learn From/With
+
+We have a few "_beginner_" example apps (with documentation & tests!)
+that will help you get started with something a bit more "real world":
+
++ Registration & Login (Basics): https://github.com/dwyl/hapi-login-example-postgres
++ Chat using Hapi, Redis & Socket.io: https://github.com/dwyl/hapi-socketio-redis-chat-example
+
+For a _list_ of examples see: https://github.com/dwyl?&query=example
+
+<br />
 
 ## Who (_is using Hapi_) ?
 
