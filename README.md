@@ -4,7 +4,7 @@
 [![codecov.io test coverage](https://codecov.io/github/dwyl/learn-hapi/coverage.svg?branch=master)](https://codecov.io/github/dwyl/learn-hapi?branch=master)
 [![Code Climate](https://codeclimate.com/github/dwyl/learn-hapi.png)](https://codeclimate.com/github/dwyl/learn-hapi)
 [![Dependencies](https://david-dm.org/dwyl/learn-hapi.png?theme=shields.io)](https://david-dm.org/dwyl/learn-hapi)
-[![devDependency Status](https://david-dm.org/dwyl/learn-hapi/dev-status.svg)](https://david-dm.org/dwyl/learn-hapi#info=devDependencies)
+[![devDependencies Status](https://david-dm.org/dwyl/learn-hapi/dev-status.svg)](https://david-dm.org/dwyl/learn-hapi?type=dev)
 [![NPM Version][npm-image]][npm-url]
 
 # Learn Hapi [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/learn-hapi/issues)
@@ -510,7 +510,8 @@ http://mullet.io/ + https://github.com/lynnaloo/mullet
 migrating to Hapi, read: http://matt-harrison.com/moving-from-express-to-hapi-js/
 
 > *Respond* to these SO Q:
-- http://stackoverflow.com/questions/22934340/hapi-js-api-authentication see: http://stackoverflow.com/a/33877047/1148249 (*answer*)
+- http://stackoverflow.com/questions/22934340/hapi-js-api-authentication  
+see: http://stackoverflow.com/a/33877047/1148249 (*answer*)
 - http://stackoverflow.com/questions/22985392/how-do-you-make-a-hapi-js-plugin-module
 - http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js see: http://stackoverflow.com/a/33876615/1148249 (*answer*)
 
