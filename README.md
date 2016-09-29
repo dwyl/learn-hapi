@@ -444,6 +444,27 @@ We will be using these later as we build our app.
 Let's move on to authentication.
 
 
+### Logging with `good`
+
+Application logging can often be an _afterthought_ developers only implement
+_after_ they have a production bug which is crashing their API/App and
+they are scrambling to try and "debug" it.
+
+Thankfully, it Hapi has first-class support for logging with the `good` module.
+
+We have written a little example you can use to get started:
+[examples/hellogood.js](https://github.com/dwyl/learn-hapi/blob/master/examples/hellogood.js)
+
+Run it locally with `node examples/hellogood.js` then visit http://localhost:3000/hello/yourname in your browser.
+
+You should expect to see something like this:
+![learn-hapi-good-log-two-ops](https://cloud.githubusercontent.com/assets/194400/18990153/051440e8-8708-11e6-9337-bcc2ab067853.png)
+
+There are good examples including logging use http (e.g. to a 3rd party logging tool)
+in the Good repo: https://github.com/hapijs/good/tree/master/examples
+
+Again, if you have _any_ questions, [_ask_](https://github.com/dwyl/learn-hapi/issues)
+
 
 ### Authentication
 
@@ -473,6 +494,7 @@ see: [https://github.com/**dwyl**?query=**auth**](https://github.com/dwyl?utf8=%
 
 The go-to solution for 3rd party authentication in hapi is bell: https://github.com/hapijs/bell.
 There are a few good examples in the repo: https://github.com/hapijs/bell/tree/master/examples.
+
 
 ### Caching with Catbox
 
