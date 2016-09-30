@@ -156,8 +156,8 @@ https://github.com/dwyl/learn-hapi/issues
 
 ### Recap: Hello World in Hapi
 
-Once you have completed the **makemehapi** workshop, on your computer, create a new directory
-called "**hapiapp**"
+Once you have completed the **makemehapi** workshop,
+on your computer, create a new directory called "**hapiapp**". e.g:
 
 ```sh
 mkdir hapiapp && cd hapiapp
@@ -169,33 +169,34 @@ Type out (or copy-paste) this code into a file called **index.js**
 var Hapi = require('hapi');
 var server = new Hapi.Server();
 
-server.connection({port: 3000});
+server.connection({port: 3000}); // tell hapi which TCP Port to "listen" on
 
 server.route({
-	method: 'GET',
-	path: '/{yourname*}',
-	handler: function(req, reply) {
-		reply('Hello ' + req.params.yourname + '!')
+	method: 'GET',        // define the method this route will handle
+	path: '/{yourname*}', // this is how you capture route parameters in Hapi
+	handler: function(req, reply) { // request handler method
+		reply('Hello ' + req.params.yourname + '!'); // reply with text.
 	}
 });
 
-server.start(function(){ // boots your server
-	console.log('Now Visit: http://localhost:3000/YOURNAME')
+server.start(function () { // start the Hapi server on your localhost
+	console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
 });
 
 module.exports = server;
 ```
 Install Hapi:
 ```
-npm install hapi
+npm inti -y && npm install hapi --save
 ```
 Run:
 ```
 node .
 ```
 
-Visit: http://localhost:3000/YOURNAME (in your browser) <br />
+Visit: http://localhost:3000/YOURNAME (in your browser)
 you should see something like:
+
 ![hello world in hapi](http://i.imgur.com/m9qcs17.png)
 
 
@@ -232,15 +233,19 @@ server.route({
 	method: 'GET',
 	path: '/{yourname*}',
 	config: {  // validate will ensure YOURNAME is valid before replying to your request
-		validate: { params: { yourname: Joi.string().max(40).min(2).alphanum() } },
+		validate: {
+			params: {
+				yourname: Joi.string().min(2).max(40).alphanum().required()
+			}
+		},
 		handler: function (req,reply) {
 			reply('Hello '+ req.params.yourname + '!');
 		}
 	}
 });
 
-server.start(function() {
-	console.log('Now Visit: http://localhost:3000/YOURNAME')
+server.start(function () { // start the Hapi server on your localhost
+	console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
 });
 
 ```
@@ -258,7 +263,8 @@ in our Client/App and we can display a more user-friendly error to people.
 We will use a few of them later on when we build our example app.
 
 + Detailed example: https://github.com/hapijs/joi#example
-- http://vawks.com/blog/2014/03/22/the-joi-of-validation/
+and http://vawks.com/blog/2014/03/22/the-joi-of-validation/
++ Want _friendly_ error messages in your web app? see: https://github.com/dwyl/hapi-error
 
 ### Testing with Lab
 
@@ -362,7 +368,8 @@ test("Basic HTTP Tests - GET /{yourname*}", function(t) { // t
 ```
 These tests are *functionally equivalent* in that they test *exactly* the
 same *outcome*. Decide for yourself which one you prefer for readability
-and maintainability in your projects.
+and maintainability in your projects.  
+For our **Tape Tutorial** see: https://github.com/dwyl/learn-tape
 
 
 #### Related Links

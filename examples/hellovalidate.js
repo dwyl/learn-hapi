@@ -1,28 +1,39 @@
-// Start this app from your command line with: node hellovalidate.js
-// then open in web browser: http://localhost:3000/YOURNAME-HERE
+// Start this app from your command line with: node examples/hellovalidate.js
+// then visit: http://localhost:3000/YOURNAME
 
 var Hapi = require('hapi');
 var Joi  = require('joi');
-var server = new Hapi.Server();
+var Boom = require('boom');
+var port = 3000; // process.env.PORT || 3000; // allow port to be set by environment
 
-server.connection({
-	host: '0.0.0.0',
-	port: 8000
+var server = new Hapi.Server();
+server.connection({ port: port });
+
+server.route({
+  method: ['GET', 'POST'],
+  path: '/{name*}',
+  config: {  // validate will ensure YOURNAME is valid before replying to your request
+    validate: { params: { name: Joi.string().max(40).min(2).alphanum() } },
+    handler: function (request, reply) {
+      reply('Hai '+ request.params.name + '!');
+    }
+  }
 });
 
 server.route({
-	method: '*',
-	path: '/{firstname*}',
-	config: {  // validate will ensure YOURNAME is valid before replying to your request
-		validate: { params: { firstname: Joi.string().max(40).min(3).alphanum() } },
-		handler: function (req, reply) {
-			reply('Hello '+ req.params.firstname + '!');
-		}
-	}
+  method: 'GET',
+  path: '/photo/{id*}',
+  config: {  // validate will ensure YOURNAME is valid before replying to your request
+    validate: { params: { id: Joi.string().max(40).min(2).alphanum() } },
+    handler: function (request, reply) {
+        // until we implement authentication we are simply returning a 401:
+        reply(Boom.unauthorized('Please log-in to see that'));
+    }
+  }
 });
 
 server.start(function() {
-	console.log('Now Visit: http://localhost:' + server.info.port + '/yourname');
+  console.log('Now Visit: http://localhost:' + port + '/YOURNAME');
 });
 
 module.exports = server;

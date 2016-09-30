@@ -2,7 +2,7 @@ var Code = require('code');   // assertion library
 var Lab = require('lab');
 var lab = exports.lab = Lab.script();
 
-var server = require("../"); // require ../index.js
+var server = require("../examples/hellovalidate.js"); // require ../index.js
 lab.experiment("Basic HTTP Tests", function() {
     // tests
     lab.test("Main endpoint /{yourname*} ", function(done) {
