@@ -152,7 +152,11 @@ https://github.com/dwyl/learn-hapi/issues
 
 <hr />
 
-## Intermediate
+## _Extended_ Examples
+
+For the rest of the tutorial we will cover the various
+plugins and features we have used in the Hapi.js ecosystem
+that will help you getting up-and-running with Hapi!
 
 ### Recap: Hello World in Hapi
 
@@ -250,7 +254,7 @@ server.start(function () { // start the Hapi server on your localhost
 
 ```
 
-Now try entering an invalid name: http://localhost:3000/T <br />
+Now try entering an _invalid_ name: http://localhost:3000/T  
 You should see a **Validation Error**:
 
 ![Hapi Joi validation error](http://i.imgur.com/Dyhel2V.png)
@@ -264,12 +268,15 @@ We will use a few of them later on when we build our example app.
 
 + Detailed example: https://github.com/hapijs/joi#example
 and http://vawks.com/blog/2014/03/22/the-joi-of-validation/
-+ Want _friendly_ error messages in your web app? see: https://github.com/dwyl/hapi-error
++ Want _friendly_ error messages in your web app?
+see: [https://github.com/dwyl/**hapi-error**](https://github.com/dwyl/hapi-error)
 
 ### Testing with Lab
 
-If you're new to Testing Driven Development (**TDD**) read: https://github.com/dwyl/learn-tdd (_first_)  
-and then come back to this tutorial!
+If you're _new_ to Test Driven Development (**TDD**) read
+our ***Beginners' TTD Tutorial***:
+[https://github.com/dwyl/**learn-tdd**](https://github.com/dwyl/learn-tdd) (_first_)  
+and then come _back_ to this tutorial!
 
 If you've done functional or unit testing in previous
 programming projects you will be at home with Lab.
@@ -285,7 +292,7 @@ An example of testing with Lab:
 var Lab = require("lab");           // load Lab module
 var lab = exports.lab = Lab.script(); //export test script
 var Code = require("code");		 //assertion library
-var server = require("../index.js"); // our index.js from above
+var server = require("../examples/hellovalidate.js");
 
 lab.experiment("Basic HTTP Tests", function() {
 	// tests
@@ -328,10 +335,10 @@ The result should look something like this:
 
 <img width="287" alt="Hapi testing with Lab 100% coverage" src="https://cloud.githubusercontent.com/assets/4185328/10119715/6232f530-6495-11e5-86ef-17d2bd61795a.png">
 
-Note how the test script has a ** -c** flag above
+Note how the test script has a `-c` (_coverage_) flag above
 this give us the **code coverage**.
 
-We have **100% code coverage** so we can move on to our next test!
+We have **100% code coverage** so we can move on to our next test/feature!
 
 > How do you think we would write a test for an error?
 > (hint: have a look inside ./test/test.js and see the second test :)
@@ -544,7 +551,6 @@ If you want to extend this tutorial or simply request additional sections,
 open an issue on GitHub: https://github.com/dwyl/learn-hapi/issues
 
 
-
 ## Background Reading / Watching
 
 - GitHub Repo: https://github.com/hapijs/hapi (has documentation)
@@ -573,11 +579,14 @@ http://mullet.io/ + https://github.com/lynnaloo/mullet
 + If you have an *existing* ***Express*** App and are thinking of
 migrating to Hapi, read: http://matt-harrison.com/moving-from-express-to-hapi-js/
 
-> *Respond* to these SO Q:
+Selected StackOverflow Questions & Answers:
 - http://stackoverflow.com/questions/22934340/hapi-js-api-authentication  
 see: http://stackoverflow.com/a/33877047/1148249 (*answer*)
 - http://stackoverflow.com/questions/22985392/how-do-you-make-a-hapi-js-plugin-module
-- http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js see: http://stackoverflow.com/a/33876615/1148249 (*answer*)
+see: http://stackoverflow.com/a/25135343/1148249 (*answer*)
+- http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js
+see: http://stackoverflow.com/a/33876615/1148249 (*answer*
+
 
 [npm-image]: https://img.shields.io/npm/v/hapi.svg?style=flat
 [npm-url]: https://npmjs.org/package/learn-hapi
