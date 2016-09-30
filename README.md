@@ -40,7 +40,7 @@ stick with what you know. If not, learn [how to be] Hapi.
 **Q**: Hapi looks like quite a steep learning curve,
 how long will it take me to learn? <br />
 **A**: You can get started *immediately* with the examples below,
-it will take aprox **60 mins** to complete them all (after that add a couple of hours to read/learn further).
+it will take _approximately **60 mins** to complete_ them all (after that add a couple of hours to read/learn further).
 The most important part is to ***try Hapi*** on a simple project to gain experience/confidence.
 
 ### Key Benefits
@@ -59,7 +59,7 @@ and battle-tested the framework during [Black Friday](http://nodeup.com/fiftysix
 (*holiday shopping busy day*) without incident.
 - **Mobile Optimised** (lightweight - built for mobile e-commerce)
 - **Plugin Architecture** - extend/add your own modules (good ecosystem)
-- ***DevOps Friendly*** - configuration based deployment and great stats/logging see: https://github.com/hapijs/good
+- ***DevOps Friendly*** - configuration based deployment and great stats/logging see: [#logging with good](https://github.com/dwyl/learn-hapi#logging-with-good) section below!
 - Built-in ***Caching*** (Redis, MongoDB or Memcached)
 - ***100% Test/Code Coverage*** (for the core) - *disciplined approach to code quality*
 + ***Testability*** - End-to-End testing is ***built-in*** to Hapi because
@@ -69,7 +69,7 @@ features: http://hapijs.com/plugins
 
 ### _In-depth Compairson_ to Express.js
 
-[@ethanmick](https://github.com/ethanmick) wrote a detailed post on why
+@ethanmick wrote a detailed post on why
 _he_ prefers Hapi to Express: http://www.ethanmick.com/why-i-like-hapi-more-than-express/
 its worth a read. [PDF](https://github.com/dwyl/learn-hapi/files/502449/Why-I-like-Hapi-more-than-Express.pdf)
 
@@ -336,7 +336,7 @@ We have **100% code coverage** so we can move on to our next test!
 > How do you think we would write a test for an error?
 > (hint: have a look inside ./test/test.js and see the second test :)
 
-### Note on Testing: Tape is Simpler than Lab+Code
+### Note on Testing: Tape is _Simpler_ than Lab+Code
 
 > *While* ***Lab*** *is really* ***Good*** *and is the "official" testing
 framework used by Hapi*, *we* ***prefer***  
@@ -385,6 +385,7 @@ Making sure your code is working as you expect it to (over time).
 ### Integrating Hapi with Travis CI
 
 If you are new to Travis-CI or need a refresher see:  https://github.com/dwyl/learn-travis  
+
 We have Travis-CI enabled for all our hapi.js based projects:
 + https://github.com/dwyl/hapi-socketio-redis-chat-example
 + https://github.com/dwyl/hapi-auth-jwt2
@@ -460,6 +461,8 @@ with specific messages is *easy* with **Boom**.
 Have a look at https://github.com/hapijs/boom for more error response options.
 We will be using these later as we build our app.
 Let's move on to authentication.
+
+> For a more _user-friendly_ approach to error-handling see: https://github.com/dwyl/hapi-error
 
 
 ### Logging with `good`
