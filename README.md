@@ -4,7 +4,7 @@
 [![codecov.io test coverage](https://codecov.io/github/dwyl/learn-hapi/coverage.svg?branch=master)](https://codecov.io/github/dwyl/learn-hapi?branch=master)
 [![Code Climate](https://codeclimate.com/github/dwyl/learn-hapi.png)](https://codeclimate.com/github/dwyl/learn-hapi)
 [![Dependencies](https://david-dm.org/dwyl/learn-hapi.png?theme=shields.io)](https://david-dm.org/dwyl/learn-hapi)
-[![devDependency Status](https://david-dm.org/dwyl/learn-hapi/dev-status.svg)](https://david-dm.org/dwyl/learn-hapi#info=devDependencies)
+[![devDependencies Status](https://david-dm.org/dwyl/learn-hapi/dev-status.svg)](https://david-dm.org/dwyl/learn-hapi?type=dev)
 [![NPM Version][npm-image]][npm-url]
 
 # Learn Hapi [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/learn-hapi/issues)
@@ -27,20 +27,20 @@ of configurable options.
 
 *Most* people/teams that have _tried_ Hapi have _embraced_ Hapi to build *complete* web applications. But if you are only building a REST API (_e.g. for a mobile app_)
 please read:
-https://github.com/docdis/learn-api-design
+https://github.com/dwyl/learn-api-design
 
 ## _Why_ Hapi instead of XYZ framework?
 
 **Q**: I already know how to build REST APIs in `{framework-xyz}` why learn a *new* framework?  <br />
 **A**: If you are *happy* with your existing system & level of team productivity,
 stick with what you know. If not, learn [how to be] Hapi.
-(We have built Sites/APIs with both Express and Restify and find Hapi has solved more
+(We have built Sites/APIs with both Express, Restify, Sails & Meteor and find Hapi has solved more
 "real world" problems and thus we end up writing less code. YMMV. See benefits below)
 
 **Q**: Hapi looks like quite a steep learning curve,
 how long will it take me to learn? <br />
 **A**: You can get started *immediately* with the examples below,
-it will take aprox **60 mins** to complete them all (after that add a couple of hours to read/learn further).
+it will take _approximately **60 mins** to complete_ them all (after that add a couple of hours to read/learn further).
 The most important part is to ***try Hapi*** on a simple project to gain experience/confidence.
 
 ### Key Benefits
@@ -59,7 +59,7 @@ and battle-tested the framework during [Black Friday](http://nodeup.com/fiftysix
 (*holiday shopping busy day*) without incident.
 - **Mobile Optimised** (lightweight - built for mobile e-commerce)
 - **Plugin Architecture** - extend/add your own modules (good ecosystem)
-- ***DevOps Friendly*** - configuration based deployment and great stats/logging see: https://github.com/hapijs/good
+- ***DevOps Friendly*** - configuration based deployment and great stats/logging see: [#logging with good](https://github.com/dwyl/learn-hapi#logging-with-good) section below!
 - Built-in ***Caching*** (Redis, MongoDB or Memcached)
 - ***100% Test/Code Coverage*** (for the core) - *disciplined approach to code quality*
 + ***Testability*** - End-to-End testing is ***built-in*** to Hapi because
@@ -67,18 +67,50 @@ it *includes* [**shot**](https://github.com/hapijs/shot)
 - **Key Functionality** is **Built-in** and there are *many* plugins for other
 features: http://hapijs.com/plugins
 
+### _In-depth Compairson_ to Express.js
+
+@ethanmick wrote a detailed post on why
+_he_ prefers Hapi to Express: http://www.ethanmick.com/why-i-like-hapi-more-than-express/
+its worth a read. [PDF](https://github.com/dwyl/learn-hapi/files/502449/Why-I-like-Hapi-more-than-Express.pdf)
+
+### _Beginner Friendly_ Examples/Apps to Learn From/With
+
+We have a few "_beginner_" example apps (with documentation & tests!)
+that will help you get started with something a bit more "real world":
+
++ Registration & Login (Basics): https://github.com/dwyl/hapi-login-example-postgres
++ Chat using Hapi, Redis & Socket.io: https://github.com/dwyl/hapi-socketio-redis-chat-example
+
+For a _list_ of examples see: https://github.com/dwyl?&query=example
+
+<br />
+
 ## Who (_is using Hapi_) ?
 
 The list of teams using Hapi.js to build their node.js apps grows every day!
 See: http://hapijs.com/community
 
-## _Dive In_!
+> While you should _not_ make your decisions to use a given technology
+based on who _else_ is using it, you should be _aware_ that
+and if you need to to answer the **question**:
+"***Who is already using this in Production?***"
+it's _really_ useful to have a good list.
+
+
+## _How?!_ (_Dive In_!)
 
 ## Requirements
 
 - [x] A **computer** that can run [**Node.js**](http://nodejs.org/download/)  Mac/Windows/Linux/Chromebook
 - [x] Access to the Internet (only required for installation)
 - [x] 60 minutes of time +/-
+
+### Optional
+
+(_Not essential before you start, however_) You will _benefit_ from having:
+
++ [x] Basic JavaScript knowledge
++ [x] Basic experience of using node.js's `http` module.
 
 ## Make Me Hapi ("_Official_" _Beginner Workshop_)
 
@@ -120,12 +152,16 @@ https://github.com/dwyl/learn-hapi/issues
 
 <hr />
 
-## Intermediate
+## _Extended_ Examples
+
+For the rest of the tutorial we will cover the various
+plugins and features we have used in the Hapi.js ecosystem
+that will help you getting up-and-running with Hapi!
 
 ### Recap: Hello World in Hapi
 
-Once you have completed the **makemehapi** workshop, on your computer, create a new directory
-called "**hapiapp**"
+Once you have completed the **makemehapi** workshop,
+on your computer, create a new directory called "**hapiapp**". e.g:
 
 ```sh
 mkdir hapiapp && cd hapiapp
@@ -137,33 +173,34 @@ Type out (or copy-paste) this code into a file called **index.js**
 var Hapi = require('hapi');
 var server = new Hapi.Server();
 
-server.connection({port: 3000});
+server.connection({port: 3000}); // tell hapi which TCP Port to "listen" on
 
 server.route({
-	method: 'GET',
-	path: '/{yourname*}',
-	handler: function(req, reply) {
-		reply('Hello ' + req.params.yourname + '!')
+	method: 'GET',        // define the method this route will handle
+	path: '/{yourname*}', // this is how you capture route parameters in Hapi
+	handler: function(req, reply) { // request handler method
+		reply('Hello ' + req.params.yourname + '!'); // reply with text.
 	}
 });
 
-server.start(function(){ // boots your server
-	console.log('Now Visit: http://localhost:3000/YOURNAME')
+server.start(function () { // start the Hapi server on your localhost
+	console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
 });
 
 module.exports = server;
 ```
 Install Hapi:
 ```
-npm install hapi
+npm inti -y && npm install hapi --save
 ```
 Run:
 ```
 node .
 ```
 
-Visit: http://localhost:3000/YOURNAME (in your browser) <br />
+Visit: http://localhost:3000/YOURNAME (in your browser)
 you should see something like:
+
 ![hello world in hapi](http://i.imgur.com/m9qcs17.png)
 
 
@@ -200,20 +237,24 @@ server.route({
 	method: 'GET',
 	path: '/{yourname*}',
 	config: {  // validate will ensure YOURNAME is valid before replying to your request
-		validate: { params: { yourname: Joi.string().max(40).min(2).alphanum() } },
+		validate: {
+			params: {
+				yourname: Joi.string().min(2).max(40).alphanum().required()
+			}
+		},
 		handler: function (req,reply) {
 			reply('Hello '+ req.params.yourname + '!');
 		}
 	}
 });
 
-server.start(function() {
-	console.log('Now Visit: http://localhost:3000/YOURNAME')
+server.start(function () { // start the Hapi server on your localhost
+	console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
 });
 
 ```
 
-Now try entering an invalid name: http://localhost:3000/T <br />
+Now try entering an _invalid_ name: http://localhost:3000/T  
 You should see a **Validation Error**:
 
 ![Hapi Joi validation error](http://i.imgur.com/Dyhel2V.png)
@@ -222,23 +263,27 @@ This might not _look_ like a "Friendly" Error message.
 But as we will see later, it provides all the information we need
 in our Client/App and we can display a more user-friendly error to people.
 
-[Joi](https://github.com/spumko/joi) has many more useful validation methods.
+[Joi](https://github.com/hapijs/joi) has many more useful validation methods.
 We will use a few of them later on when we build our example app.
 
 + Detailed example: https://github.com/hapijs/joi#example
-- http://vawks.com/blog/2014/03/22/the-joi-of-validation/
+and http://vawks.com/blog/2014/03/22/the-joi-of-validation/
++ Want _friendly_ error messages in your web app?
+see: [https://github.com/dwyl/**hapi-error**](https://github.com/dwyl/hapi-error)
 
 ### Testing with Lab
 
-If you're new to Testing Driven Development (**TDD**) read: https://github.com/dwyl/learn-tdd (_first_)  
-and then come back to this tutorial!
+If you're _new_ to Test Driven Development (**TDD**) read
+our ***Beginners' TTD Tutorial***:
+[https://github.com/dwyl/**learn-tdd**](https://github.com/dwyl/learn-tdd) (_first_)  
+and then come _back_ to this tutorial!
 
 If you've done functional or unit testing in previous
 programming projects you will be at home with Lab.
 
 Lab borrows *heavily* from [Mocha](https://github.com/mochajs/mocha),
 so if you followed our
-[learn-mocha](https://github.com/docdis/learn-mocha) tutorial this should all be familiar.
+[learn-mocha](https://github.com/dwyl/learn-mocha) tutorial this should all be familiar.
 
 (Using the code we wrote above in the **Validation with Joi** section with a minor addition)
 An example of testing with Lab:
@@ -247,7 +292,7 @@ An example of testing with Lab:
 var Lab = require("lab");           // load Lab module
 var lab = exports.lab = Lab.script(); //export test script
 var Code = require("code");		 //assertion library
-var server = require("../index.js"); // our index.js from above
+var server = require("../examples/hellovalidate.js");
 
 lab.experiment("Basic HTTP Tests", function() {
 	// tests
@@ -290,15 +335,15 @@ The result should look something like this:
 
 <img width="287" alt="Hapi testing with Lab 100% coverage" src="https://cloud.githubusercontent.com/assets/4185328/10119715/6232f530-6495-11e5-86ef-17d2bd61795a.png">
 
-Note how the test script has a ** -c** flag above
+Note how the test script has a `-c` (_coverage_) flag above
 this give us the **code coverage**.
 
-We have **100% code coverage** so we can move on to our next test!
+We have **100% code coverage** so we can move on to our next test/feature!
 
 > How do you think we would write a test for an error?
 > (hint: have a look inside ./test/test.js and see the second test :)
 
-### Note on Testing: Tape is Simpler than Lab+Code
+### Note on Testing: Tape is _Simpler_ than Lab+Code
 
 > *While* ***Lab*** *is really* ***Good*** *and is the "official" testing
 framework used by Hapi*, *we* ***prefer***  
@@ -330,12 +375,13 @@ test("Basic HTTP Tests - GET /{yourname*}", function(t) { // t
 ```
 These tests are *functionally equivalent* in that they test *exactly* the
 same *outcome*. Decide for yourself which one you prefer for readability
-and maintainability in your projects.
+and maintainability in your projects.  
+For our **Tape Tutorial** see: https://github.com/dwyl/learn-tape
 
 
 #### Related Links
 
-- Lab github module: https://github.com/spumko/lab
+- Lab github module: https://github.com/hapijs/lab
 - Is TDD Dead? http://www.youtube.com/watch?v=z9quxZsLcfo (hint: no!)
 - Getting Started with HapiJS and Testing: http://blog.abcedmindedness.com/2014/10/getting-started-with-hapijs-and-testing.html (on hapi v8.0)
 
@@ -346,6 +392,7 @@ Making sure your code is working as you expect it to (over time).
 ### Integrating Hapi with Travis CI
 
 If you are new to Travis-CI or need a refresher see:  https://github.com/dwyl/learn-travis  
+
 We have Travis-CI enabled for all our hapi.js based projects:
 + https://github.com/dwyl/hapi-socketio-redis-chat-example
 + https://github.com/dwyl/hapi-auth-jwt2
@@ -357,7 +404,7 @@ And as always, if you have _any questions, **ask**_!
 
 ### Error Handling with Boom
 
-[Boom](https://github.com/spumko/boom) makes custom errors easier in Hapi.
+[Boom](https://github.com/hapijs/boom) makes custom errors easier in Hapi.
 Imagine you have a page or item of content (photo, message, etc.) that
 you want to protect from public view (only show to someone who is logged in).
 
@@ -418,10 +465,33 @@ with specific messages is *easy* with **Boom**.
 
 <img width="504" alt="learn-hapi-clearer-boom-message" src="https://cloud.githubusercontent.com/assets/4185328/10119795/474a8504-6499-11e5-9833-76a4f0fb3818.png">
 
-Have a look at https://github.com/spumko/boom for more error response options.
+Have a look at https://github.com/hapijs/boom for more error response options.
 We will be using these later as we build our app.
 Let's move on to authentication.
 
+> For a more _user-friendly_ approach to error-handling see: https://github.com/dwyl/hapi-error
+
+
+### Logging with `good`
+
+Application logging can often be an _afterthought_ developers only implement
+_after_ they have a production bug which is crashing their API/App and
+they are scrambling to try and "debug" it.
+
+Thankfully, it Hapi has first-class support for logging with the `good` module.
+
+We have written a little example you can use to get started:
+[examples/hellogood.js](https://github.com/dwyl/learn-hapi/blob/master/examples/hellogood.js)
+
+Run it locally with `node examples/hellogood.js` then visit http://localhost:3000/hello/yourname in your browser.
+
+You should expect to see something like this:
+![learn-hapi-good-log-two-ops](https://cloud.githubusercontent.com/assets/194400/18990153/051440e8-8708-11e6-9337-bcc2ab067853.png)
+
+There are good examples including logging use http (e.g. to a 3rd party logging tool)
+in the Good repo: https://github.com/hapijs/good/tree/master/examples
+
+Again, if you have _any_ questions, [_ask_](https://github.com/dwyl/learn-hapi/issues)
 
 
 ### Authentication
@@ -453,6 +523,7 @@ see: [https://github.com/**dwyl**?query=**auth**](https://github.com/dwyl?utf8=%
 The go-to solution for 3rd party authentication in hapi is bell: https://github.com/hapijs/bell.
 There are a few good examples in the repo: https://github.com/hapijs/bell/tree/master/examples.
 
+
 ### Caching with Catbox
 
 Most apps don't _need_ caching from "Day 1"
@@ -480,10 +551,9 @@ If you want to extend this tutorial or simply request additional sections,
 open an issue on GitHub: https://github.com/dwyl/learn-hapi/issues
 
 
-
 ## Background Reading / Watching
 
-- GitHub Repo: https://github.com/spumko/hapi (has documentation)
+- GitHub Repo: https://github.com/hapijs/hapi (has documentation)
 - Restify vs Express performance: http://stackoverflow.com/questions/17589178/why-should-i-use-restify
 - REST API in Express: http://pixelhandler.com/posts/develop-a-restful-api-using-nodejs-with-express-and-mongoose
 
@@ -497,10 +567,10 @@ open an issue on GitHub: https://github.com/dwyl/learn-hapi/issues
 - Hapi Boilerplate app: https://github.com/poeticninja/hapi-ninja [updated for hapi 8.0]
 - Building APIs with Hapi and MongoDB: https://speakerdeck.com/donnfelker/building-web-apis-with-hapi-dot-js-and-mongodb-mongoose
 - Repo for the above speakerdeck: https://github.com/donnfelker/hapi-mongodb-example
-- Micro-tutorial: https://github.com/spumko/makemehapi
+- Micro-tutorial: https://github.com/hapijs/makemehapi
 - http://stackoverflow.com/questions/21455076/hapi-and-node-js-to-create-a-rest-api-server
 - Hapi + Twilio (sms): http://code.tutsplus.com/tutorials/creating-a-node-web-app-with-hapi-and-twilio-integration--cms-20769
-- Authentication: https://github.com/spumko/hapi-auth-cookie
+- Authentication: https://github.com/hapijs/hapi-auth-cookie
 - A few examples: https://github.com/andyroyle/hapi-examples
 - More examples: https://github.com/wpreul/hapikc (*very old* version of Hapi!)
 - BDD with Hapi and Lab: https://gist.github.com/thebillkidy/10a11fed1bf61d04c3c5 (*old* version of Hapi!)
@@ -509,10 +579,14 @@ http://mullet.io/ + https://github.com/lynnaloo/mullet
 + If you have an *existing* ***Express*** App and are thinking of
 migrating to Hapi, read: http://matt-harrison.com/moving-from-express-to-hapi-js/
 
-> *Respond* to these SO Q:
-- http://stackoverflow.com/questions/22934340/hapi-js-api-authentication see: http://stackoverflow.com/a/33877047/1148249 (*answer*)
+Selected StackOverflow Questions & Answers:
+- http://stackoverflow.com/questions/22934340/hapi-js-api-authentication  
+see: http://stackoverflow.com/a/33877047/1148249 (*answer*)
 - http://stackoverflow.com/questions/22985392/how-do-you-make-a-hapi-js-plugin-module
-- http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js see: http://stackoverflow.com/a/33876615/1148249 (*answer*)
+see: http://stackoverflow.com/a/25135343/1148249 (*answer*)
+- http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js
+see: http://stackoverflow.com/a/33876615/1148249 (*answer*
 
-[npm-image]: https://img.shields.io/npm/v/learn-hapi.svg?style=flat
+
+[npm-image]: https://img.shields.io/npm/v/hapi.svg?style=flat
 [npm-url]: https://npmjs.org/package/learn-hapi

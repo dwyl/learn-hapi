@@ -1,7 +1,7 @@
 /**
    Start this app from your command line with:
    node examples/hellogood.js
-   then visit: http://localhost:3000/YOURNAME
+   then visit: http://localhost:3000/hello/YOURNAME
 */
 var Hapi = require('hapi');
 
@@ -12,30 +12,29 @@ server.connection({
     port: 3000
 });
 
-
 server.route({
     method: 'GET',
-    path: '/{name*}',
-    handler: function(request, reply){
+    path: '/hello/{name*}',
+    handler: function(request, reply) {
+        // log the request
+        request.log(['name'], request.params.name + ' (request.log)');
+        // use request.log instead of console.log:
+        request.log('info', {my: 'object', has: 'many', props: { hello: request.params.name } });
+        // server.log(['name'], request.params.name + ' requested / ' + '(server.log)');
+        return reply('Hello ' + request.params.name);
 
-        request.log(["name"], request.params.name);
-
-        reply('Hai ' + request.params.name);
-
-        // log after seding a reply
-        server.log(["name"], request.params.name + " requested the hello page!");
     }
 })
 
 const options = {
     ops: {
-        interval: 5000
+        interval: 30000 // reporting interval (30 seconds)
     },
     reporters: {
         myConsoleReporter: [{
             // good-squeeze allows filtering events based on the `good` event options
             // @see https://github.com/hapijs/good/blob/master/API.md#event-types
-            module: 'good-squeeze',
+            module: 'good-squeeze', // https://github.com/hapijs/good-squeeze
             name: 'Squeeze',
             // @example "Log everything"
             args: [{ log: '*', error: '*', response: '*', request: '*', ops: '*' }]
@@ -50,14 +49,13 @@ const options = {
 server.register({
     register: require('good'),
     options,
-}, (err) => {
+}, function (err) {
 
     if (err) {
         return console.error(err);
     }
 
-    server.start(function(){
-
+    server.start(function () {
         console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
         console.dir(server.info);
     });

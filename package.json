@@ -1,6 +1,6 @@
 {
   "name": "learn-hapi",
-  "version": "15.0.3",
+  "version": "15.1.1",
   "description": "Learn to build Web Applications & APIs using Hapi.js",
   "main": "index.js",
   "scripts": {
@@ -39,7 +39,7 @@
     "vision": "^4.1.0"
   },
   "devDependencies": {
-    "code": "^3.0.2",
-    "lab": "^11.0.1"
+    "code": "^4.0.0",
+    "lab": "^11.1.0"
   }
 }

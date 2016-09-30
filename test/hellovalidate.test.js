@@ -1,6 +1,6 @@
 var Code = require('code');   // assertion library
 var Lab = require('lab');
-var lab = exports.lab = Lab.script();var server = require("../"); // require ../index.js
+var lab = exports.lab = Lab.script();
 
 var server = require("../examples/hellovalidate"); // require ../index.js
 
@@ -9,7 +9,7 @@ lab.experiment("Joi Validation Test", function() {
   lab.test("GET /jo should fail due to insufficient name length", function(done) {
     var options = {
       method: "GET",
-      url: "/jo"
+      url: "/j"
     };
     server.inject(options, function(response) {
       Code.expect(response.statusCode).to.equal(400);  //  Expect http response status code to be 200 ("Ok")
@@ -20,10 +20,10 @@ lab.experiment("Joi Validation Test", function() {
     });
 	});
 
-  lab.test("GET /joanne should pass", function(done) {
+  lab.test("GET /jo should pass", function(done) {
     var options = {
       method: "GET",
-      url: "/joanne"
+      url: "/jo"
     };
     server.inject(options, function(response) {
       Code.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
