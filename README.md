@@ -191,7 +191,7 @@ module.exports = server;
 ```
 Install Hapi:
 ```
-npm inti -y && npm install hapi --save
+npm init -y && npm install hapi --save
 ```
 Run:
 ```
