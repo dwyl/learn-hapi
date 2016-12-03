@@ -556,6 +556,7 @@ open an issue on GitHub: https://github.com/dwyl/learn-hapi/issues
 - GitHub Repo: https://github.com/hapijs/hapi (has documentation)
 - Restify vs Express performance: http://stackoverflow.com/questions/17589178/why-should-i-use-restify
 - REST API in Express: http://pixelhandler.com/posts/develop-a-restful-api-using-nodejs-with-express-and-mongoose
+- Hapi API Reference: https://github.com/hapijs/hapi/blob/master/API.md
 
 ### Video Intro
 
