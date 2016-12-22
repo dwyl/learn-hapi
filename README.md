@@ -67,11 +67,11 @@ it *includes* [**shot**](https://github.com/hapijs/shot)
 - **Key Functionality** is **Built-in** and there are *many* plugins for other
 features: http://hapijs.com/plugins
 
-### _In-depth Compairson_ to Express.js
+### _In-depth Comparison_ to Express.js
 
-@ethanmick wrote a detailed post on why
-_he_ prefers Hapi to Express: http://www.ethanmick.com/why-i-like-hapi-more-than-express/
-its worth a read. [PDF](https://github.com/dwyl/learn-hapi/files/502449/Why-I-like-Hapi-more-than-Express.pdf)
+@ethanmick wrote a detailed post on why _he_ prefers Hapi to Express:
+http://www.ethanmick.com/why-i-like-hapi-more-than-express/ --its worth a read.
+[PDF](https://github.com/dwyl/learn-hapi/files/502449/Why-I-like-Hapi-more-than-Express.pdf)
 
 ### _Beginner Friendly_ Examples/Apps to Learn From/With
 
@@ -83,7 +83,6 @@ that will help you get started with something a bit more "real world":
 
 For a _list_ of examples see: https://github.com/dwyl?&query=example
 
-<br />
 
 ## Who (_is using Hapi_) ?
 
