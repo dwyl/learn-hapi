@@ -6,15 +6,13 @@ var server = require("../examples/hellovalidate"); // require ../index.js
 
 lab.experiment("Joi Validation Test", function() {
   // tests
-  lab.test("GET /jo should fail due to insufficient name length", function(done) {
+  lab.test("GET /j should fail due to insufficient name length", function(done) {
     var options = {
       method: "GET",
       url: "/j"
     };
     server.inject(options, function(response) {
-      Code.expect(response.statusCode).to.equal(400);  //  Expect http response status code to be 200 ("Ok")
-      // Code.expect(response.result).to.have.length(10); // Expect result to be "Hello Timmy!" (12 chars long)
-      // console.log(response.result);
+      Code.expect(response.statusCode).to.equal(400);  //  Expect http response status code to be 400 ("Bad Request")
       server.stop();
       done();                                         // done() callback is required to end the test.
     });
@@ -27,8 +25,7 @@ lab.experiment("Joi Validation Test", function() {
     };
     server.inject(options, function(response) {
       Code.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
-      // Code.expect(response.result).to.have.length(10); // Expect result to be "Hello Timmy!" (12 chars long)
-      // console.log(response.result);
+      Code.expect(response.result).to.have.length(7); // Expect result to be "Hai jo!" (7 chars long)
       server.stop();
       done();                                         // done() callback is required to end the test.
     });
