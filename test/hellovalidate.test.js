@@ -24,10 +24,8 @@ lab.experiment("Joi Validation Test", function() {
       url: "/jo"
     };
     server.inject(options, function(response) {
-      console.log(response.result);
       Code.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
       Code.expect(response.result).to.have.length(7); // Expect result to be "Hai jo!" (7 chars long)
-      console.log(response.result);
       server.stop();
       done();                                         // done() callback is required to end the test.
     });
