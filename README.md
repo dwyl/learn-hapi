@@ -9,6 +9,8 @@
 
 # Learn Hapi [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/learn-hapi/issues)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dwyl/learn-hapi.svg)](https://greenkeeper.io/)
+
 Happiness is learning how to use the [**Hapi.js**](http://hapijs.com/) (Node.js) web framework to
 _**build reliable/scalable apps faster**_.
 
