@@ -39,7 +39,7 @@
     "vision": "^4.1.1"
   },
   "devDependencies": {
-    "code": "^4.0.0",
+    "code": "^5.0.0",
     "lab": "^14.1.1"
   }
 }
