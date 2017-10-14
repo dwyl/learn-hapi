@@ -93,7 +93,7 @@ See: http://hapijs.com/community
 
 > While you should _not_ make your decisions to use a given technology
 based on who _else_ is using it, you should be _aware_ that
-and if you need to to answer the **question**:
+and if you need to answer the **question**:
 "***Who is already using this in Production?***"
 it's _really_ useful to have a good list.
 
@@ -145,7 +145,7 @@ _Try_ to complete all challenges.
 If you get *stuck*, you can either _google_ for the specific error you are
 seeing or if you are not "getting" it, you can always look at my answers in the /**makemehapi** directory of this repository ***or***  
 _the_ "official" solutions
-in the **/makemehapi/exercies/{exercise-name}/solution** directory  
+in the **/makemehapi/exercises/{exercise-name}/solution** directory  
 e.g: https://github.com/hapijs/makemehapi/tree/master/exercises/hello_hapi/solution  
 
 or if you still don't get it, _**ask us**_:
@@ -312,7 +312,7 @@ lab.experiment("Basic HTTP Tests", function() {
 });
 ```
 First we create a *test suite* for our test **Lab.experiment**
-(the _first argument_ is the name of of the test suite "Basic HTTP Tests")
+(the _first argument_ is the name of the test suite "Basic HTTP Tests")
 
 Next is a basic test that calls the only route we have `/{yourname}`
 in this case **GET /Timmy**.  
