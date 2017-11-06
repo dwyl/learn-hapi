@@ -32,7 +32,7 @@
     "good-console": "^6.4.0",
     "good-squeeze": "^5.0.2",
     "handlebars": "^4.0.8",
-    "hapi": "^16.1.1",
+    "hapi": "^17.0.0",
     "inert": "^5.0.0",
     "joi": "^13.0.0",
     "socket.io": "^2.0.1",
