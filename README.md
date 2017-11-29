@@ -171,22 +171,23 @@ mkdir hapiapp && cd hapiapp
 Type out (or copy-paste) this code into a file called **index.js**
 
 ```js
-var Hapi = require('hapi');
-var server = new Hapi.Server();
-
-server.connection({port: 3000}); // tell hapi which TCP Port to "listen" on
+const Hapi = require('hapi');
+const server = new Hapi.Server({port: 3000}); // tell hapi which TCP Port to "listen" on
 
 server.route({
 	method: 'GET',        // define the method this route will handle
 	path: '/{yourname*}', // this is how you capture route parameters in Hapi
-	handler: function(req, reply) { // request handler method
-		reply('Hello ' + req.params.yourname + '!'); // reply with text.
+	handler: function(req, h) { // request handler method
+		return 'Hello ' + req.params.yourname + '!'; // reply with text.
 	}
 });
 
-server.start(function () { // start the Hapi server on your localhost
-	console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
-});
+async function startServer() {
+  await server.start() // start the Hapi server on your localhost
+  console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
+}
+
+startServer();
 
 module.exports = server;
 ```
@@ -227,12 +228,10 @@ Type out (or copy-paste) this code into a file called **hellovalidate.js**
 // Start this app from your command line with: node hellovalidate.js
 // then visit: http://localhost:3000/YOURNAME
 
-var Hapi = require('hapi'),
+const Hapi = require('hapi'),
     Joi  = require('joi');
 
-var server = new Hapi.Server();
-
-server.connection({ port: 3000 });
+const server = new Hapi.Server({ port: 3000 });
 
 server.route({
 	method: 'GET',
@@ -244,15 +243,17 @@ server.route({
 			}
 		},
 		handler: function (req,reply) {
-			reply('Hello '+ req.params.yourname + '!');
+			return 'Hello '+ req.params.yourname + '!';
 		}
 	}
 });
 
-server.start(function () { // start the Hapi server on your localhost
-	console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
-});
+async function startServer() {
+  await server.start(); // start the Hapi server on your localhost
+  console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
+}
 
+startServer();
 ```
 
 Now try entering an _invalid_ name: http://localhost:3000/T  
@@ -290,24 +291,23 @@ so if you followed our
 An example of testing with Lab:
 
 ```js
-var Lab = require("lab");           // load Lab module
-var lab = exports.lab = Lab.script(); //export test script
-var Code = require("code");		 //assertion library
-var server = require("../examples/hellovalidate.js");
+const Lab = require("lab");           // load Lab module
+const lab = exports.lab = Lab.script(); //export test script
+const Code = require("code");		 //assertion library
+const server = require("../examples/hellovalidate.js");
 
 lab.experiment("Basic HTTP Tests", function() {
 	// tests
-	lab.test("GET /{yourname*} (endpoint test)", function(done) {
-		var options = {
+	lab.test("GET /{yourname*} (endpoint test)", async function() {
+		const options = {
 			method: "GET",
 			url: "/Timmy"
 		};
 		// server.inject lets you simulate an http request
-		server.inject(options, function(response) {
-			Code.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
-			Code.expect(response.result).to.have.length(12); // Expect result to be "Hello Timmy!" (12 chars long)
-			server.stop(done);  // done() callback is required to end the test.
-		});
+		const response = await server.inject(options);
+		Code.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
+		Code.expect(response.result).to.have.length(12); // Expect result to be "Hello Timmy!" (12 chars long)
+		await server.stop();
 	});
 });
 ```
@@ -358,20 +358,20 @@ which we find does a [better job](https://github.com/hapijs/lab/issues/401) at t
 The preceding `Lab` test can be re-written (*simplified*) in `Tape` as:
 
 ```js
-var test   = require('tape');
-var server = require("../index.js"); // our index.js from above
+const test   = require('tape');
+const server = require("../index.js"); // our index.js from above
 
-test("Basic HTTP Tests - GET /{yourname*}", function(t) { // t
-	var options = {
+test("Basic HTTP Tests - GET /{yourname*}", async function(t) { // t
+	const options = {
 		method: "GET",
 		url: "/Timmy"
 	};
 	// server.inject lets you similate an http request
-	server.inject(options, function(response) {
-		t.equal(response.statusCode, 200);  //  Expect http response status code to be 200 ("Ok")
-		t.equal(response.result.length, 12); // Expect result to be "Hello Timmy!" (12 chars long)
-		server.stop(t.end); // t.end() callback is required to end the test in tape
-	});
+	const response = await server.inject(options);
+	t.equal(response.statusCode, 200);  //  Expect http response status code to be 200 ("Ok")
+	t.equal(response.result.length, 12); // Expect result to be "Hello Timmy!" (12 chars long)
+	await server.stop();
+	t.end();  // t.end() is required to end the test in tape
 });
 ```
 These tests are *functionally equivalent* in that they test *exactly* the
@@ -419,17 +419,15 @@ Next write another test in ./test/**test.js**
 ```js
 lab.experiment("Authentication Required to View Photo", function() {
     // tests
-    lab.test("Deny view of photo if unauthenticated /photo/{id*} ", function(done) {
-	    var options = {
+    lab.test("Deny view of photo if unauthenticated /photo/{id*} ", async function() {
+	    const options = {
 	        method: "GET",
 	        url: "/photo/8795"
 	    };
-	 	// server.inject lets you similate an http request
-	    server.inject(options, function(response) {
-	        Code.expect(response.statusCode).to.equal(401);  //  Expect http response status code to be 200 ("Ok")
-	        Code.expect(response.result.message).to.equal("Please log-in to see that"); // (Don't hard-code error messages)
-	        done();
-	    });
+	 	// server.inject lets you simulate an http request
+	    const response = await server.inject(options);
+      Code.expect(response.statusCode).to.equal(401);  //  Expect http response status code to be 200 ("Ok")
+      Code.expect(response.result.message).to.equal("Please log-in to see that"); // (Don't hard-code error messages)
 	});
 });
 ```
@@ -446,15 +444,15 @@ And since we don't currently have any authentication set up, we ***mock*** (fake
 (Don't worry we will get to the authentication in the next step...)
 
 ```js
-var Boom = require('boom');
+const Boom = require('boom');
 server.route({
   method: 'GET',
   path: '/photo/{id*}',
   config: {  // validate will ensure `id` is valid before replying to your request
     validate: { params: { id: Joi.string().max(40).min(2).alphanum() } },
-    handler: function (req,reply) {
+    handler: function (req, h) {
         // until we implement authentication we are simply returning a 401:
-        reply(Boom.unauthorized('Please log-in to see that'));
+        return Boom.unauthorized('Please log-in to see that');
         // the key here is our use of the Boom.unauthorised method
     }
   }
