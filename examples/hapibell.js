@@ -1,3 +1,8 @@
+/**
+  Bell is currently not compatible with Hapi v17,
+  so this example is using Hapi v16
+**/
+
 var Hapi = require('hapi');
 var server = new Hapi.Server();
 server.connection({
