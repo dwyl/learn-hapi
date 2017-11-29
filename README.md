@@ -120,7 +120,7 @@ First thing you should do to get familiar with Hapi is work through the
 (_assumes some [node.js](http://nodeschool.io/#learn-you-node) prior
 knowledge but otherwise a gentle self-paced introduction_)
 
-_Note: makemehapi currently uses Hapi v16. Some major changes were introduced to Hapi in v17. [Differences between v16 and v17](/#hapi-v16)_
+_Note: makemehapi currently uses Hapi v16. Some major changes were introduced to Hapi in v17. [Differences between v16 and v17](#hapi-v16)_
 
 Create a new folder on your local machine for your answers to **makemehapi**:
 
@@ -486,7 +486,7 @@ We have written a little example you can use to get started:
 
 Run it locally with `node examples/hellogood.js` then visit http://localhost:3000/hello/yourname in your browser.
 
-_Note: Good is not yet compatible with Hapi 17, so this code will only run if you are using v16. [See here for more details](/#hapi-v16)_
+_Note: Good is not yet compatible with Hapi 17, so this code will only run if you are using v16. [See here for more details](#hapi-v16)_
 
 You should expect to see something like this:
 ![learn-hapi-good-log-two-ops](https://cloud.githubusercontent.com/assets/194400/18990153/051440e8-8708-11e6-9337-bcc2ab067853.png)
@@ -568,7 +568,7 @@ Now, we just pass our options straight away, and no longer need to call the conn
 ```
 And the reply parameter to your handler has been replaced with a response toolkit (h) containing helpers from hapi core and your plugins.
 
-Not all of the hapi plugins have been updated to work with v17 yet (For example [Bell](), and [Good]()), so be careful if you decide to upgrade an existing project.
+Not all of the hapi plugins have been updated to work with v17 yet (For example [Bell](https://github.com/hapijs/bell/issues/330), and [Good](https://github.com/hapijs/good/issues/568)), so be careful if you decide to upgrade an existing project.
 
 The previous version of this tutorial and code examples for Hapi 16 can be found here: https://github.com/dwyl/learn-hapi/tree/b58495ea002a9f3f8af8d183f6004d2b483f4591
 
