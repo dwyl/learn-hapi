@@ -120,6 +120,8 @@ First thing you should do to get familiar with Hapi is work through the
 (_assumes some [node.js](http://nodeschool.io/#learn-you-node) prior
 knowledge but otherwise a gentle self-paced introduction_)
 
+_Note: makemehapi currently uses Hapi v16. Some major changes were introduced to Hapi in v17. [Differences between v16 and v17](/#hapi-v16)_
+
 Create a new folder on your local machine for your answers to **makemehapi**:
 
 ```
@@ -242,7 +244,7 @@ server.route({
 				yourname: Joi.string().min(2).max(40).alphanum().required()
 			}
 		},
-		handler: function (req,reply) {
+		handler: function (req, h) {
 			return 'Hello '+ req.params.yourname + '!';
 		}
 	}
@@ -484,6 +486,8 @@ We have written a little example you can use to get started:
 
 Run it locally with `node examples/hellogood.js` then visit http://localhost:3000/hello/yourname in your browser.
 
+_Note: Good is not yet compatible with Hapi 17, so this code will only run if you are using v16. [See here for more details](/#hapi-v16)_
+
 You should expect to see something like this:
 ![learn-hapi-good-log-two-ops](https://cloud.githubusercontent.com/assets/194400/18990153/051440e8-8708-11e6-9337-bcc2ab067853.png)
 
@@ -543,6 +547,30 @@ which demonstrates the power of Real-Time data-synching in your apps.
 
 > https://github.com/dwyl/hapi-socketio-redis-chat-example
 
+## Hapi v16
+There were some major changes introduced to Hapi when version 17 was released. For a full list, see [the version 17 release notes](https://github.com/hapijs/hapi/issues/3658), but here are the major differences relevant to this guide:
+* Callbacks replaced with `async` functions. This means that instead of passing a callback to the function, and having that called when the function is finished, hapi functions return a promise that can either be resolved, or called synchronously with `await`. For more on `async` functions, see [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) and [this guide](https://ponyfoo.com/articles/understanding-javascript-async-await)
+* `server.connection()` replaced with options passed directly into the server when it's created. A small change, but important to update. Before, we created our server with:
+```js
+	var server = new Hapi.server();
+```
+and passed our options to:
+```js
+	server.connection({port: 8000});
+```
+Now, we just pass our options straight away, and no longer need to call the connection method:
+```js
+	const server = new Hapi.server({port: 8000});
+```
+* `reply()` interface replaced with a new lifecycle methods interface. You no longer have to call reply when sending a response from a handler. You can now just:
+```js
+	return "your reply";
+```
+And the reply parameter to your handler has been replaced with a response toolkit (h) containing helpers from hapi core and your plugins.
+
+Not all of the hapi plugins have been updated to work with v17 yet (For example [Bell](), and [Good]()), so be careful if you decide to upgrade an existing project.
+
+The previous version of this tutorial and code examples for Hapi 16 can be found here: https://github.com/dwyl/learn-hapi/tree/b58495ea002a9f3f8af8d183f6004d2b483f4591
 
 ## Please Suggest Improvements! [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/learn-hapi/issues)
 
