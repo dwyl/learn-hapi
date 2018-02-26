@@ -1,8 +1,14 @@
 /**
+  Good is currently not compatible with Hapi v17,
+  so this example is using Hapi v16
+**/
+
+/**
    Start this app from your command line with:
    node examples/hellogood.js
    then visit: http://localhost:3000/hello/YOURNAME
 */
+
 var Hapi = require('hapi');
 
 var server = new Hapi.Server();

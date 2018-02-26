@@ -1,29 +1,32 @@
-var Path = require('path');
-var Hapi = require('hapi');
-var server  = new Hapi.Server();
-var port    = process.env.PORT || 5000;
+const Path = require('path');
+const Hapi = require('hapi');
+const port    = process.env.PORT || 5000;
+const server  = new Hapi.Server({ port: port });
 
-var plugins = [
+const plugins = [
   require('inert'),  // serve static content
   require('vision')  // views
 ]
-server.register(plugins, function () {
-  server.connection({ port: port });
+
+async function startServer() {
+
+  await server.register(plugins);
 
   server.views({
-      engines: {
-          html: require('handlebars')
-      },
-      path: Path.join(__dirname, 'views')
+    engines: {
+      html: require('handlebars')
+    },
+    path: Path.join(__dirname, 'views')
   });
 
   server.route([
-    { path: '/',
+    {
+      path: '/',
       method: 'GET',
       config: {
         auth: false,
-        handler: function(request, reply) {
-          reply.view("index");
+        handler: function(request, h) {
+          return h.view("index");
         }
       }
     },
@@ -31,16 +34,17 @@ server.register(plugins, function () {
       method: 'GET',
       path: '/public/{param*}',
       handler: {
-          directory: {
-              path: Path.normalize(__dirname + '/public')
-          }
+        directory: {
+          path: Path.normalize(__dirname + '/public')
+        }
       }
     }
   ]);
 
-  server.start(function(){
-    console.log('Static Server Listening on : http://127.0.0.1:' +port);
-  });
-});
+  await server.start();
+  console.log('Static Server Listening on : http://127.0.0.1:' +port);
+}
+
+startServer();
 
 module.exports = server;

@@ -1,51 +1,45 @@
-var Code = require('code');   // assertion library
-var Lab = require('lab');
-var lab = exports.lab = Lab.script();
+const Code = require('code');   // assertion library
+const Lab = require('lab');
+const lab = exports.lab = Lab.script();
 
-var server = require("../examples/hellovalidate.js");
+const server = require("../examples/hellovalidate.js");
 
 lab.experiment("Basic HTTP Tests", function() {
     // tests
-    lab.test("Main endpoint /{yourname*} ", function(done) {
-	    var options = {
+    lab.test("Main endpoint /{yourname*} ", async function() {
+	    const options = {
 	        method: "GET",
 	        url: "/Timmy"
 	    };
 	 	// server.inject lets you similate an http request
-	    server.inject(options, function(response) {
-	        Code.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
-	        Code.expect(response.result).to.have.length(10); // Expect result to be "Hai Timmy!" (10 chars long)
-	        done();                                         // done() callback is required to end the test.
-	    });
+	    const response = await server.inject(options)
+      Code.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
+      Code.expect(response.result).to.have.length(10); // Expect result to be "Hai Timmy!" (10 chars long)
 	});
 
     // we expect this test to return 400 (validation error)
-	lab.test("creating valid user", function(done) {
-	    var options = {
+	lab.test("creating valid user", async function() {
+	    const options = {
 	        method: "GET",
 	        url: "/T"
 	    };
 
-	    server.inject(options, function(response) {
-	        Code.expect(response.statusCode).to.equal(400);
-	        Code.expect(response.result.message).to.equal('child "name" fails because ["name" length must be at least 2 characters long]');
-	        done();
-	    });
+	    const response = await server.inject(options)
+      Code.expect(response.statusCode).to.equal(400);
+      Code.expect(response.result.message).to.equal('Invalid request params input');
 	});
 });
 
 lab.experiment("Authentication Required to View Photo", function() {
     // tests
-    lab.test("Deny view of photo if unauthenticated /photo/{id*} ", function(done) {
-	    var options = {
+    lab.test("Deny view of photo if unauthenticated /photo/{id*} ", async function() {
+	    const options = {
 	        method: "GET",
 	        url: "/photo/8795"
 	    };
 	 	// server.inject lets you similate an http request
-	    server.inject(options, function(response) {
-	        Code.expect(response.statusCode).to.equal(401);  //  Expect http response status code to be 401 ("Unauthorized")
-	        Code.expect(response.result.message).to.equal("Please log-in to see that"); // (Don't hard-code error messages)
-	        done();
-	    });
+	    const response = await server.inject(options)
+      Code.expect(response.statusCode).to.equal(401);  //  Expect http response status code to be 401 ("Unauthorized")
+      Code.expect(response.result.message).to.equal("Please log-in to see that"); // (Don't hard-code error messages)
 	});
 });
