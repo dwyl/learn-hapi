@@ -120,6 +120,8 @@ First thing you should do to get familiar with Hapi is work through the
 (_assumes some [node.js](http://nodeschool.io/#learn-you-node) prior
 knowledge but otherwise a gentle self-paced introduction_)
 
+_Note: makemehapi currently uses Hapi v16. Some major changes were introduced to Hapi in v17. [Differences between v16 and v17](#hapi-v16)_
+
 Create a new folder on your local machine for your answers to **makemehapi**:
 
 ```
@@ -171,22 +173,23 @@ mkdir hapiapp && cd hapiapp
 Type out (or copy-paste) this code into a file called **index.js**
 
 ```js
-var Hapi = require('hapi');
-var server = new Hapi.Server();
-
-server.connection({port: 3000}); // tell hapi which TCP Port to "listen" on
+const Hapi = require('hapi');
+const server = new Hapi.Server({port: 3000}); // tell hapi which TCP Port to "listen" on
 
 server.route({
 	method: 'GET',        // define the method this route will handle
 	path: '/{yourname*}', // this is how you capture route parameters in Hapi
-	handler: function(req, reply) { // request handler method
-		reply('Hello ' + req.params.yourname + '!'); // reply with text.
+	handler: function(req, h) { // request handler method
+		return 'Hello ' + req.params.yourname + '!'; // reply with text.
 	}
 });
 
-server.start(function () { // start the Hapi server on your localhost
-	console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
-});
+async function startServer() {
+  await server.start() // start the Hapi server on your localhost
+  console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
+}
+
+startServer();
 
 module.exports = server;
 ```
@@ -227,12 +230,10 @@ Type out (or copy-paste) this code into a file called **hellovalidate.js**
 // Start this app from your command line with: node hellovalidate.js
 // then visit: http://localhost:3000/YOURNAME
 
-var Hapi = require('hapi'),
+const Hapi = require('hapi'),
     Joi  = require('joi');
 
-var server = new Hapi.Server();
-
-server.connection({ port: 3000 });
+const server = new Hapi.Server({ port: 3000 });
 
 server.route({
 	method: 'GET',
@@ -243,16 +244,18 @@ server.route({
 				yourname: Joi.string().min(2).max(40).alphanum().required()
 			}
 		},
-		handler: function (req,reply) {
-			reply('Hello '+ req.params.yourname + '!');
+		handler: function (req, h) {
+			return 'Hello '+ req.params.yourname + '!';
 		}
 	}
 });
 
-server.start(function () { // start the Hapi server on your localhost
-	console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
-});
+async function startServer() {
+  await server.start(); // start the Hapi server on your localhost
+  console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
+}
 
+startServer();
 ```
 
 Now try entering an _invalid_ name: http://localhost:3000/T  
@@ -290,24 +293,23 @@ so if you followed our
 An example of testing with Lab:
 
 ```js
-var Lab = require("lab");           // load Lab module
-var lab = exports.lab = Lab.script(); //export test script
-var Code = require("code");		 //assertion library
-var server = require("../examples/hellovalidate.js");
+const Lab = require("lab");           // load Lab module
+const lab = exports.lab = Lab.script(); //export test script
+const Code = require("code");		 //assertion library
+const server = require("../examples/hellovalidate.js");
 
 lab.experiment("Basic HTTP Tests", function() {
 	// tests
-	lab.test("GET /{yourname*} (endpoint test)", function(done) {
-		var options = {
+	lab.test("GET /{yourname*} (endpoint test)", async function() {
+		const options = {
 			method: "GET",
 			url: "/Timmy"
 		};
 		// server.inject lets you simulate an http request
-		server.inject(options, function(response) {
-			Code.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
-			Code.expect(response.result).to.have.length(12); // Expect result to be "Hello Timmy!" (12 chars long)
-			server.stop(done);  // done() callback is required to end the test.
-		});
+		const response = await server.inject(options);
+		Code.expect(response.statusCode).to.equal(200);  //  Expect http response status code to be 200 ("Ok")
+		Code.expect(response.result).to.have.length(12); // Expect result to be "Hello Timmy!" (12 chars long)
+		await server.stop();
 	});
 });
 ```
@@ -358,20 +360,20 @@ which we find does a [better job](https://github.com/hapijs/lab/issues/401) at t
 The preceding `Lab` test can be re-written (*simplified*) in `Tape` as:
 
 ```js
-var test   = require('tape');
-var server = require("../index.js"); // our index.js from above
+const test   = require('tape');
+const server = require("../index.js"); // our index.js from above
 
-test("Basic HTTP Tests - GET /{yourname*}", function(t) { // t
-	var options = {
+test("Basic HTTP Tests - GET /{yourname*}", async function(t) { // t
+	const options = {
 		method: "GET",
 		url: "/Timmy"
 	};
 	// server.inject lets you similate an http request
-	server.inject(options, function(response) {
-		t.equal(response.statusCode, 200);  //  Expect http response status code to be 200 ("Ok")
-		t.equal(response.result.length, 12); // Expect result to be "Hello Timmy!" (12 chars long)
-		server.stop(t.end); // t.end() callback is required to end the test in tape
-	});
+	const response = await server.inject(options);
+	t.equal(response.statusCode, 200);  //  Expect http response status code to be 200 ("Ok")
+	t.equal(response.result.length, 12); // Expect result to be "Hello Timmy!" (12 chars long)
+	await server.stop();
+	t.end();  // t.end() is required to end the test in tape
 });
 ```
 These tests are *functionally equivalent* in that they test *exactly* the
@@ -419,17 +421,15 @@ Next write another test in ./test/**test.js**
 ```js
 lab.experiment("Authentication Required to View Photo", function() {
     // tests
-    lab.test("Deny view of photo if unauthenticated /photo/{id*} ", function(done) {
-	    var options = {
+    lab.test("Deny view of photo if unauthenticated /photo/{id*} ", async function() {
+	    const options = {
 	        method: "GET",
 	        url: "/photo/8795"
 	    };
-	 	// server.inject lets you similate an http request
-	    server.inject(options, function(response) {
-	        Code.expect(response.statusCode).to.equal(401);  //  Expect http response status code to be 200 ("Ok")
-	        Code.expect(response.result.message).to.equal("Please log-in to see that"); // (Don't hard-code error messages)
-	        done();
-	    });
+	 	// server.inject lets you simulate an http request
+	    const response = await server.inject(options);
+      Code.expect(response.statusCode).to.equal(401);  //  Expect http response status code to be 200 ("Ok")
+      Code.expect(response.result.message).to.equal("Please log-in to see that"); // (Don't hard-code error messages)
 	});
 });
 ```
@@ -446,15 +446,15 @@ And since we don't currently have any authentication set up, we ***mock*** (fake
 (Don't worry we will get to the authentication in the next step...)
 
 ```js
-var Boom = require('boom');
+const Boom = require('boom');
 server.route({
   method: 'GET',
   path: '/photo/{id*}',
   config: {  // validate will ensure `id` is valid before replying to your request
     validate: { params: { id: Joi.string().max(40).min(2).alphanum() } },
-    handler: function (req,reply) {
+    handler: function (req, h) {
         // until we implement authentication we are simply returning a 401:
-        reply(Boom.unauthorized('Please log-in to see that'));
+        return Boom.unauthorized('Please log-in to see that');
         // the key here is our use of the Boom.unauthorised method
     }
   }
@@ -485,6 +485,8 @@ We have written a little example you can use to get started:
 [examples/hellogood.js](https://github.com/dwyl/learn-hapi/blob/master/examples/hellogood.js)
 
 Run it locally with `node examples/hellogood.js` then visit http://localhost:3000/hello/yourname in your browser.
+
+_Note: Good is not yet compatible with Hapi 17, so this code will only run if you are using v16. [See here for more details](#hapi-v16)_
 
 You should expect to see something like this:
 ![learn-hapi-good-log-two-ops](https://cloud.githubusercontent.com/assets/194400/18990153/051440e8-8708-11e6-9337-bcc2ab067853.png)
@@ -545,6 +547,30 @@ which demonstrates the power of Real-Time data-synching in your apps.
 
 > https://github.com/dwyl/hapi-socketio-redis-chat-example
 
+## Hapi v16
+There were some major changes introduced to Hapi when version 17 was released. For a full list, see [the version 17 release notes](https://github.com/hapijs/hapi/issues/3658), but here are the major differences relevant to this guide:
+* Callbacks replaced with `async` functions. This means that instead of passing a callback to the function, and having that called when the function is finished, hapi functions return a promise that can either be resolved, or called synchronously with `await`. For more on `async` functions, see [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) and [this guide](https://ponyfoo.com/articles/understanding-javascript-async-await)
+* `server.connection()` replaced with options passed directly into the server when it's created. A small change, but important to update. Before, we created our server with:
+```js
+	var server = new Hapi.server();
+```
+and passed our options to:
+```js
+	server.connection({port: 8000});
+```
+Now, we just pass our options straight away, and no longer need to call the connection method:
+```js
+	const server = new Hapi.server({port: 8000});
+```
+* `reply()` interface replaced with a new lifecycle methods interface. You no longer have to call reply when sending a response from a handler. You can now just:
+```js
+	return "your reply";
+```
+And the reply parameter to your handler has been replaced with a response toolkit (h) containing helpers from hapi core and your plugins.
+
+Not all of the hapi plugins have been updated to work with v17 yet (For example [Bell](https://github.com/hapijs/bell/issues/330), and [Good](https://github.com/hapijs/good/issues/568)), so be careful if you decide to upgrade an existing project.
+
+The previous version of this tutorial and code examples for Hapi 16 can be found here: https://github.com/dwyl/learn-hapi/tree/b58495ea002a9f3f8af8d183f6004d2b483f4591
 
 ## Please Suggest Improvements! [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/learn-hapi/issues)
 

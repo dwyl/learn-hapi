@@ -3,15 +3,12 @@
    node examples/hellolog.js
    then visit: http://localhost:3000/YOURNAME
 */
-var Hapi = require('hapi');
+const Hapi = require('hapi');
 
-var server = new Hapi.Server({
+const server = new Hapi.Server({
 	debug: {
     	request: ["received"] // logs all requests to stdout
-	}
-});
-
-server.connection({
+	},
 	host: '0.0.0.0',
 	port: 8000
 });
@@ -20,23 +17,25 @@ server.connection({
 server.route({
 	method: 'GET',
 	path: '/{name*}',
-	handler: function(request, reply){
-		// console.log(request);
-		reply('Hai ' + request.params.name);
-		// log after seding a reply
+	handler: function(request, h){
+		// log before seding a reply
 		server.log(["test"], request.params.name + " requested the hello page!");
-		// request.log(["path"]);
+
+		return 'Hai ' + request.params.name;
 	}
 })
 
-server.start(function(){
+async function startServer() {
+	await server.start();
 	console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
 	console.dir(server.info);
-});
+}
+
+startServer();
 
 // Listen for events of type 'log'
-server.on("log", function(event, tags) {
-    var tagsJoined = Object.keys(tags).join();
-    var msg = event.data;
+server.events.on("log", function(event, tags) {
+    const tagsJoined = Object.keys(tags).join();
+    const msg = event.data;
     console.log(tagsJoined+" | "+msg);
 });
