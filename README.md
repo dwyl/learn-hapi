@@ -6,10 +6,9 @@
 [![Dependencies](https://david-dm.org/dwyl/learn-hapi.png?theme=shields.io)](https://david-dm.org/dwyl/learn-hapi)
 [![devDependencies Status](https://david-dm.org/dwyl/learn-hapi/dev-status.svg)](https://david-dm.org/dwyl/learn-hapi?type=dev)
 [![NPM Version][npm-image]][npm-url]
+[![HitCount](http://hits.dwyl.io/dwyl/learn-hapi.svg)](http://hits.dwyl.io/dwyl/learn-hapi)
 
-# Learn Hapi [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/learn-hapi/issues)
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/dwyl/learn-hapi.svg)](https://greenkeeper.io/)
+# Learn Hapi
 
 Happiness is learning how to use the [**Hapi.js**](http://hapijs.com/) (Node.js) web framework to
 _**build reliable/scalable apps faster**_.
@@ -86,7 +85,7 @@ that will help you get started with something a bit more "real world":
 For a _list_ of examples see: https://github.com/dwyl?&query=example
 
 
-## Who (_is using Hapi_) ?
+## Who (_is using Hapi_) ? [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/learn-hapi/issues)
 
 The list of teams using Hapi.js to build their node.js apps grows every day!
 See: http://hapijs.com/community
