@@ -580,9 +580,12 @@ open an issue on GitHub: https://github.com/dwyl/learn-hapi/issues
 ## Background Reading / Watching
 
 - GitHub Repo: https://github.com/hapijs/hapi (has documentation)
+- An ecosystem of tools and best practices for the working hapijs developer (up-to-date with last version of hapi): https://hapipal.com/ https://hapipal.com/getting-started
+
 - Restify vs Express performance: http://stackoverflow.com/questions/17589178/why-should-i-use-restify
 - REST API in Express: http://pixelhandler.com/posts/develop-a-restful-api-using-nodejs-with-express-and-mongoose
 - Hapi API Reference: https://github.com/hapijs/hapi/blob/master/API.md
+
 
 ### Video Intro
 
