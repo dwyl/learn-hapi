@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/dwyl/learn-hapi",
   "dependencies": {
-    "bell": "^9.1.0",
+    "bell": "^10.0.0",
     "boom": "^7.1.1",
     "good": "^8.1.0",
     "good-console": "^8.0.0",
