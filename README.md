@@ -6,7 +6,7 @@
 [![Dependencies](https://david-dm.org/dwyl/learn-hapi.png?theme=shields.io)](https://david-dm.org/dwyl/learn-hapi)
 [![devDependencies Status](https://david-dm.org/dwyl/learn-hapi/dev-status.svg)](https://david-dm.org/dwyl/learn-hapi?type=dev)
 [![NPM Version][npm-image]][npm-url]
-[![HitCount](http://hits.dwyl.io/dwyl/learn-hapi.svg)](http://hits.dwyl.io/dwyl/learn-hapi)
+[![HitCount](https://hits.dwyl.com/dwyl/learn-hapi.svg?style=flat-square)](https://hits.dwyl.com/dwyl/learn-hapi)
 
 # Learn Hapi
 
