@@ -1,4 +1,4 @@
-![Happiness Is...](http://i.imgur.com/Df5Z18T.jpg)
+![Happiness Is...](https://i.imgur.com/Df5Z18T.jpg)
 
 [![Build Status](https://travis-ci.org/dwyl/learn-hapi.png?branch=master)](https://travis-ci.org/dwyl/learn-hapi)
 [![codecov.io test coverage](https://codecov.io/github/dwyl/learn-hapi/coverage.svg?branch=master)](https://codecov.io/github/dwyl/learn-hapi?branch=master)
@@ -10,7 +10,7 @@
 
 # Learn Hapi
 
-Happiness is learning how to use the [**Hapi.js**](http://hapijs.com/) (Node.js) web framework to
+Happiness is learning how to use the [**Hapi.js**](https://hapijs.com/) (Node.js) web framework to
 _**build reliable/scalable apps faster**_.
 
 ## What is Hapi?
@@ -24,7 +24,7 @@ of configurable options.
 
 ### *Watch* this intro/background to Hapi video:
 
-[![What is Hapi?](http://i.imgur.com/sZRoxdD.png)](https://youtu.be/BsyvnVOhp4U?t=3m50s "What is Hapi.js - Click to Watch!")
+[![What is Hapi?](https://i.imgur.com/sZRoxdD.png)](https://youtu.be/BsyvnVOhp4U?t=3m50s "What is Hapi.js - Click to Watch!")
 
 *Most* people/teams that have _tried_ Hapi have _embraced_ Hapi to build *complete* web applications. But if you are only building a REST API (_e.g. for a mobile app_)
 please read:
@@ -47,7 +47,7 @@ The most important part is to ***try Hapi*** on a simple project to gain experie
 ### Key Benefits
 
 - ***Performance*** - WalmartLabs are the guys who found/solved the
-[Node.js *CORE* Memory Leak](http://www.joyent.com/blog/walmart-node-js-memory-leak);
+[Node.js *CORE* Memory Leak](https://www.joyent.com/blog/walmart-node-js-memory-leak);
 they have developed Hapi following
 [Benchmark Driven Development](https://github.com/felixge/faster-than-c)
 and the result is a high-performance framework
@@ -56,7 +56,7 @@ of the OAuth (Secure Authentication) Spec. He has built a security-focussed
 mindset into Hapi and reviews all code included in Hapi. Several members of the [Node Security Project](https://nodesecurity.io) are *core* contributors to
 Hapi which means there are many security-minded eyes on the code.
 - ***Scalability*** - they have focussed on *horizontal-scalability*
-and battle-tested the framework during [Black Friday](http://nodeup.com/fiftysix)
+and battle-tested the framework during [Black Friday](https://nodeup.com/fiftysix)
 (*holiday shopping busy day*) without incident.
 - **Mobile Optimised** (lightweight - built for mobile e-commerce)
 - **Plugin Architecture** - extend/add your own modules (good ecosystem)
@@ -66,12 +66,12 @@ and battle-tested the framework during [Black Friday](http://nodeup.com/fiftysix
 + ***Testability*** - End-to-End testing is ***built-in*** to Hapi because
 it *includes* [**shot**](https://github.com/hapijs/shot)
 - **Key Functionality** is **Built-in** and there are *many* plugins for other
-features: http://hapijs.com/plugins
+features: https://hapijs.com/plugins
 
 ### _In-depth Comparison_ to Express.js
 
 @ethanmick wrote a detailed post on why _he_ prefers Hapi to Express:
-http://www.ethanmick.com/why-i-like-hapi-more-than-express/ --its worth a read.
+https://www.ethanmick.com/why-i-like-hapi-more-than-express/ --its worth a read.
 [PDF](https://github.com/dwyl/learn-hapi/files/502449/Why-I-like-Hapi-more-than-Express.pdf)
 
 ### _Beginner Friendly_ Examples/Apps to Learn From/With
@@ -88,7 +88,7 @@ For a _list_ of examples see: https://github.com/dwyl?&query=example
 ## Who (_is using Hapi_) ? [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/learn-hapi/issues)
 
 The list of teams using Hapi.js to build their node.js apps grows every day!
-See: http://hapijs.com/community
+See: https://hapijs.com/community
 
 > While you should _not_ make your decisions to use a given technology
 based on who _else_ is using it, you should be _aware_ that
@@ -101,7 +101,7 @@ it's _really_ useful to have a good list.
 
 ## Requirements
 
-- [x] A **computer** that can run [**Node.js**](http://nodejs.org/download/)  Mac/Windows/Linux/Chromebook
+- [x] A **computer** that can run [**Node.js**](https://nodejs.org/download/)  Mac/Windows/Linux/Chromebook
 - [x] Access to the Internet (only required for installation)
 - [x] 60 minutes of time +/-
 
@@ -115,8 +115,8 @@ it's _really_ useful to have a good list.
 ## Make Me Hapi ("_Official_" _Beginner Workshop_)
 
 First thing you should do to get familiar with Hapi is work through the
-[makemehapi](http://nodeschool.io/#makemehapi) workshop. <br />
-(_assumes some [node.js](http://nodeschool.io/#learn-you-node) prior
+[makemehapi](https://nodeschool.io/#makemehapi) workshop. <br />
+(_assumes some [node.js](https://nodeschool.io/#learn-you-node) prior
 knowledge but otherwise a gentle self-paced introduction_)
 
 _Note: makemehapi currently uses Hapi v16. Some major changes were introduced to Hapi in v17. [Differences between v16 and v17](#hapi-v16)_
@@ -132,7 +132,7 @@ Install the workshop:
 ```
 npm install -g makemehapi@latest
 ```
-( if it fails to install see: http://stackoverflow.com/questions/16151018/npm-throws-error-without-sudo )
+( if it fails to install see: https://stackoverflow.com/questions/16151018/npm-throws-error-without-sudo )
 
 Once its installed, start the tutorial with the following command:
 ```
@@ -141,7 +141,7 @@ makemehapi
 
 _Try_ to complete all challenges.
 
-![makemehapi complete](http://i.imgur.com/luXMDmg.png)
+![makemehapi complete](https://i.imgur.com/luXMDmg.png)
 
 If you get *stuck*, you can either _google_ for the specific error you are
 seeing or if you are not "getting" it, you can always look at my answers in the /**makemehapi** directory of this repository ***or***  
@@ -204,7 +204,7 @@ node .
 Visit: http://localhost:3000/YOURNAME (in your browser)
 you should see something like:
 
-![hello world in hapi](http://i.imgur.com/m9qcs17.png)
+![hello world in hapi](https://i.imgur.com/m9qcs17.png)
 
 
 ### Validation with Joi
@@ -260,7 +260,7 @@ startServer();
 Now try entering an _invalid_ name: http://localhost:3000/T  
 You should see a **Validation Error**:
 
-![Hapi Joi validation error](http://i.imgur.com/Dyhel2V.png)
+![Hapi Joi validation error](https://i.imgur.com/Dyhel2V.png)
 
 This might not _look_ like a "Friendly" Error message.
 But as we will see later, it provides all the information we need
@@ -270,7 +270,7 @@ in our Client/App and we can display a more user-friendly error to people.
 We will use a few of them later on when we build our example app.
 
 + Detailed example: https://github.com/hapijs/joi#example
-and http://vawks.com/blog/2014/03/22/the-joi-of-validation/
+and https://vawks.com/blog/2014/03/22/the-joi-of-validation/
 + Want _friendly_ error messages in your web app?
 see: [https://github.com/dwyl/**hapi-error**](https://github.com/dwyl/hapi-error)
 
@@ -384,8 +384,8 @@ For our **Tape Tutorial** see: https://github.com/dwyl/learn-tape
 #### Related Links
 
 - Lab github module: https://github.com/hapijs/lab
-- Is TDD Dead? http://www.youtube.com/watch?v=z9quxZsLcfo (hint: no!)
-- Getting Started with HapiJS and Testing: http://blog.abcedmindedness.com/2014/10/getting-started-with-hapijs-and-testing.html (on hapi v8.0)
+- Is TDD Dead? https://www.youtube.com/watch?v=z9quxZsLcfo (hint: no!)
+- Getting Started with HapiJS and Testing: https://blog.abcedmindedness.com/2014/10/getting-started-with-hapijs-and-testing.html (on hapi v8.0)
 
 ## Continuous Integration
 
@@ -513,7 +513,7 @@ wrote a Hapi plugin: https://github.com/dwyl/hapi-auth-google which
 lets you include Google Login in your app in a few clear steps. The plugin uses the [***Official Google Node.js API Client***](https://github.com/google/google-api-nodejs-client) and is
 written to be as readable as possible for complete beginners.
 2. EveryAuth - Specific to Connect/Express apps: https://github.com/bnoguchi/everyauth
-3. [Passport.js](https://github.com/jaredhanson/passport) - ***100% Code Coverage*** and *many* excellent integrations http://passportjs.org/guide/providers/
+3. [Passport.js](https://github.com/jaredhanson/passport) - ***100% Code Coverage*** and *many* excellent integrations https://passportjs.org/guide/providers/
 4. Bell - the 3rd party Login Hapi.js Plugin is *good* however we found it
 *lacking in documentation/usage examples*, which is why we wrote
 our own (*simpler*) Auth Plugin *specific* to our projects.
@@ -532,7 +532,7 @@ Most apps don't _need_ caching from "Day 1"
 (_because you don't **know** upfront where your app's bottlenecks are going to be..._).
 
 But, once again, the team that brought you Hapi.js have _solved_ the problem of caching,
-see: https://github.com/hapijs/catbox/ and http://hapijs.com/tutorials/caching
+see: https://github.com/hapijs/catbox/ and https://hapijs.com/tutorials/caching
 > We use Redis for blazing fast application and data caching.
 Hapi.js Catbox makes this very easy!
 
@@ -541,7 +541,7 @@ Hapi.js Catbox makes this very easy!
 ### Using Socket.io with Hapi for Real-Time Apps
 
 Using Socket.io with Hapi.js could _not_ be easier!
-To help you get started we've built a fully-functional chat application with tests (now [featured on the hapijs.com Resources page](http://hapijs.com/resources#Tutorials)),
+To help you get started we've built a fully-functional chat application with tests (now [featured on the hapijs.com Resources page](https://hapijs.com/resources#Tutorials)),
 which demonstrates the power of Real-Time data-synching in your apps.
 
 > https://github.com/dwyl/hapi-socketio-redis-chat-example
@@ -582,14 +582,14 @@ open an issue on GitHub: https://github.com/dwyl/learn-hapi/issues
 - GitHub Repo: https://github.com/hapijs/hapi (has documentation)
 - An ecosystem of tools and best practices for the working hapijs developer (up-to-date with last version of hapi): https://hapipal.com/ https://hapipal.com/getting-started
 
-- Restify vs Express performance: http://stackoverflow.com/questions/17589178/why-should-i-use-restify
-- REST API in Express: http://pixelhandler.com/posts/develop-a-restful-api-using-nodejs-with-express-and-mongoose
+- Restify vs Express performance: https://stackoverflow.com/questions/17589178/why-should-i-use-restify
+- REST API in Express: https://pixelhandler.com/posts/develop-a-restful-api-using-nodejs-with-express-and-mongoose
 - Hapi API Reference: https://github.com/hapijs/hapi/blob/master/API.md
 
 
 ### Video Intro
 
-- Hapi.js and why it's awesome: http://www.youtube.com/watch?v=ZI9wXL-add0&t=2m5s
+- Hapi.js and why it's awesome: https://www.youtube.com/watch?v=ZI9wXL-add0&t=2m5s
 - Hapi overview: https://www.youtube.com/watch?v=Recv7vR8ZlA (old version but concepts still relevant)
 
 ### Tutorials
@@ -598,24 +598,24 @@ open an issue on GitHub: https://github.com/dwyl/learn-hapi/issues
 - Building APIs with Hapi and MongoDB: https://speakerdeck.com/donnfelker/building-web-apis-with-hapi-dot-js-and-mongodb-mongoose
 - Repo for the above speakerdeck: https://github.com/donnfelker/hapi-mongodb-example
 - Micro-tutorial: https://github.com/hapijs/makemehapi
-- http://stackoverflow.com/questions/21455076/hapi-and-node-js-to-create-a-rest-api-server
-- Hapi + Twilio (sms): http://code.tutsplus.com/tutorials/creating-a-node-web-app-with-hapi-and-twilio-integration--cms-20769
+- https://stackoverflow.com/questions/21455076/hapi-and-node-js-to-create-a-rest-api-server
+- Hapi + Twilio (sms): https://code.tutsplus.com/tutorials/creating-a-node-web-app-with-hapi-and-twilio-integration--cms-20769
 - Authentication: https://github.com/hapijs/hapi-auth-cookie
 - A few examples: https://github.com/andyroyle/hapi-examples
 - More examples: https://github.com/wpreul/hapikc (*very old* version of Hapi!)
 - BDD with Hapi and Lab: https://gist.github.com/thebillkidy/10a11fed1bf61d04c3c5 (*old* version of Hapi!)
 + If you like React.js checkout Mullet.js (Hapi.js + React.js):
-http://mullet.io/ + https://github.com/lynnaloo/mullet
+https://mullet.io/ + https://github.com/lynnaloo/mullet
 + If you have an *existing* ***Express*** App and are thinking of
-migrating to Hapi, read: http://matt-harrison.com/moving-from-express-to-hapi-js/
+migrating to Hapi, read: https://matt-harrison.com/moving-from-express-to-hapi-js/
 
 Selected StackOverflow Questions & Answers:
-- http://stackoverflow.com/questions/22934340/hapi-js-api-authentication  
-see: http://stackoverflow.com/a/33877047/1148249 (*answer*)
-- http://stackoverflow.com/questions/22985392/how-do-you-make-a-hapi-js-plugin-module
-see: http://stackoverflow.com/a/25135343/1148249 (*answer*)
-- http://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js
-see: http://stackoverflow.com/a/33876615/1148249 (*answer*
+- https://stackoverflow.com/questions/22934340/hapi-js-api-authentication  
+see: https://stackoverflow.com/a/33877047/1148249 (*answer*)
+- https://stackoverflow.com/questions/22985392/how-do-you-make-a-hapi-js-plugin-module
+see: https://stackoverflow.com/a/25135343/1148249 (*answer*)
+- https://stackoverflow.com/questions/18343509/hapi-js-with-socket-io-where-is-socket-io-js
+see: https://stackoverflow.com/a/33876615/1148249 (*answer*
 
 
 [npm-image]: https://img.shields.io/npm/v/hapi.svg?style=flat
